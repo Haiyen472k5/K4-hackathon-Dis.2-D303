@@ -136,3 +136,37 @@
 [09:59:08 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096> tìm cho tôi bài viết về discord
 [10:00:02 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: <@673768392842412045> bot anh co function gi roi
 [10:00:07 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: chốt bot thoi :))
+[10:00:19 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: <@1532291378397315202> cho tôi thông tin về đạo hàm trong kênh <#1532309198153580605>
+[10:01:09 31/7/2026] [S: TestBOT] [#chung] trickez: chill đê :>
+[10:01:10 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096> tìm kiếm tài liệu về vật lý
+[10:01:22 31/7/2026] [S: TestBOT] [#chung] trickez: <@&1532308523558637589> ae tổng hợp lại tính năng nhé
+[10:01:53 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@1532329195315658773> tìm cho tôi bài đăng về con mèo
+[10:02:04 31/7/2026] [S: TestBOT] [#chung] trickez: log thừa role :)))
+[10:02:09 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: Tạo cho tôi flashcard về cái đó
+[10:02:27 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: a vụ ê mã hv là nhiêu
+[10:02:28 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: e điền form cho
+[10:02:57 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: <@1532291378397315202> bot ngu
+[10:03:08 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@1532329195315658773> Tạo cho tôi flashcard về bài đó
+[10:03:19 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] trickez: damn :>>>
+[10:03:45 31/7/2026] [S: TestBOT] [#chung] trickez: 2A202601074
+[10:04:01 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: mng đang ngồi đâu z :))) có ra ngồi cung gộp code ko
+[10:04:01 31/7/2026] [S: TestBOT] [#chung] trickez: nma nhiều người điền dc k nhỉ
+[10:04:26 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: :)))) form thì ai điền chả được có mã nhóm trưởng là a là đc mà
+[10:04:31 31/7/2026] [S: TestBOT] [#chung] yen4732: anh vụ ngồi chỗ nào đấy ạ
+[10:05:15 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@1532329195315658773> tạo flashcard cho tôi về bài con mèo đó
+[10:06:15 31/7/2026] [S: TestBOT] [#chung] .leekwan: một người điền form thôi đúng ko
+[10:06:53 31/7/2026] [S: TestBOT] [#chung] trickez: dưới này nè :>>
+[10:07:01 31/7/2026] [S: TestBOT] [#kênh-chat-cua-en] yen4732: <@1532295811029794886> tài tài liệu về machine learning cho tôi
+[10:07:05 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: <@1532291378397315202> <@1532291378397315202> bot ngu
+[10:08:10 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: :)))) dưới này là chõ nào anh
+[10:08:17 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: d3 bnhieu z
+[10:08:20 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096> bạn là model nào của nhà sản xuất nào thế?
+[10:09:08 31/7/2026] [S: TestBOT] [#chung] trickez: <@&1532308523558637589> tổng hợp tính năng để test bot đi ae
+[10:09:18 31/7/2026] [S: TestBOT] [#chung] trickez: 302 nhé
+[10:09:43 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@&1532329834305294438> tạo flashcard cho tôi về bài con mèo đó
+[10:09:53 31/7/2026] [S: TestBOT] [#kênh-chat-cua-en] yen4732: <@1532295811029794886> có tài liệu về học máy không
+[10:10:59 31/7/2026] [S: TestBOT] [#kênh-chat-cua-en] yen4732: có tài liệu về học máy không
+[10:11:07 31/7/2026] [S: TestBOT] [#kênh-chat-cua-en] yen4732: <@1532295811029794886> có tài liệu về học máy không
+[10:11:33 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096> tôi muốn ôn thi môn AI
+[10:12:23 31/7/2026] [S: TestBOT] [#kênh-chat-cua-en] yen4732: <@1532295811029794886> có tài liệu về học máy không
+[10:12:49 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096> tôi muốn ôn thi môn học máy machine learning

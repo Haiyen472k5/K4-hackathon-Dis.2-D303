@@ -383,3 +383,725 @@
   • Tokens usage: {"prompt_tokens":1008,"completion_tokens":560,"total_tokens":1568,"cost":0.0017024,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0017024,"upstream_inference_prompt_cost":0.0003024,"upstream_inference_completions_cost":0.0014},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
   • Output preview: "Ngươi muốn Ta tạo bộ Flashcard này sao? Được thôi, điều này dễ như trở bàn tay với Ta. Hãy xem Ta thể hiện khả năng của mình đây, nhưng nhớ rằng đây c..."
 ==================================================
+==================================================
+[10:01:27 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532578481790255144/RUMAD.pdf?ex=6a6d5c6f&is=6a6c0aef&hm=208058a522c849af8a54822ca51dae87f604da416871d52ff6c71230d53db2f8&
+  • Prompt/Input: "Tải file tài liệu "RUMAD.pdf""
+[10:01:28 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (1207ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3136185 bytes cho file "RUMAD.pdf""
+==================================================
+==================================================
+[10:01:28 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532418038576447618/de2.pdf?ex=6a6cc703&is=6a6b7583&hm=5f76b181fed3bb4e1d56ac91b32b37927e53ad3355e0475fc8ab9f19486536c2&
+  • Prompt/Input: "Tải file tài liệu "de2.pdf""
+[10:01:29 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (429ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1111140 bytes cho file "de2.pdf""
+==================================================
+==================================================
+[10:01:29 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415454574804992/AI_-_cuoi_ki_20221.pdf?ex=6a6cc49b&is=6a6b731b&hm=e24b5551307b0a21eaeb3fa948cb671c8a0b7ff03830f483298d13a3d1425886&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20221.pdf""
+[10:01:30 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (399ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2998625 bytes cho file "AI_-_cuoi_ki_20221.pdf""
+==================================================
+==================================================
+[10:01:30 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415454935650374/AI_-_cuoi_ki_20231.pdf?ex=6a6cc49b&is=6a6b731b&hm=814106b79c010b89fd50322c05c4ab2f292a9ff413f4940b70b44bf284d5a2e1&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20231.pdf""
+[10:01:31 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (1292ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 6494247 bytes cho file "AI_-_cuoi_ki_20231.pdf""
+==================================================
+==================================================
+[10:01:31 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415455309070597/AI_-_cuoi_ki_20232.pdf?ex=6a6cc49b&is=6a6b731b&hm=05c933d3842c24413220f4a8ce5929552a74881ee01f98d8ad113327de44521c&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20232.pdf""
+[10:01:31 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (548ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 4650590 bytes cho file "AI_-_cuoi_ki_20232.pdf""
+==================================================
+==================================================
+[10:01:31 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415455803736305/AI_-_cuoi_ki_20241.pdf?ex=6a6cc49b&is=6a6b731b&hm=fe6521efd5024f65f387e7565db6958e1a32b4642442085091819b6db1a42a5b&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20241.pdf""
+[10:01:32 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (120ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 241879 bytes cho file "AI_-_cuoi_ki_20241.pdf""
+==================================================
+==================================================
+[10:01:32 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415270948442152/e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf?ex=6a6cc46f&is=6a6b72ef&hm=3d60f9318cfa1c4940cb4ed1cf50117b0b668ac8d60936aeadb05b83ec461aed&
+  • Prompt/Input: "Tải file tài liệu "e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf""
+[10:01:32 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (432ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1858553 bytes cho file "e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf""
+==================================================
+==================================================
+[10:01:32 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415271476789409/Hoc_may_-_cuoi_ki_20222.pdf?ex=6a6cc46f&is=6a6b72ef&hm=8d2c196c7fa7dda2b9ee834ba6d49f276896f564e95be10c1080d4e17edb4366&
+  • Prompt/Input: "Tải file tài liệu "Hoc_may_-_cuoi_ki_20222.pdf""
+[10:01:33 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (988ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 6546880 bytes cho file "Hoc_may_-_cuoi_ki_20222.pdf""
+==================================================
+==================================================
+[10:01:34 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415272001212496/Hoc-may-Dethi.pdf?ex=6a6cc46f&is=6a6b72ef&hm=6a8f33f7c69cccbc1e67f1276a2c9a5d6d129805a9efc8ae088c2d14783ead04&
+  • Prompt/Input: "Tải file tài liệu "Hoc-may-Dethi.pdf""
+[10:01:34 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (838ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2589828 bytes cho file "Hoc-may-Dethi.pdf""
+==================================================
+==================================================
+[10:01:34 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415272475037877/IT3190_final_exam.pdf?ex=6a6cc46f&is=6a6b72ef&hm=a563bbfad1e549e956953e9bbed8a370e5597176ce7e43abba662b4c304dbef0&
+  • Prompt/Input: "Tải file tài liệu "IT3190_final_exam.pdf""
+[10:01:35 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (518ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1791244 bytes cho file "IT3190_final_exam.pdf""
+==================================================
+==================================================
+[10:01:35 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415273066303568/IT3190E-ML-20222.pdf?ex=6a6cc46f&is=6a6b72ef&hm=766871c9468d3af3883ea6232c9fc62582f638fef8d245e5d29b79c6f926a557&
+  • Prompt/Input: "Tải file tài liệu "IT3190E-ML-20222.pdf""
+[10:01:35 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (468ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1704859 bytes cho file "IT3190E-ML-20222.pdf""
+==================================================
+==================================================
+[10:01:36 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415273649569932/Machine_Learning_-_Exercises.docx?ex=6a6cc470&is=6a6b72f0&hm=4ef04b11b07da039db1f2b431393e8a897a0b6379d2e19243cb236976041ac2e&
+  • Prompt/Input: "Tải file tài liệu "Machine_Learning_-_Exercises.docx""
+[10:01:36 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (96ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 7411 bytes cho file "Machine_Learning_-_Exercises.docx""
+==================================================
+==================================================
+[10:01:36 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415274240704522/ML_DM-giai.pdf?ex=6a6cc470&is=6a6b72f0&hm=8722bd4c981a04e0c90eace3ed9de4d196c8c482f954055d3fbcb3e0462f3bd0&
+  • Prompt/Input: "Tải file tài liệu "ML_DM-giai.pdf""
+[10:01:36 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (727ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3415185 bytes cho file "ML_DM-giai.pdf""
+==================================================
+==================================================
+[10:01:36 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415274635231364/ml_tiengviet.pdf?ex=6a6cc470&is=6a6b72f0&hm=4dd4e9f74db7fbd32ef7bdb16448f4d2b0b8e7c60b14dc87634f1b2bea3c77ea&
+  • Prompt/Input: "Tải file tài liệu "ml_tiengviet.pdf""
+[10:01:37 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (415ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1411573 bytes cho file "ml_tiengviet.pdf""
+==================================================
+==================================================
+[10:01:37 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415275167645876/ml_tiengviet2.pdf?ex=6a6cc470&is=6a6b72f0&hm=868b5f6eea077e8537dd50c045304c9100c3994c9fc965f9763c9cf92753608f&
+  • Prompt/Input: "Tải file tài liệu "ml_tiengviet2.pdf""
+[10:01:37 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (416ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2584364 bytes cho file "ml_tiengviet2.pdf""
+==================================================
+==================================================
+[10:01:37 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532315269328932935/He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf?ex=6a6d100d&is=6a6bbe8d&hm=071f990f0939083b345c8cfebe5c5b5566518607c8ff79565accee16d5fd4a81&
+  • Prompt/Input: "Tải file tài liệu "He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf""
+[10:01:38 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (589ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3307972 bytes cho file "He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf""
+==================================================
+==================================================
+[10:01:38 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532313245564801094/e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf?ex=6a6d0e2a&is=6a6bbcaa&hm=ed4e8278cce2fcccc6e5367367bb2274e699addec3e3e1506bc9c35e1a231720&
+  • Prompt/Input: "Tải file tài liệu "e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf""
+[10:01:39 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (397ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1268138 bytes cho file "e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf""
+==================================================
+==================================================
+[10:01:39 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532313136118501386/Phan_bo_Maxwell_Boltzmann.pdf?ex=6a6d0e10&is=6a6bbc90&hm=20012ab7622f0df1ef2f5d832ae873cb6b3992a385cf698f2fba2033f7cf48a7&
+  • Prompt/Input: "Tải file tài liệu "Phan_bo_Maxwell_Boltzmann.pdf""
+[10:01:39 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (369ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 352428 bytes cho file "Phan_bo_Maxwell_Boltzmann.pdf""
+==================================================
+==================================================
+[10:01:39 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532312109864587385/AO_HAM_THEO_QUY_TAC_.pdf?ex=6a6d0d1b&is=6a6bbb9b&hm=f4d1f72040a59291822b97fc682da2fa055e79cc447c14ffcb62cd6497077516&
+  • Prompt/Input: "Tải file tài liệu "AO_HAM_THEO_QUY_TAC_.pdf""
+[10:01:39 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (263ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 303874 bytes cho file "AO_HAM_THEO_QUY_TAC_.pdf""
+==================================================
+==================================================
+[10:01:50 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "tìm cho tôi bài đăng về con mèo"
+  • Messages count: 2
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":59717}
+[10:01:53 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (36025ms)
+  • Tokens usage: {"prompt_tokens":32667,"completion_tokens":131,"total_tokens":32798,"cost":0.0101276,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0101276,"upstream_inference_prompt_cost":0.0098001,"upstream_inference_completions_cost":0.0003275},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "Ngươi đã yêu cầu rõ ràng, vì vậy Ta sẽ tìm cho Ngươi. Theo những gì Ta quét được trong server này, có một bài đăng trong kênh #chia-sẻ về chủ đề con m..."
+==================================================
+==================================================
+[10:02:45 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532578481790255144/RUMAD.pdf?ex=6a6d5c6f&is=6a6c0aef&hm=208058a522c849af8a54822ca51dae87f604da416871d52ff6c71230d53db2f8&
+  • Prompt/Input: "Tải file tài liệu "RUMAD.pdf""
+[10:02:46 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (1203ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3136185 bytes cho file "RUMAD.pdf""
+==================================================
+==================================================
+[10:02:46 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532418038576447618/de2.pdf?ex=6a6cc703&is=6a6b7583&hm=5f76b181fed3bb4e1d56ac91b32b37927e53ad3355e0475fc8ab9f19486536c2&
+  • Prompt/Input: "Tải file tài liệu "de2.pdf""
+[10:02:47 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (977ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1111140 bytes cho file "de2.pdf""
+==================================================
+==================================================
+[10:02:47 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415454574804992/AI_-_cuoi_ki_20221.pdf?ex=6a6cc49b&is=6a6b731b&hm=e24b5551307b0a21eaeb3fa948cb671c8a0b7ff03830f483298d13a3d1425886&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20221.pdf""
+[10:02:48 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (835ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2998625 bytes cho file "AI_-_cuoi_ki_20221.pdf""
+==================================================
+==================================================
+[10:02:48 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415454935650374/AI_-_cuoi_ki_20231.pdf?ex=6a6cc49b&is=6a6b731b&hm=814106b79c010b89fd50322c05c4ab2f292a9ff413f4940b70b44bf284d5a2e1&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20231.pdf""
+[10:02:49 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (1213ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 6494247 bytes cho file "AI_-_cuoi_ki_20231.pdf""
+==================================================
+==================================================
+[10:02:49 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415455309070597/AI_-_cuoi_ki_20232.pdf?ex=6a6cc49b&is=6a6b731b&hm=05c933d3842c24413220f4a8ce5929552a74881ee01f98d8ad113327de44521c&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20232.pdf""
+[10:02:50 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (969ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 4650590 bytes cho file "AI_-_cuoi_ki_20232.pdf""
+==================================================
+==================================================
+[10:02:50 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415455803736305/AI_-_cuoi_ki_20241.pdf?ex=6a6cc49b&is=6a6b731b&hm=fe6521efd5024f65f387e7565db6958e1a32b4642442085091819b6db1a42a5b&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20241.pdf""
+[10:02:50 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (196ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 241879 bytes cho file "AI_-_cuoi_ki_20241.pdf""
+==================================================
+==================================================
+[10:02:50 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415270948442152/e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf?ex=6a6cc46f&is=6a6b72ef&hm=3d60f9318cfa1c4940cb4ed1cf50117b0b668ac8d60936aeadb05b83ec461aed&
+  • Prompt/Input: "Tải file tài liệu "e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf""
+[10:02:51 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (501ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1858553 bytes cho file "e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf""
+==================================================
+==================================================
+[10:02:51 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415271476789409/Hoc_may_-_cuoi_ki_20222.pdf?ex=6a6cc46f&is=6a6b72ef&hm=8d2c196c7fa7dda2b9ee834ba6d49f276896f564e95be10c1080d4e17edb4366&
+  • Prompt/Input: "Tải file tài liệu "Hoc_may_-_cuoi_ki_20222.pdf""
+[10:02:52 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (990ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 6546880 bytes cho file "Hoc_may_-_cuoi_ki_20222.pdf""
+==================================================
+==================================================
+[10:02:52 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415272001212496/Hoc-may-Dethi.pdf?ex=6a6cc46f&is=6a6b72ef&hm=6a8f33f7c69cccbc1e67f1276a2c9a5d6d129805a9efc8ae088c2d14783ead04&
+  • Prompt/Input: "Tải file tài liệu "Hoc-may-Dethi.pdf""
+[10:02:53 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (573ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2589828 bytes cho file "Hoc-may-Dethi.pdf""
+==================================================
+==================================================
+[10:02:53 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415272475037877/IT3190_final_exam.pdf?ex=6a6cc46f&is=6a6b72ef&hm=a563bbfad1e549e956953e9bbed8a370e5597176ce7e43abba662b4c304dbef0&
+  • Prompt/Input: "Tải file tài liệu "IT3190_final_exam.pdf""
+[10:02:53 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (433ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1791244 bytes cho file "IT3190_final_exam.pdf""
+==================================================
+==================================================
+[10:02:53 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415273066303568/IT3190E-ML-20222.pdf?ex=6a6cc46f&is=6a6b72ef&hm=766871c9468d3af3883ea6232c9fc62582f638fef8d245e5d29b79c6f926a557&
+  • Prompt/Input: "Tải file tài liệu "IT3190E-ML-20222.pdf""
+[10:02:54 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (383ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1704859 bytes cho file "IT3190E-ML-20222.pdf""
+==================================================
+==================================================
+[10:02:54 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415273649569932/Machine_Learning_-_Exercises.docx?ex=6a6cc470&is=6a6b72f0&hm=4ef04b11b07da039db1f2b431393e8a897a0b6379d2e19243cb236976041ac2e&
+  • Prompt/Input: "Tải file tài liệu "Machine_Learning_-_Exercises.docx""
+[10:02:54 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (104ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 7411 bytes cho file "Machine_Learning_-_Exercises.docx""
+==================================================
+==================================================
+[10:02:54 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415274240704522/ML_DM-giai.pdf?ex=6a6cc470&is=6a6b72f0&hm=8722bd4c981a04e0c90eace3ed9de4d196c8c482f954055d3fbcb3e0462f3bd0&
+  • Prompt/Input: "Tải file tài liệu "ML_DM-giai.pdf""
+[10:02:55 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (587ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3415185 bytes cho file "ML_DM-giai.pdf""
+==================================================
+==================================================
+[10:02:55 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415274635231364/ml_tiengviet.pdf?ex=6a6cc470&is=6a6b72f0&hm=4dd4e9f74db7fbd32ef7bdb16448f4d2b0b8e7c60b14dc87634f1b2bea3c77ea&
+  • Prompt/Input: "Tải file tài liệu "ml_tiengviet.pdf""
+[10:02:55 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (308ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1411573 bytes cho file "ml_tiengviet.pdf""
+==================================================
+==================================================
+[10:02:55 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415275167645876/ml_tiengviet2.pdf?ex=6a6cc470&is=6a6b72f0&hm=868b5f6eea077e8537dd50c045304c9100c3994c9fc965f9763c9cf92753608f&
+  • Prompt/Input: "Tải file tài liệu "ml_tiengviet2.pdf""
+[10:02:56 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (815ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2584364 bytes cho file "ml_tiengviet2.pdf""
+==================================================
+==================================================
+[10:02:56 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532315269328932935/He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf?ex=6a6d100d&is=6a6bbe8d&hm=071f990f0939083b345c8cfebe5c5b5566518607c8ff79565accee16d5fd4a81&
+  • Prompt/Input: "Tải file tài liệu "He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf""
+[10:02:56 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (497ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3307972 bytes cho file "He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf""
+==================================================
+==================================================
+[10:02:56 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532313245564801094/e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf?ex=6a6d0e2a&is=6a6bbcaa&hm=ed4e8278cce2fcccc6e5367367bb2274e699addec3e3e1506bc9c35e1a231720&
+  • Prompt/Input: "Tải file tài liệu "e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf""
+[10:02:57 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (248ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1268138 bytes cho file "e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf""
+==================================================
+==================================================
+[10:02:57 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532313136118501386/Phan_bo_Maxwell_Boltzmann.pdf?ex=6a6d0e10&is=6a6bbc90&hm=20012ab7622f0df1ef2f5d832ae873cb6b3992a385cf698f2fba2033f7cf48a7&
+  • Prompt/Input: "Tải file tài liệu "Phan_bo_Maxwell_Boltzmann.pdf""
+[10:02:57 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (174ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 352428 bytes cho file "Phan_bo_Maxwell_Boltzmann.pdf""
+==================================================
+==================================================
+[10:02:57 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532312109864587385/AO_HAM_THEO_QUY_TAC_.pdf?ex=6a6d0d1b&is=6a6bbb9b&hm=f4d1f72040a59291822b97fc682da2fa055e79cc447c14ffcb62cd6497077516&
+  • Prompt/Input: "Tải file tài liệu "AO_HAM_THEO_QUY_TAC_.pdf""
+[10:02:57 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (230ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 303874 bytes cho file "AO_HAM_THEO_QUY_TAC_.pdf""
+==================================================
+==================================================
+[10:03:07 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "Tạo cho tôi flashcard về bài đó"
+  • Messages count: 4
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":59143}
+[10:03:07 31/7/2026] ❌ [API ERROR] <- OpenRouter API (askAIServer) (Thời gian xử lý: 32661ms)
+  • Error Name: Error
+  • Error Message: 402 Prompt tokens limit exceeded: 18935 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account
+  • HTTP Status Code: 402
+  • Error Code: 402
+  • API Response Error Body: {
+  "message": "Prompt tokens limit exceeded: 18935 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account",
+  "code": 402,
+  "metadata": {
+    "limit_source": "openrouter_credits",
+    "remedy_hint": "Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.",
+    "provider_name": null,
+    "previous_errors": [
+      {
+        "code": 402,
+        "message": "Prompt tokens limit exceeded: 18935 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account"
+      },
+      {
+        "code": 402,
+        "message": "Prompt tokens limit exceeded: 18935 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account"
+      },
+      {
+        "code": 402,
+        "message": "Prompt tokens limit exceeded: 18935 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account"
+      }
+    ]
+  }
+}
+  • Model được sử dụng: google/gemini-2.5-flash
+  • Request Payload gây lỗi: "Tạo cho tôi flashcard về bài đó"
+  • Stack Trace:
+    Error: 402 Prompt tokens limit exceeded: 18935 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account
+        at APIError.generate (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\openai\core\error.js:68:16)
+        at OpenAI.makeStatusError (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\openai\client.js:290:32)
+        at OpenAI.makeRequest (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\openai\client.js:494:30)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async askAIServer (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\tools\aiTool.js:371:28)
+        at async Client.<anonymous> (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\index.js:570:32)
+==================================================
+==================================================
+[10:04:48 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532578481790255144/RUMAD.pdf?ex=6a6d5c6f&is=6a6c0aef&hm=208058a522c849af8a54822ca51dae87f604da416871d52ff6c71230d53db2f8&
+  • Prompt/Input: "Tải file tài liệu "RUMAD.pdf""
+[10:04:50 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (2170ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3136185 bytes cho file "RUMAD.pdf""
+==================================================
+==================================================
+[10:04:50 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532418038576447618/de2.pdf?ex=6a6cc703&is=6a6b7583&hm=5f76b181fed3bb4e1d56ac91b32b37927e53ad3355e0475fc8ab9f19486536c2&
+  • Prompt/Input: "Tải file tài liệu "de2.pdf""
+[10:04:51 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (775ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1111140 bytes cho file "de2.pdf""
+==================================================
+==================================================
+[10:04:52 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415454574804992/AI_-_cuoi_ki_20221.pdf?ex=6a6cc49b&is=6a6b731b&hm=e24b5551307b0a21eaeb3fa948cb671c8a0b7ff03830f483298d13a3d1425886&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20221.pdf""
+[10:04:52 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (660ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2998625 bytes cho file "AI_-_cuoi_ki_20221.pdf""
+==================================================
+==================================================
+[10:04:52 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415454935650374/AI_-_cuoi_ki_20231.pdf?ex=6a6cc49b&is=6a6b731b&hm=814106b79c010b89fd50322c05c4ab2f292a9ff413f4940b70b44bf284d5a2e1&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20231.pdf""
+[10:04:54 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (1693ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 6494247 bytes cho file "AI_-_cuoi_ki_20231.pdf""
+==================================================
+==================================================
+[10:04:54 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415455309070597/AI_-_cuoi_ki_20232.pdf?ex=6a6cc49b&is=6a6b731b&hm=05c933d3842c24413220f4a8ce5929552a74881ee01f98d8ad113327de44521c&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20232.pdf""
+[10:04:55 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (824ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 4650590 bytes cho file "AI_-_cuoi_ki_20232.pdf""
+==================================================
+==================================================
+[10:04:55 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415455803736305/AI_-_cuoi_ki_20241.pdf?ex=6a6cc49b&is=6a6b731b&hm=fe6521efd5024f65f387e7565db6958e1a32b4642442085091819b6db1a42a5b&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20241.pdf""
+[10:04:55 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (132ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 241879 bytes cho file "AI_-_cuoi_ki_20241.pdf""
+==================================================
+==================================================
+[10:04:55 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415270948442152/e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf?ex=6a6cc46f&is=6a6b72ef&hm=3d60f9318cfa1c4940cb4ed1cf50117b0b668ac8d60936aeadb05b83ec461aed&
+  • Prompt/Input: "Tải file tài liệu "e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf""
+[10:04:55 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (405ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1858553 bytes cho file "e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf""
+==================================================
+==================================================
+[10:04:56 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415271476789409/Hoc_may_-_cuoi_ki_20222.pdf?ex=6a6cc46f&is=6a6b72ef&hm=8d2c196c7fa7dda2b9ee834ba6d49f276896f564e95be10c1080d4e17edb4366&
+  • Prompt/Input: "Tải file tài liệu "Hoc_may_-_cuoi_ki_20222.pdf""
+[10:04:57 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (1371ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 6546880 bytes cho file "Hoc_may_-_cuoi_ki_20222.pdf""
+==================================================
+==================================================
+[10:04:57 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415272001212496/Hoc-may-Dethi.pdf?ex=6a6cc46f&is=6a6b72ef&hm=6a8f33f7c69cccbc1e67f1276a2c9a5d6d129805a9efc8ae088c2d14783ead04&
+  • Prompt/Input: "Tải file tài liệu "Hoc-may-Dethi.pdf""
+[10:04:58 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (562ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2589828 bytes cho file "Hoc-may-Dethi.pdf""
+==================================================
+==================================================
+[10:04:58 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415272475037877/IT3190_final_exam.pdf?ex=6a6cc46f&is=6a6b72ef&hm=a563bbfad1e549e956953e9bbed8a370e5597176ce7e43abba662b4c304dbef0&
+  • Prompt/Input: "Tải file tài liệu "IT3190_final_exam.pdf""
+[10:04:58 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (380ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1791244 bytes cho file "IT3190_final_exam.pdf""
+==================================================
+==================================================
+[10:04:58 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415273066303568/IT3190E-ML-20222.pdf?ex=6a6cc46f&is=6a6b72ef&hm=766871c9468d3af3883ea6232c9fc62582f638fef8d245e5d29b79c6f926a557&
+  • Prompt/Input: "Tải file tài liệu "IT3190E-ML-20222.pdf""
+[10:04:59 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (421ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1704859 bytes cho file "IT3190E-ML-20222.pdf""
+==================================================
+==================================================
+[10:04:59 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415273649569932/Machine_Learning_-_Exercises.docx?ex=6a6cc470&is=6a6b72f0&hm=4ef04b11b07da039db1f2b431393e8a897a0b6379d2e19243cb236976041ac2e&
+  • Prompt/Input: "Tải file tài liệu "Machine_Learning_-_Exercises.docx""
+[10:04:59 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (132ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 7411 bytes cho file "Machine_Learning_-_Exercises.docx""
+==================================================
+==================================================
+[10:04:59 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415274240704522/ML_DM-giai.pdf?ex=6a6cc470&is=6a6b72f0&hm=8722bd4c981a04e0c90eace3ed9de4d196c8c482f954055d3fbcb3e0462f3bd0&
+  • Prompt/Input: "Tải file tài liệu "ML_DM-giai.pdf""
+[10:05:00 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (901ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3415185 bytes cho file "ML_DM-giai.pdf""
+==================================================
+==================================================
+[10:05:00 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415274635231364/ml_tiengviet.pdf?ex=6a6cc470&is=6a6b72f0&hm=4dd4e9f74db7fbd32ef7bdb16448f4d2b0b8e7c60b14dc87634f1b2bea3c77ea&
+  • Prompt/Input: "Tải file tài liệu "ml_tiengviet.pdf""
+[10:05:00 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (452ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1411573 bytes cho file "ml_tiengviet.pdf""
+==================================================
+==================================================
+[10:05:00 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415275167645876/ml_tiengviet2.pdf?ex=6a6cc470&is=6a6b72f0&hm=868b5f6eea077e8537dd50c045304c9100c3994c9fc965f9763c9cf92753608f&
+  • Prompt/Input: "Tải file tài liệu "ml_tiengviet2.pdf""
+[10:05:01 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (611ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2584364 bytes cho file "ml_tiengviet2.pdf""
+==================================================
+==================================================
+[10:05:01 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532315269328932935/He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf?ex=6a6d100d&is=6a6bbe8d&hm=071f990f0939083b345c8cfebe5c5b5566518607c8ff79565accee16d5fd4a81&
+  • Prompt/Input: "Tải file tài liệu "He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf""
+[10:05:02 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (1183ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3307972 bytes cho file "He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf""
+==================================================
+==================================================
+[10:05:02 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532313245564801094/e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf?ex=6a6d0e2a&is=6a6bbcaa&hm=ed4e8278cce2fcccc6e5367367bb2274e699addec3e3e1506bc9c35e1a231720&
+  • Prompt/Input: "Tải file tài liệu "e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf""
+[10:05:03 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (397ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1268138 bytes cho file "e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf""
+==================================================
+==================================================
+[10:05:03 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532313136118501386/Phan_bo_Maxwell_Boltzmann.pdf?ex=6a6d0e10&is=6a6bbc90&hm=20012ab7622f0df1ef2f5d832ae873cb6b3992a385cf698f2fba2033f7cf48a7&
+  • Prompt/Input: "Tải file tài liệu "Phan_bo_Maxwell_Boltzmann.pdf""
+[10:05:03 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (211ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 352428 bytes cho file "Phan_bo_Maxwell_Boltzmann.pdf""
+==================================================
+==================================================
+[10:05:03 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532312109864587385/AO_HAM_THEO_QUY_TAC_.pdf?ex=6a6d0d1b&is=6a6bbb9b&hm=f4d1f72040a59291822b97fc682da2fa055e79cc447c14ffcb62cd6497077516&
+  • Prompt/Input: "Tải file tài liệu "AO_HAM_THEO_QUY_TAC_.pdf""
+[10:05:03 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (189ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 303874 bytes cho file "AO_HAM_THEO_QUY_TAC_.pdf""
+==================================================
+==================================================
+[10:05:13 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "tạo flashcard cho tôi về bài con mèo đó"
+  • Messages count: 2
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":59047}
+[10:05:15 31/7/2026] ❌ [API ERROR] <- OpenRouter API (askAIServer) (Thời gian xử lý: 37439ms)
+  • Error Name: Error
+  • Error Message: 402 Prompt tokens limit exceeded: 18786 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account
+  • HTTP Status Code: 402
+  • Error Code: 402
+  • API Response Error Body: {
+  "message": "Prompt tokens limit exceeded: 18786 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account",
+  "code": 402,
+  "metadata": {
+    "limit_source": "openrouter_credits",
+    "remedy_hint": "Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.",
+    "provider_name": null,
+    "previous_errors": [
+      {
+        "code": 402,
+        "message": "Prompt tokens limit exceeded: 18786 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account"
+      },
+      {
+        "code": 402,
+        "message": "Prompt tokens limit exceeded: 18786 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account"
+      },
+      {
+        "code": 402,
+        "message": "Prompt tokens limit exceeded: 18786 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account"
+      }
+    ]
+  }
+}
+  • Model được sử dụng: google/gemini-2.5-flash
+  • Request Payload gây lỗi: "tạo flashcard cho tôi về bài con mèo đó"
+  • Stack Trace:
+    Error: 402 Prompt tokens limit exceeded: 18786 > 14693. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account
+        at APIError.generate (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\openai\core\error.js:68:16)
+        at OpenAI.makeStatusError (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\openai\client.js:290:32)
+        at OpenAI.makeRequest (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\openai\client.js:494:30)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async askAIServer (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\tools\aiTool.js:371:28)
+        at async Client.<anonymous> (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\index.js:570:32)
+==================================================
+==================================================
+[10:09:15 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532578481790255144/RUMAD.pdf?ex=6a6d5c6f&is=6a6c0aef&hm=208058a522c849af8a54822ca51dae87f604da416871d52ff6c71230d53db2f8&
+  • Prompt/Input: "Tải file tài liệu "RUMAD.pdf""
+[10:09:16 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (1077ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3136185 bytes cho file "RUMAD.pdf""
+==================================================
+==================================================
+[10:09:16 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532418038576447618/de2.pdf?ex=6a6cc703&is=6a6b7583&hm=5f76b181fed3bb4e1d56ac91b32b37927e53ad3355e0475fc8ab9f19486536c2&
+  • Prompt/Input: "Tải file tài liệu "de2.pdf""
+[10:09:17 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (304ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1111140 bytes cho file "de2.pdf""
+==================================================
+==================================================
+[10:09:17 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415454574804992/AI_-_cuoi_ki_20221.pdf?ex=6a6cc49b&is=6a6b731b&hm=e24b5551307b0a21eaeb3fa948cb671c8a0b7ff03830f483298d13a3d1425886&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20221.pdf""
+[10:09:17 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (448ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2998625 bytes cho file "AI_-_cuoi_ki_20221.pdf""
+==================================================
+==================================================
+[10:09:17 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415454935650374/AI_-_cuoi_ki_20231.pdf?ex=6a6cc49b&is=6a6b731b&hm=814106b79c010b89fd50322c05c4ab2f292a9ff413f4940b70b44bf284d5a2e1&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20231.pdf""
+[10:09:19 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (1825ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 6494247 bytes cho file "AI_-_cuoi_ki_20231.pdf""
+==================================================
+==================================================
+[10:09:19 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415455309070597/AI_-_cuoi_ki_20232.pdf?ex=6a6cc49b&is=6a6b731b&hm=05c933d3842c24413220f4a8ce5929552a74881ee01f98d8ad113327de44521c&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20232.pdf""
+[10:09:20 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (767ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 4650590 bytes cho file "AI_-_cuoi_ki_20232.pdf""
+==================================================
+==================================================
+[10:09:20 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415455803736305/AI_-_cuoi_ki_20241.pdf?ex=6a6cc49b&is=6a6b731b&hm=fe6521efd5024f65f387e7565db6958e1a32b4642442085091819b6db1a42a5b&
+  • Prompt/Input: "Tải file tài liệu "AI_-_cuoi_ki_20241.pdf""
+[10:09:20 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (147ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 241879 bytes cho file "AI_-_cuoi_ki_20241.pdf""
+==================================================
+==================================================
+[10:09:20 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415270948442152/e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf?ex=6a6cc46f&is=6a6b72ef&hm=3d60f9318cfa1c4940cb4ed1cf50117b0b668ac8d60936aeadb05b83ec461aed&
+  • Prompt/Input: "Tải file tài liệu "e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf""
+[10:09:21 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (599ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1858553 bytes cho file "e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf""
+==================================================
+==================================================
+[10:09:21 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415271476789409/Hoc_may_-_cuoi_ki_20222.pdf?ex=6a6cc46f&is=6a6b72ef&hm=8d2c196c7fa7dda2b9ee834ba6d49f276896f564e95be10c1080d4e17edb4366&
+  • Prompt/Input: "Tải file tài liệu "Hoc_may_-_cuoi_ki_20222.pdf""
+[10:09:22 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (1233ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 6546880 bytes cho file "Hoc_may_-_cuoi_ki_20222.pdf""
+==================================================
+==================================================
+[10:09:23 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415272001212496/Hoc-may-Dethi.pdf?ex=6a6cc46f&is=6a6b72ef&hm=6a8f33f7c69cccbc1e67f1276a2c9a5d6d129805a9efc8ae088c2d14783ead04&
+  • Prompt/Input: "Tải file tài liệu "Hoc-may-Dethi.pdf""
+[10:09:23 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (665ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2589828 bytes cho file "Hoc-may-Dethi.pdf""
+==================================================
+==================================================
+[10:09:23 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415272475037877/IT3190_final_exam.pdf?ex=6a6cc46f&is=6a6b72ef&hm=a563bbfad1e549e956953e9bbed8a370e5597176ce7e43abba662b4c304dbef0&
+  • Prompt/Input: "Tải file tài liệu "IT3190_final_exam.pdf""
+[10:09:24 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (450ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1791244 bytes cho file "IT3190_final_exam.pdf""
+==================================================
+==================================================
+[10:09:24 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415273066303568/IT3190E-ML-20222.pdf?ex=6a6cc46f&is=6a6b72ef&hm=766871c9468d3af3883ea6232c9fc62582f638fef8d245e5d29b79c6f926a557&
+  • Prompt/Input: "Tải file tài liệu "IT3190E-ML-20222.pdf""
+[10:09:24 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (476ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1704859 bytes cho file "IT3190E-ML-20222.pdf""
+==================================================
+==================================================
+[10:09:24 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415273649569932/Machine_Learning_-_Exercises.docx?ex=6a6cc470&is=6a6b72f0&hm=4ef04b11b07da039db1f2b431393e8a897a0b6379d2e19243cb236976041ac2e&
+  • Prompt/Input: "Tải file tài liệu "Machine_Learning_-_Exercises.docx""
+[10:09:24 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (117ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 7411 bytes cho file "Machine_Learning_-_Exercises.docx""
+==================================================
+==================================================
+[10:09:24 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415274240704522/ML_DM-giai.pdf?ex=6a6cc470&is=6a6b72f0&hm=8722bd4c981a04e0c90eace3ed9de4d196c8c482f954055d3fbcb3e0462f3bd0&
+  • Prompt/Input: "Tải file tài liệu "ML_DM-giai.pdf""
+[10:09:25 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (707ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3415185 bytes cho file "ML_DM-giai.pdf""
+==================================================
+==================================================
+[10:09:25 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415274635231364/ml_tiengviet.pdf?ex=6a6cc470&is=6a6b72f0&hm=4dd4e9f74db7fbd32ef7bdb16448f4d2b0b8e7c60b14dc87634f1b2bea3c77ea&
+  • Prompt/Input: "Tải file tài liệu "ml_tiengviet.pdf""
+[10:09:26 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (464ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1411573 bytes cho file "ml_tiengviet.pdf""
+==================================================
+==================================================
+[10:09:26 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532415275167645876/ml_tiengviet2.pdf?ex=6a6cc470&is=6a6b72f0&hm=868b5f6eea077e8537dd50c045304c9100c3994c9fc965f9763c9cf92753608f&
+  • Prompt/Input: "Tải file tài liệu "ml_tiengviet2.pdf""
+[10:09:26 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (792ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 2584364 bytes cho file "ml_tiengviet2.pdf""
+==================================================
+==================================================
+[10:09:26 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532315269328932935/He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf?ex=6a6d100d&is=6a6bbe8d&hm=071f990f0939083b345c8cfebe5c5b5566518607c8ff79565accee16d5fd4a81&
+  • Prompt/Input: "Tải file tài liệu "He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf""
+[10:09:27 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (785ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 3307972 bytes cho file "He_ieu_Hanh_chap_3-Eng_Hust_THeme_Autosaved_1.pdf""
+==================================================
+==================================================
+[10:09:27 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532313245564801094/e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf?ex=6a6d0e2a&is=6a6bbcaa&hm=ed4e8278cce2fcccc6e5367367bb2274e699addec3e3e1506bc9c35e1a231720&
+  • Prompt/Input: "Tải file tài liệu "e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf""
+[10:09:28 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (344ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 1268138 bytes cho file "e_cuong_on_tap_ly_thuyet_vat_ly_ien_tu.pdf""
+==================================================
+==================================================
+[10:09:28 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532313136118501386/Phan_bo_Maxwell_Boltzmann.pdf?ex=6a6d0e10&is=6a6bbc90&hm=20012ab7622f0df1ef2f5d832ae873cb6b3992a385cf698f2fba2033f7cf48a7&
+  • Prompt/Input: "Tải file tài liệu "Phan_bo_Maxwell_Boltzmann.pdf""
+[10:09:28 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (191ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 352428 bytes cho file "Phan_bo_Maxwell_Boltzmann.pdf""
+==================================================
+==================================================
+[10:09:28 31/7/2026] 🌐 [API REQUEST] -> Discord Attachment Fetch
+  • Endpoint: https://cdn.discordapp.com/attachments/1532309198153580605/1532312109864587385/AO_HAM_THEO_QUY_TAC_.pdf?ex=6a6d0d1b&is=6a6bbb9b&hm=f4d1f72040a59291822b97fc682da2fa055e79cc447c14ffcb62cd6497077516&
+  • Prompt/Input: "Tải file tài liệu "AO_HAM_THEO_QUY_TAC_.pdf""
+[10:09:28 31/7/2026] ✅ [API SUCCESS] <- Discord Attachment Fetch (164ms)
+  • HTTP Status: 200
+  • Output preview: "Đã tải thành công 303874 bytes cho file "AO_HAM_THEO_QUY_TAC_.pdf""
+==================================================
+==================================================
+[10:09:38 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "<@&1532329834305294438> tạo flashcard cho tôi về bài con mèo đó"
+  • Messages count: 2
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":59095}
+[10:09:42 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (37854ms)
+  • Tokens usage: {"prompt_tokens":32495,"completion_tokens":595,"total_tokens":33090,"cost":0.011236,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.011236,"upstream_inference_prompt_cost":0.0097485,"upstream_inference_completions_cost":0.0014875},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "Ngươi đã nhắc đến "bài con mèo đó" nhiều lần, nhưng Ta sẽ đoán ý ngươi là bài đăng về "Cuộc chiến không cân sức giữa 100 con mèo và 1 con hổ" trong kê..."
+==================================================

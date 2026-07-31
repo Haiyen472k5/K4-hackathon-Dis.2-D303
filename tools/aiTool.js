@@ -183,11 +183,26 @@ async function askAI(promptText, channelId = null) {
     }
 }
 
+// Bộ nhớ đệm Cache lưu dữ liệu Context Server (TTL 45 giây) để loại bỏ độ trễ phản hồi
+const serverContextCache = new Map();
+const CACHE_TTL_MS = 45000;
+
 // 🛠️ Hàm thu thập dữ liệu nội bộ trong Server Discord (Bài đăng + Kênh + File PDF/Word + Tất cả cuộc trò chuyện)
 async function getServerContext(guild) {
-    let contextText = '';
-    
     if (!guild) return 'Không có dữ liệu server.';
+
+    const guildId = guild.id;
+    const now = Date.now();
+
+    // ⚡ Trả về cache ngay lập tức nếu còn hiệu lực (dưới 45s)
+    if (serverContextCache.has(guildId)) {
+        const cached = serverContextCache.get(guildId);
+        if (now - cached.timestamp < CACHE_TTL_MS) {
+            return cached.data;
+        }
+    }
+
+    let contextText = '';
 
     // 1. Fetch danh sách kênh từ Discord API
     let channels;
@@ -310,7 +325,12 @@ async function getServerContext(guild) {
         contextText += `\n=== LỊCH SỬ CHAT GẦN ĐÂY TRONG SERVER ===\n${recentLogs}\n`;
     }
 
-    return contextText || 'Không tìm thấy dữ liệu bài đăng hoặc cuộc trò chuyện nào trong server.';
+    const finalResult = contextText || 'Không tìm thấy dữ liệu bài đăng hoặc cuộc trò chuyện nào trong server.';
+    
+    // Lưu vào cache
+    serverContextCache.set(guildId, { data: finalResult, timestamp: Date.now() });
+
+    return finalResult;
 }
 
 // 🛠️ Hàm gọi AI xử lý CHỈ DỰA TRÊN DỮ LIỆU NỘI BỘ + LỊCH SỬ CHAT (Mode Nội bộ Server)
