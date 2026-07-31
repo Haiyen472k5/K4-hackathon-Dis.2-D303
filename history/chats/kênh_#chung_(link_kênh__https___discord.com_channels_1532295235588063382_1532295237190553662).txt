@@ -4,3 +4,4 @@
 [12:14:35 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: ko merge được đâu
 [12:15:05 31/7/2026] trickez: bảo agent tóm tắt bot của mng thành một prompt r push lên branch riêng thôi
 [12:15:16 31/7/2026] trickez: có prompt chuẩn thì tạo lại là dc
+[12:23:21 31/7/2026] trickez: <@734046082945777734> <@764147694297940019> rep t please :>>

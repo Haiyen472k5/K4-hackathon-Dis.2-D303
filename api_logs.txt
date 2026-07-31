@@ -4783,3 +4783,25 @@
   • Tokens usage: {"prompt_tokens":27330,"completion_tokens":175,"total_tokens":27505,"cost":0.0086365,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0086365,"upstream_inference_prompt_cost":0.008199,"upstream_inference_completions_cost":0.0004375},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
   • Output preview: "Bổn bot vô địch đã quét sạch server và tìm thấy cho ngươi một bài đăng về rắn như sau:  **Tiêu đề:** 🐍 CON RẮN CÓ "GÃI ĐÍT" KHÔNG? **Nội dung chính:*..."
 ==================================================
+==================================================
+[12:26:27 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "<@&1532329834305294438> tìm cho tôi bài đăng về rắn"
+  • Messages count: 2
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":49133}
+[12:26:29 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (20464ms)
+  • Tokens usage: {"prompt_tokens":27385,"completion_tokens":96,"total_tokens":27481,"cost":0.0084555,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0084555,"upstream_inference_prompt_cost":0.0082155,"upstream_inference_completions_cost":0.00024},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "Này Ngươi, Ta đã tìm thấy một bài đăng về rắn trong server Discord này. Đúng là Bổn bot vô địch!  **🐍 CON RẮN CÓ "GÃI ĐÍT" KHÔNG?** https://discord.c..."
+==================================================
+==================================================
+[12:27:02 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "chào bot đại ca"
+  • Messages count: 4
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":48993}
+[12:27:04 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (19292ms)
+  • Tokens usage: {"prompt_tokens":27403,"completion_tokens":32,"total_tokens":27435,"cost":0.0083009,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0083009,"upstream_inference_prompt_cost":0.0082209,"upstream_inference_completions_cost":0.00008},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "Chào Ngươi, cứ gọi Ta là Botvodich. Ngươi cần gì, cứ nói, Ta sẽ giải quyết một cách nhanh chóng và chính xác.  📌 **Đường dẫn xem bài đăng/kênh trực t..."
+==================================================

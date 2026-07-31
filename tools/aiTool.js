@@ -187,45 +187,48 @@ async function askAI(promptText, channelId = null) {
     }
 }
 
-// Bộ nhớ đệm Cache lưu dữ liệu Context Server (TTL 45 giây) để loại bỏ độ trễ phản hồi
+// ⚡ Bộ nhớ đệm Cache lưu dữ liệu Context Server (TTL 3 phút) để loại bỏ hoàn toàn độ trễ khi chat
 const serverContextCache = new Map();
-const CACHE_TTL_MS = 45000;
+const CACHE_TTL_MS = 180000; // 3 phút
 
-// 🛠️ Hàm thu thập dữ liệu trực tiếp trong Server Discord (Bài đăng + Kênh + Tên File + Link Web/YouTube)
-async function getServerContext(guild) {
+// 🛠️ Hàm thu thập dữ liệu nhanh trong Server Discord (Song song Promise.all + Cache 3 phút)
+async function getServerContext(guild, question = '') {
     if (!guild) return 'Không có dữ liệu server.';
 
     const guildId = guild.id;
     const now = Date.now();
 
-    // Cache 30 giây để tránh gọi API quá dày
+    // ⚡ Trả về Cache ngay lập tức (0ms) nếu dưới 3 phút
     if (serverContextCache.has(guildId)) {
         const cached = serverContextCache.get(guildId);
-        if (now - cached.timestamp < 30000) {
+        if (now - cached.timestamp < CACHE_TTL_MS) {
             return cached.data;
         }
     }
 
+    // ⚡ Nếu chỉ là chào hỏi / tán gẫu thông thường, không cần quét server (0ms)
+    const isCasualChat = /^(hi|hello|xin chào|chào|chào bot|bạn là ai|bạn tên gì|bạn thế nào|hôm nay thế nào|kể chuyện|tán gẫu)$/i.test(question.trim());
+    if (isCasualChat && serverContextCache.has(guildId)) {
+        return serverContextCache.get(guildId).data;
+    }
+
     let contextText = '';
 
-    // 1. ĐỌC TRỰC TIẾP KÊNH & BÀI ĐĂNG (THREADS/FORUM POSTS) TỪ DISCORD SERVER
-    let channels;
-    try {
-        channels = await guild.channels.fetch();
-    } catch (e) {
-        channels = guild.channels.cache;
+    // 1. ĐỌC KÊNH & BÀI ĐĂNG TỪ CACHE DISCORD HOẶC FETCH SONG SONG
+    let channels = guild.channels.cache;
+    if (!channels || channels.size === 0) {
+        channels = await guild.channels.fetch().catch(() => new Map());
     }
 
     if (channels && channels.size > 0) {
-        for (const [, channel] of channels) {
-            if (!channel || !channel.name) continue;
-            // Bỏ qua các kênh voice / category
-            if (channel.type === 4 || channel.type === 2 || channel.type === 13) continue;
-
-            let channelInfo = `\n=== KÊNH #${channel.name} (Link kênh: https://discord.com/channels/${guild.id}/${channel.id}) ===\n`;
+        const validChannels = Array.from(channels.values()).filter(c => c && c.name && c.type !== 4 && c.type !== 2 && c.type !== 13);
+        
+        // Quét song song tất cả các kênh bằng Promise.all để phản hồi siêu tốc
+        const channelProms = validChannels.map(async (channel) => {
+            let channelInfo = `\n=== KÊNH #${channel.name} (Link: https://discord.com/channels/${guild.id}/${channel.id}) ===\n`;
             let hasData = false;
 
-            // A. Đọc các Bài đăng (Threads / Forum Posts) trong kênh (ví dụ #chia-sẻ)
+            // A. Quét các bài đăng (Threads / Forum Posts) trong kênh (#chia-sẻ)
             if (channel.threads) {
                 try {
                     const activeThreads = await channel.threads.fetchActive().catch(() => ({ threads: new Map() }));
@@ -239,17 +242,12 @@ async function getServerContext(guild) {
                         channelInfo += `📌 Bài đăng/Thread #${idx + 1}: "${t.name}" | Link trực tiếp: ${threadUrl}\n`;
 
                         try {
-                            const threadMsgs = await t.messages.fetch({ limit: 15 }).catch(() => null);
+                            const threadMsgs = await t.messages.fetch({ limit: 10 }).catch(() => null);
                             if (threadMsgs && threadMsgs.size > 0) {
                                 for (const [, msg] of threadMsgs) {
                                     if (msg.author && msg.author.bot) continue;
                                     if (msg.content && msg.content.trim()) {
                                         channelInfo += `   - Tin nhắn từ ${msg.author.username}: "${msg.content.trim()}"\n`;
-                                    }
-                                    if (msg.attachments && msg.attachments.size > 0) {
-                                        for (const [, att] of msg.attachments) {
-                                            channelInfo += `   - [File đính kèm: "${att.name}" | Link: ${att.url}]\n`;
-                                        }
                                     }
                                 }
                             }
@@ -258,10 +256,10 @@ async function getServerContext(guild) {
                 } catch (e) {}
             }
 
-            // B. Đọc tin nhắn trực tiếp trong kênh văn bản (Chỉ đọc TÊN FILE, không đọc nội dung file)
+            // B. Quét tin nhắn kênh văn bản (Chỉ lấy Tên File đính kèm)
             try {
                 if (channel.isTextBased && channel.isTextBased()) {
-                    const recentMsgs = await channel.messages.fetch({ limit: 25 }).catch(() => null);
+                    const recentMsgs = await channel.messages.fetch({ limit: 15 }).catch(() => null);
                     if (recentMsgs && recentMsgs.size > 0) {
                         for (const [, msg] of recentMsgs) {
                             if (msg.author && msg.author.bot) continue;
@@ -280,10 +278,11 @@ async function getServerContext(guild) {
                 }
             } catch (e) {}
 
-            if (hasData) {
-                contextText += channelInfo;
-            }
-        }
+            return hasData ? channelInfo : '';
+        });
+
+        const channelResults = await Promise.all(channelProms);
+        contextText += channelResults.join('');
     }
 
     // 2. Đọc Lịch sử Link Web & YouTube từ history/web_links/
@@ -296,7 +295,7 @@ async function getServerContext(guild) {
     } catch (e) {}
 
     // 3. Lịch sử chat gần đây trong chat_logs.txt
-    const recentLogs = getRecentChatLogs(30);
+    const recentLogs = getRecentChatLogs(20);
     if (recentLogs) {
         contextText += `\n=== LỊCH SỬ CHAT GẦN ĐÂY ===\n${recentLogs}\n`;
     }
