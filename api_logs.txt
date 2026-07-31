@@ -4890,3 +4890,14 @@
   • Tokens usage: {"prompt_tokens":56358,"completion_tokens":429,"total_tokens":56787,"cost":0.0179799,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0179799,"upstream_inference_prompt_cost":0.0169074,"upstream_inference_completions_cost":0.0010725},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
   • Output preview: "Hỡi Ngươi, Ta đã tạo ra bộ flashcard về bản thân Ta đây:  🎴 **Thẻ 1:** - ❓ **Mặt trước (Khái niệm / Câu hỏi):** Tên của ta là gì? - 💡 **Mặt sau (Giả..."
 ==================================================
+==================================================
+[12:46:01 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "Người dùng yêu cầu TẠO BỘ FLASHCARD từ các bài đăng, tài liệu hoặc thảo luận trong Server Discord về chủ đề: "tạo cho tôi flashcard về bài viết con rắ..."
+  • Messages count: 2
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":53973}
+[12:46:05 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (4330ms)
+  • Tokens usage: {"prompt_tokens":55935,"completion_tokens":426,"total_tokens":56361,"cost":0.0178455,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0178455,"upstream_inference_prompt_cost":0.0167805,"upstream_inference_completions_cost":0.001065},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "Hoan nghênh Ngươi đã đến với sự uyên bác của Ta. Đây là bộ flashcard liên quan đến bài viết về loài rắn mà Ngươi cần, được Ta tổng hợp một cách tỉ mỉ ..."
+==================================================

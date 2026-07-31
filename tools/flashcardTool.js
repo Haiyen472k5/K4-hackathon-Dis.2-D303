@@ -37,43 +37,66 @@ function parseFlashcardsToData(text) {
         } catch (e) {}
     }
 
-    // 2. Parse theo Regex Thẻ / Mặt trước / Mặt sau
+    // 2. Parse theo Thẻ 1, Thẻ 2... hoặc 🎴
     const cards = [];
-    const cardBlocks = text.split(/(?:🎴|\*\*Thẻ\s*\d+:?\*\*|Thẻ\s*\d+:?)/gi);
+    const blocks = text.split(/(?:🎴|\*\*Thẻ\s*\d+[\:\*]*|Thẻ\s*\d+[\:\*]*)/gi);
 
-    for (const block of cardBlocks) {
+    for (const block of blocks) {
         if (!block || !block.trim()) continue;
-        
-        let front = '';
-        let back = '';
 
-        const frontMatch = block.match(/(?:Mặt trước|Khái niệm|Câu hỏi|\❓)[\s\:\*\-\_]*([^\n\r\💡\-\*]+)/i);
-        const backMatch = block.match(/(?:Mặt sau|Giải thích|Đáp án|\💡)[\s\:\*\-\_]*([\s\S]+)/i);
+        const lines = block.split(/\r?\n/);
+        for (const line of lines) {
+            const cleanLine = line.trim();
+            if (!cleanLine) continue;
 
-        if (frontMatch) front = frontMatch[1].replace(/^[\:\*\-\_]+/, '').trim();
-        if (backMatch) back = backMatch[1].replace(/^[\:\*\-\_]+/, '').trim();
+            if (cleanLine.includes('❓') || /mặt\s*trước|khái\s*niệm|câu\s*hỏi/i.test(cleanLine)) {
+                if (cleanLine.includes(':')) {
+                    front = cleanLine.split(':').slice(1).join(':').replace(/\*\*/g, '').trim();
+                } else {
+                    front = cleanLine.replace(/^[\s\-\*\#\🎴\❓\💡]+/g, '').replace(/\*\*/g, '').trim();
+                }
+            } else if (cleanLine.includes('💡') || /mặt\s*sau|giải\s*thích|đáp\s*án/i.test(cleanLine)) {
+                if (cleanLine.includes(':')) {
+                    back = cleanLine.split(':').slice(1).join(':').replace(/\*\*/g, '').trim();
+                } else {
+                    back = cleanLine.replace(/^[\s\-\*\#\🎴\❓\💡]+/g, '').replace(/\*\*/g, '').trim();
+                }
+            }
+        }
 
         if (front || back) {
             cards.push({
-                front: front || block.substring(0, 150).trim(),
-                back: back || 'Bấm nút Lật Thẻ để xem giải thích chi tiết.'
+                front: front || 'Khái niệm / Câu hỏi',
+                back: back || 'Giải thích chi tiết'
             });
         }
     }
 
     if (cards.length > 0) return cards;
 
-    // 3. Fallback: Nếu không parse được, tự tách các dòng
-    const lines = text.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('📇') && !l.startsWith('*'));
-    for (let i = 0; i < lines.length; i += 2) {
-        cards.push({
-            front: lines[i] || 'Khái niệm học tập',
-            back: lines[i + 1] || lines[i] || 'Chi tiết nội dung'
-        });
+    // 3. Fallback: Parse từng dòng câu hỏi & trả lời
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    let currentFront = '';
+    let currentBack = '';
+
+    for (const line of lines) {
+        if (line.includes('?') || line.toLowerCase().includes('mặt trước')) {
+            if (currentFront && currentBack) {
+                cards.push({ front: currentFront, back: currentBack });
+                currentBack = '';
+            }
+            currentFront = line.replace(/^[\s\-\*\d\.\🎴\❓\💡]+/g, '').trim();
+        } else if (currentFront) {
+            currentBack += (currentBack ? '\n' : '') + line.replace(/^[\s\-\*\d\.\🎴\❓\💡]+/g, '').trim();
+        }
+    }
+
+    if (currentFront) {
+        cards.push({ front: currentFront, back: currentBack || 'Giải thích chi tiết' });
     }
 
     return cards.length > 0 ? cards : [
-        { front: 'Khái niệm Flashcard', back: text.substring(0, 1000) }
+        { front: 'Nội dung Thẻ Bài', back: text.substring(0, 500) }
     ];
 }
 
@@ -163,17 +186,21 @@ function renderFlashcardImage(card, index, total, isFlipped, topicName = 'Tài l
     ctx.lineTo(width - 50, 136);
     ctx.stroke();
 
-    // 4. Xử Lý & Làm Sạch Văn Bản (Giữ nguyên văn bản chính, làm sạch ký tự Markdown)
+    // 4. Xử Lý & Làm Sạch Văn Bản (Giữ nguyên văn bản chính)
     let rawText = isFlipped ? (card.back || 'Mặt sau') : (card.front || 'Mặt trước');
     let cleanText = rawText
         .replace(/\*\*/g, '')
         .replace(/\*/g, '')
         .replace(/`/g, '')
         .replace(/^>>>\s*/g, '')
-        .replace(/^(Mặt sau|Mặt trước|Giải thích|Khái niệm|Chi tiết|Đáp án)[\s\(\)\:\/]*(\(Chi tiết\)|\(Giải thích\)|\(Thuật ngữ\/Câu hỏi\))?\s*/gi, '')
+        .replace(/^[\s\-\:\*\_\#\🎴\❓\💡]+/g, '')
+        .replace(/^(?:Mặt trước|Mặt sau|Khái niệm\/Câu hỏi|Thuật ngữ\/Câu hỏi|Giải thích\/Chi tiết)[\s\(\)\:\/]*[\:\-]?\s*/gi, '')
         .trim();
 
-    if (!cleanText) cleanText = rawText;
+    // ⚡ QUAN TRỌNG: Nếu làm sạch xong bị rỗng, dùng nguyên bản rawText!
+    if (!cleanText || cleanText.length === 0) {
+        cleanText = rawText.replace(/\*\*/g, '').replace(/\*/g, '').replace(/`/g, '').trim();
+    }
 
     ctx.fillStyle = '#FFFFFF';
     
