@@ -13,7 +13,7 @@ const { searchChatLogs } = require('./tools/chatHistoryTool');
 const { logApiCall, logApiResponse, logApiError, LOG_FILE_PATH } = require('./tools/apiLogger');
 const { startNumberGame, guessNumber, playRPS, getAITriviaQuestion, getDailyFortune, getMinigameMenu } = require('./tools/minigameTool');
 const { generateFlashcardsFromText, generateFlashcardsFromServer, generateFlashcardsFromFile } = require('./tools/flashcardTool');
-const { saveChannelChatMessage } = require('./tools/historyManager');
+const { saveChannelChatMessage, syncAllServerHistoryToDisk } = require('./tools/historyManager');
 
 // Bắt các lỗi toàn cục để tự động ghi log vào api_logs.txt giúp dễ dàng debug
 process.on('unhandledRejection', (reason) => {
@@ -236,6 +236,9 @@ client.once('ready', async () => {
         });
 
         console.log('✅ Đã đồng bộ thành công tất cả lệnh Slash Command lên Discord!');
+
+        // 3. Tự động đồng bộ toàn bộ lịch sử quá khứ trong Server Discord xuống thư mục history/
+        await syncAllServerHistoryToDisk(client);
     } catch (error) {
         console.error('❌ Lỗi khi đồng bộ lệnh:', error);
     }

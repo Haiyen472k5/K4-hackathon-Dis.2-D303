@@ -157,11 +157,87 @@ function getLocalHistorySummary() {
     return result;
 }
 
+/**
+ * 5. Tự động đồng bộ toàn bộ lịch sử quá khứ trong Server Discord xuống thư mục history/ khi bot khởi động
+ */
+async function syncAllServerHistoryToDisk(client) {
+    if (!client || !client.guilds) return;
+    console.log('🔄 Đang tự động quét và đồng bộ lịch sử tin nhắn, tài liệu và links từ Server Discord...');
+
+    const { fetchAndExtractText } = require('./documentTool');
+
+    for (const [, guild] of client.guilds.cache) {
+        let channels;
+        try {
+            channels = await guild.channels.fetch();
+        } catch (e) {
+            channels = guild.channels.cache;
+        }
+
+        if (!channels) continue;
+
+        for (const [, channel] of channels) {
+            if (!channel || !channel.name) continue;
+            // Bỏ qua kênh voice, category
+            if (channel.type === 4 || channel.type === 2 || channel.type === 13) continue;
+
+            try {
+                if (channel.isTextBased && channel.isTextBased()) {
+                    const recentMsgs = await channel.messages.fetch({ limit: 50 }).catch(() => null);
+                    if (recentMsgs && recentMsgs.size > 0) {
+                        const msgsArray = Array.from(recentMsgs.values()).reverse(); // Xếp theo thứ tự thời gian tăng dần
+                        
+                        for (const msg of msgsArray) {
+                            if (!msg || !msg.author || msg.author.bot) continue;
+                            const authorName = msg.author.displayName || msg.author.username;
+                            const content = msg.content || '';
+
+                            // A. Lưu chat history theo kênh
+                            if (content.trim()) {
+                                saveChannelChatMessage(channel.name, authorName, content, msg.createdAt);
+                            }
+
+                            // B. Quét & Lưu link YouTube / Web
+                            const ytRegex = /(https?:\/\/(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)[a-zA-Z0-9_-]+)/gi;
+                            const matches = content.match(ytRegex);
+                            if (matches && matches.length > 0) {
+                                for (const url of matches) {
+                                    saveWebLinkHistory(url, `Video YouTube trong #${channel.name}`, authorName, `Được chia sẻ bởi ${authorName} trong kênh #${channel.name}`);
+                                }
+                            }
+
+                            // C. Quét & Lưu File đính kèm (PDF, DOCX, TXT...)
+                            if (msg.attachments && msg.attachments.size > 0) {
+                                for (const [, attachment] of msg.attachments) {
+                                    const ext = attachment.name.substring(attachment.name.lastIndexOf('.')).toLowerCase();
+                                    if (['.pdf', '.doc', '.docx', '.txt', '.md', '.json', '.csv'].includes(ext)) {
+                                        try {
+                                            const docText = await fetchAndExtractText(attachment.url, attachment.name);
+                                            if (docText && docText.trim()) {
+                                                saveDocumentHistory(attachment.name, attachment.url, docText.trim(), `Tải lên bởi ${authorName} trong kênh #${channel.name}`);
+                                            }
+                                        } catch (err) {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (err) {
+                console.error(`❌ Lỗi quét kênh #${channel.name}:`, err.message);
+            }
+        }
+    }
+
+    console.log('✅ Hoàn tất đồng bộ toàn bộ lịch sử Server Discord xuống thư mục history/!');
+}
+
 module.exports = {
     saveChannelChatMessage,
     saveDocumentHistory,
     saveWebLinkHistory,
     getLocalHistorySummary,
+    syncAllServerHistoryToDisk,
     CHATS_DIR,
     DOCS_DIR,
     LINKS_DIR
