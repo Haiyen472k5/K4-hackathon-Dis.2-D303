@@ -256,7 +256,13 @@
     "1532621727765364787": true,
     "1532620943657013420": true,
     "1532622300124549180": true,
-    "1532622399839932507": true
+    "1532622399839932507": true,
+    "1532622408211501217": true,
+    "1532623110413615155": true,
+    "1532622511559409806": true,
+    "1532622597374607440": true,
+    "1532622659375071324": true,
+    "1532623192567320776": true
   },
   "syncedFiles": {
     "eval_results.md": true,
@@ -278,7 +284,8 @@
     "AI_-_cuoi_ki_20232.pdf": true,
     "AI_-_cuoi_ki_20241.pdf": true,
     "de2.pdf": true,
-    "RUMAD.pdf": true
+    "RUMAD.pdf": true,
+    "reverse_engineered_prompt.md": true
   },
   "syncedWebLinks": {
     "https://www.youtube.com/watch?v=VkUx9npkx54": true,

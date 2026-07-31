@@ -98,11 +98,11 @@ function wrapText(ctx, text, maxWidth) {
 }
 
 /**
- * Tạo hình ảnh Thẻ Bài Flashcard đồ họa sắc nét bằng Canvas (HD 1100x600 - Tràn Màn Hình, Phông Chữ To)
+ * Tạo hình ảnh Thẻ Bài Flashcard đồ họa sắc nét bằng Canvas (CHỮ RẤT TO, ĐẮNG CẤP, RÕ RÀNG)
  */
 function renderFlashcardImage(card, index, total, isFlipped, topicName = 'Tài liệu') {
-    const width = 1100;
-    const height = 600;
+    const width = 850;
+    const height = 480;
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
@@ -123,77 +123,81 @@ function renderFlashcardImage(card, index, total, isFlipped, topicName = 'Tài l
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, width, height);
 
-    // 2. Khung Viền Bo Tròn Rộng Tràn Màn Hình
-    ctx.lineWidth = 5;
+    // 2. Khung Viền Cong Bo Tròn Sắc Nét
+    ctx.lineWidth = 6;
     ctx.strokeStyle = isFlipped ? '#34D399' : '#818CF8';
-    ctx.roundRect(25, 25, width - 50, height - 50, 24);
+    ctx.roundRect(20, 20, width - 40, height - 40, 20);
     ctx.stroke();
 
     // Hộp Thủy Tinh Inner Box
     ctx.fillStyle = 'rgba(255, 255, 255, 0.09)';
-    ctx.roundRect(45, 45, width - 90, height - 90, 20);
+    ctx.roundRect(35, 35, width - 70, height - 70, 16);
     ctx.fill();
 
     // 3. Badge Tiêu Đề Trạng Thái
     const badgeText = isFlipped ? '💡 MẶT SAU — GIẢI THÍCH / ĐÁP ÁN' : '❓ MẶT TRƯỚC — KHÁI NIỆM / CÂU HỎI';
     ctx.fillStyle = isFlipped ? '#10B981' : '#6366F1';
-    ctx.roundRect(65, 65, 420, 44, 22);
+    ctx.roundRect(50, 50, 420, 44, 22);
     ctx.fill();
 
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = `bold 18px ${FONT_FAMILY}`;
-    ctx.fillText(badgeText, 85, 93);
+    ctx.font = `bold 20px ${FONT_FAMILY}`;
+    ctx.fillText(badgeText, 70, 78);
 
     // Tiến trình Thẻ (VD: THẺ 1/5)
     ctx.fillStyle = '#F1F5F9';
-    ctx.font = `bold 20px ${FONT_FAMILY}`;
-    ctx.fillText(`THẺ ${index + 1} / ${total}`, width - 180, 93);
+    ctx.font = `bold 22px ${FONT_FAMILY}`;
+    ctx.fillText(`THẺ ${index + 1} / ${total}`, width - 160, 78);
 
     // Tên Chủ Đề
     ctx.fillStyle = '#CBD5E1';
     ctx.font = `italic 18px ${FONT_FAMILY}`;
-    const cleanTopic = topicName.length > 60 ? topicName.substring(0, 60) + '...' : topicName;
-    ctx.fillText(`📌 Chủ đề: ${cleanTopic}`, 65, 142);
+    const cleanTopic = topicName.length > 50 ? topicName.substring(0, 50) + '...' : topicName;
+    ctx.fillText(`📌 Chủ đề: ${cleanTopic}`, 50, 122);
 
     // Đường Kẻ Ngang Phân Cách
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(65, 158);
-    ctx.lineTo(width - 65, 158);
+    ctx.moveTo(50, 136);
+    ctx.lineTo(width - 50, 136);
     ctx.stroke();
 
-    // 4. Xử Lý & Làm Sạch Văn Bản (Lược bỏ ký tự Markdown **, *, `, >>>)
+    // 4. Xử Lý & Làm Sạch Văn Bản (Giữ nguyên văn bản chính, làm sạch ký tự Markdown)
     let rawText = isFlipped ? (card.back || 'Mặt sau') : (card.front || 'Mặt trước');
     let cleanText = rawText
         .replace(/\*\*/g, '')
         .replace(/\*/g, '')
         .replace(/`/g, '')
         .replace(/^>>>\s*/g, '')
-        .replace(/^(Mặt sau|Mặt trước|Giải thích|Khái niệm|Chi tiết|Đáp án)[\s\(\)\:\/]*(\(Chi tiết\)|\(Giải thích\))?\s*/gi, '')
+        .replace(/^(Mặt sau|Mặt trước|Giải thích|Khái niệm|Chi tiết|Đáp án)[\s\(\)\:\/]*(\(Chi tiết\)|\(Giải thích\)|\(Thuật ngữ\/Câu hỏi\))?\s*/gi, '')
         .trim();
+
+    if (!cleanText) cleanText = rawText;
 
     ctx.fillStyle = '#FFFFFF';
     
-    // Tự động căn chỉnh cỡ chữ TO NỔI BẬT
-    let fontSize = 30;
-    if (cleanText.length > 180) fontSize = 26;
-    if (cleanText.length > 320) fontSize = 22;
+    // ⚡ CHỮ RẤT TO, BÓNG BẨY (40px cho câu ngắn, 32px cho câu trung bình)
+    let fontSize = 40;
+    if (cleanText.length > 80) fontSize = 32;
+    if (cleanText.length > 200) fontSize = 26;
+    if (cleanText.length > 350) fontSize = 22;
+
     ctx.font = `bold ${fontSize}px ${FONT_FAMILY}`;
 
-    const lines = wrapText(ctx, cleanText, width - 140);
-    const startY = 210;
-    const lineHeight = fontSize + 14;
+    const lines = wrapText(ctx, cleanText, width - 100);
+    const startY = 185;
+    const lineHeight = fontSize + 16;
 
-    for (let i = 0; i < Math.min(lines.length, 8); i++) {
-        ctx.fillText(lines[i], 70, startY + (i * lineHeight));
+    for (let i = 0; i < Math.min(lines.length, 6); i++) {
+        ctx.fillText(lines[i], 50, startY + (i * lineHeight));
     }
 
     // 5. Chú Thích Chân Thẻ
     ctx.fillStyle = '#94A3B8';
-    ctx.font = `16px ${FONT_FAMILY}`;
+    ctx.font = `bold 16px ${FONT_FAMILY}`;
     const footerText = isFlipped ? '👉 Bấm nút [↩️ Lật lại Mặt trước] để quay lại' : '👉 Bấm nút [🔄 Lật xem Đáp án] để lật sang mặt sau';
-    ctx.fillText(footerText, 70, height - 70);
+    ctx.fillText(footerText, 50, height - 48);
 
     return canvas.toBuffer('image/png');
 }
@@ -415,6 +419,7 @@ async function generateFlashcardsFromFile(attachmentUrl, fileName, serverFileNam
 }
 
 module.exports = {
+    renderFlashcardImage,
     generateFlashcardsFromText,
     generateFlashcardsFromServer,
     generateFlashcardsFromFile,
