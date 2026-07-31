@@ -103,23 +103,16 @@ async function formatDocumentResponse(fileName, rawContent) {
     const words = trimmed.split(/\s+/);
     const totalWords = words.length;
 
-    // LUÔN TỰ ĐỘNG TẠO TÓM TẮT Ý CHÍNH BẰNG AI VÀ LƯU VÀO HISTORY
+    // ⚡ TIẾT KIỆM TOKEN: Tóm tắt 0 Token dựa trên Tên File & Đoạn mở đầu (0đ chi phí API)
     const { saveDocumentHistory } = require('./historyManager');
-    let summaryText = '';
+    const excerpt = trimmed.length > 300 ? trimmed.substring(0, 300) + '...' : trimmed;
+    const summaryText = `Tài liệu "${fileName}" (${totalWords} chữ). Trích đoạn nội dung: "${excerpt}"`;
 
-    try {
-        const { summarizeText } = require('./summarizeTool');
-        summaryText = await summarizeText(trimmed, fileName);
-    } catch (e) {
-        console.error('❌ Lỗi tự động tóm tắt tài liệu:', e.message);
-        summaryText = `Tóm tắt ý chính tự động cho tài liệu ${fileName}.`;
-    }
-
-    // Lưu trọn vẹn văn bản + tóm tắt AI vào history/documents/
+    // Lưu trọn vẹn văn bản + tóm tắt 0 token vào history/documents/
     saveDocumentHistory(fileName, null, trimmed, summaryText);
 
     if (totalWords > 300) {
-        return `📄 **Tài liệu:** \`${fileName}\` (Tổng cộng ${totalWords} chữ - *⚡ Đã tự động tạo Tóm tắt AI*)\n\n${summaryText}`;
+        return `📄 **Tài liệu:** \`${fileName}\` (Tổng cộng ${totalWords} chữ - *⚡ Đã lưu file gốc & văn bản vào history/documents/*)\n\n📌 **Tóm tắt mở đầu:** "${excerpt}"`;
     }
 
     // Nếu <= 300 chữ, hiển thị văn bản trực tiếp
