@@ -67,3 +67,30 @@
 [11:16:29 31/7/2026] trickez: !ask tìm bài đăng về con mèo
 [11:16:52 31/7/2026] trickez: !ask tìm bài đăng về ma sát dọc
 [11:17:14 31/7/2026] trickez: !ask trong forum trao đổi có bài viết nào
+[10:38:01 31/7/2026] trickez: !ask bài viết mới nhất trong forum <#1532308961997361242>  là gì
+[10:38:22 31/7/2026] trickez: !ask bài viết cũ nhất trong forum ⁠chia-sẻ  là gì
+[10:48:09 31/7/2026] trickez: người tạo ra <@&1532329834305294438> là ai?
+[10:48:23 31/7/2026] trickez: người tạo ra <@1532291378397315202> là ai?
+[10:48:49 31/7/2026] trickez: người tạo ra bot Dis^2
+[10:54:01 31/7/2026] trickez: <@1532291378397315202> bài viết mới nhất trong kênh chia sẻ là gì
+[10:55:36 31/7/2026] trickez: bài viết mới nhất trong kênh trao đổi là gì
+[10:56:04 31/7/2026] trickez: !ask tài liệu mới nhất trong kênh tài nguyên
+[10:57:07 31/7/2026] trickez: !ask nội dung về mèo và hổ
+[10:57:35 31/7/2026] trickez: !ask link đến bài viết mèo và hổ
+[10:58:06 31/7/2026] trickez: !ask link đến bài viết ma sát dọc
+[11:00:56 31/7/2026] trickez: <@1532291378397315202> chat mới nhất trong tài nguyên là gì
+[11:04:17 31/7/2026] trickez: !ask bài viết mới nhất trong forum chia-sẻ
+[11:04:33 31/7/2026] trickez: tóm tắt ngắn gọn nội dung bài viết đó giúp mình
+[11:06:29 31/7/2026] trickez: !ask bài viết mới nhất trong forum chia-sẻ
+[11:06:37 31/7/2026] trickez: tóm tắt ngắn gọn nội dung bài viết đó giúp mình
+[11:07:26 31/7/2026] trickez: ngắn hơn nữa
+[11:07:43 31/7/2026] trickez: !ask tôi nên chọn track nào
+[11:08:29 31/7/2026] trickez: !ask bạn là model gì
+[11:08:44 31/7/2026] trickez: <@1532291378397315202> tên cụ thể
+[11:10:42 31/7/2026] trickez: !ask Mật khẩu Wi-Fi của phòng A305 là gì?
+[11:16:30 31/7/2026] trickez: !ask tìm bài đăng về con mèo
+[11:16:53 31/7/2026] trickez: !ask tìm bài đăng về ma sát dọc
+[11:17:15 31/7/2026] trickez: !ask trong forum trao đổi có bài viết nào
+[11:25:46 31/7/2026] trickez: !ask hạn nộp hackathon
+[11:28:18 31/7/2026] trickez: !ask tìm cho tôi bài viết về sản phẩm AI
+[11:29:04 31/7/2026] trickez: !ask tìm các bài viết liên quan đến sản phẩm AI

@@ -1,12 +1,13 @@
 # TÀI LIỆU: Phan_bo_Maxwell_Boltzmann.pdf
 
-- **Thời gian lưu:** 11:12:56 31/7/2026
-- **URL đính kèm:** https://cdn.discordapp.com/attachments/1532309198153580605/1532313136118501386/Phan_bo_Maxwell_Boltzmann.pdf?ex=6a6d0e10&is=6a6bbc90&hm=20012ab7622f0df1ef2f5d832ae873cb6b3992a385cf698f2fba2033f7cf48a7&
+- **Thời gian lưu:** 11:26:20 31/7/2026
+- **File gốc lưu tại:** `history/documents/files/Phan_bo_Maxwell_Boltzmann.pdf`
+- **URL đính kèm gốc:** https://cdn.discordapp.com/attachments/1532309198153580605/1532313136118501386/Phan_bo_Maxwell_Boltzmann.pdf?ex=6a6d0e10&is=6a6bbc90&hm=20012ab7622f0df1ef2f5d832ae873cb6b3992a385cf698f2fba2033f7cf48a7&
 
-## TÓM TẮT Ý CHÍNH
+## TÓM TẮT Ý CHÍNH (AI SUMMARY)
 Tải lên bởi thidinh_hw trong kênh #tài-nguyên
 
-## NỘI DUNG CHI TIẾT TRÍCH XUẤT
+## TOÀN BỘ NỘI DUNG CHI TIẾT TRÍCH XUẤT
 ```text
 Phân bố Maxwell Boltzmann
 Ban chuyên môn Vật lý−The Gifted Battlefield

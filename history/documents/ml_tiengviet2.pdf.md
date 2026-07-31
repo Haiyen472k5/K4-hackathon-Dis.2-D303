@@ -1,12 +1,13 @@
 # TÀI LIỆU: ml_tiengviet2.pdf
 
-- **Thời gian lưu:** 11:13:00 31/7/2026
-- **URL đính kèm:** https://cdn.discordapp.com/attachments/1532309198153580605/1532415275167645876/ml_tiengviet2.pdf?ex=6a6d6d30&is=6a6c1bb0&hm=35c60db75ce435a9b8a215dda79367a2034e1776a2f7d9750cdf8a2c0a7f4e3f&
+- **Thời gian lưu:** 11:26:24 31/7/2026
+- **File gốc lưu tại:** `history/documents/files/ml_tiengviet2.pdf`
+- **URL đính kèm gốc:** https://cdn.discordapp.com/attachments/1532309198153580605/1532415275167645876/ml_tiengviet2.pdf?ex=6a6d6d30&is=6a6c1bb0&hm=35c60db75ce435a9b8a215dda79367a2034e1776a2f7d9750cdf8a2c0a7f4e3f&
 
-## TÓM TẮT Ý CHÍNH
+## TÓM TẮT Ý CHÍNH (AI SUMMARY)
 Tải lên bởi Tuanminh1509hp trong kênh #tài-nguyên
 
-## NỘI DUNG CHI TIẾT TRÍCH XUẤT
+## TOÀN BỘ NỘI DUNG CHI TIẾT TRÍCH XUẤT
 ```text
 a đúng vì khởi tạo tâm cụm sẽ ảnh hưởng kq 
 b đúng vì độ đo phải dựa theo hình dạng dữ liệu và sẽ ản hưởng hiệu năng 

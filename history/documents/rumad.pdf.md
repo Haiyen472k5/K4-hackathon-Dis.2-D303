@@ -1,12 +1,13 @@
 # TÀI LIỆU: RUMAD.pdf
 
-- **Thời gian lưu:** 11:13:02 31/7/2026
-- **URL đính kèm:** https://cdn.discordapp.com/attachments/1532309198153580605/1532578481790255144/RUMAD.pdf?ex=6a6d5c6f&is=6a6c0aef&hm=208058a522c849af8a54822ca51dae87f604da416871d52ff6c71230d53db2f8&
+- **Thời gian lưu:** 11:26:26 31/7/2026
+- **File gốc lưu tại:** `history/documents/files/RUMAD.pdf`
+- **URL đính kèm gốc:** https://cdn.discordapp.com/attachments/1532309198153580605/1532578481790255144/RUMAD.pdf?ex=6a6d5c6f&is=6a6c0aef&hm=208058a522c849af8a54822ca51dae87f604da416871d52ff6c71230d53db2f8&
 
-## TÓM TẮT Ý CHÍNH
+## TÓM TẮT Ý CHÍNH (AI SUMMARY)
 Tải lên bởi G06 - T089 - Nguyễn Thị Hải Yến trong kênh #tài-nguyên
 
-## NỘI DUNG CHI TIẾT TRÍCH XUẤT
+## TOÀN BỘ NỘI DUNG CHI TIẾT TRÍCH XUẤT
 ```text
 RUMAD: Reinforcement-Unifying Multi-Agent Debate
 AAAI Track

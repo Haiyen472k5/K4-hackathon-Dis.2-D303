@@ -171,6 +171,8 @@ async function sendLongMessage(target, text) {
     if (text.length <= MAX_LENGTH) {
         if (target.deferred || target.replied) {
             return await target.editReply(text);
+        } else if (typeof target.edit === 'function') {
+            return await target.edit(text);
         } else if (target.reply) {
             return await target.reply(text);
         } else {
@@ -178,16 +180,16 @@ async function sendLongMessage(target, text) {
         }
     }
 
-    const lines = text.split('\\n');
+    const lines = text.split('\n');
     let chunks = [];
     let currentChunk = '';
 
     for (const line of lines) {
-        if ((currentChunk + '\\n' + line).length > MAX_LENGTH) {
+        if ((currentChunk + '\n' + line).length > MAX_LENGTH) {
             if (currentChunk.trim()) chunks.push(currentChunk.trim());
             currentChunk = line;
         } else {
-            currentChunk = currentChunk ? currentChunk + '\\n' + line : line;
+            currentChunk = currentChunk ? currentChunk + '\n' + line : line;
         }
     }
     if (currentChunk.trim()) chunks.push(currentChunk.trim());
@@ -195,6 +197,8 @@ async function sendLongMessage(target, text) {
     let firstChunk = chunks.shift();
     if (target.deferred || target.replied) {
         await target.editReply(firstChunk);
+    } else if (typeof target.edit === 'function') {
+        await target.edit(firstChunk);
     } else if (target.reply) {
         await target.reply(firstChunk);
     } else {
@@ -364,7 +368,7 @@ client.on('interactionCreate', async (interaction) => {
     if (interaction.commandName === 'ask') {
         const question = interaction.options.getString('question');
         const mode = interaction.options.getString('mode') || 'server';
-        await interaction.deferReply();
+        await interaction.reply('⏳ Botvodich đang vận, đợi xíu ...');
 
         try {
             let answer = '';
@@ -388,7 +392,7 @@ client.on('interactionCreate', async (interaction) => {
     // F. Xử lý /ask_server (Chỉ tìm bài đăng & chat trong Server Discord)
     if (interaction.commandName === 'ask_server') {
         const question = interaction.options.getString('question');
-        await interaction.deferReply();
+        await interaction.reply('⏳ Botvodich đang vận, đợi xíu ...');
 
         try {
             const answer = await askAIServer(question, interaction.guild, interaction.channelId);
@@ -409,7 +413,7 @@ client.on('interactionCreate', async (interaction) => {
     // H. Xử lý /doavui (Đố vui AI)
     if (interaction.commandName === 'doavui') {
         const topic = interaction.options.getString('topic') || 'tổng hợp';
-        await interaction.deferReply();
+        await interaction.reply('⏳ Botvodich đang vận, đợi xíu ...');
         try {
             const question = await getAITriviaQuestion(topic);
             await sendLongMessage(interaction, question);
@@ -435,7 +439,7 @@ client.on('interactionCreate', async (interaction) => {
 
     // K. Xử lý /boitoan (Bói vận thế AI)
     if (interaction.commandName === 'boitoan') {
-        await interaction.deferReply();
+        await interaction.reply('⏳ Botvodich đang vận, đợi xíu ...');
         try {
             const username = interaction.user.displayName || interaction.user.username;
             const fortune = await getDailyFortune(username);
@@ -452,7 +456,7 @@ client.on('interactionCreate', async (interaction) => {
         const attachment = interaction.options.getAttachment('file');
         const fileName = interaction.options.getString('filename');
 
-        await interaction.deferReply();
+        await interaction.reply('⏳ Botvodich đang vận, đợi xíu ...');
 
         try {
             let cards = '';
@@ -517,17 +521,18 @@ client.on('messageCreate', async (message) => {
 
         try {
             await message.channel.sendTyping();
+            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
             let summary = '';
             if (attachment) {
                 summary = await summarizeDocument(attachment.url, attachment.name, null);
             } else if (textContent) {
                 summary = await summarizeText(textContent, 'Đoạn tin nhắn');
             } else {
+                await thinkingMsg.delete().catch(() => {});
                 return message.reply('💡 Vui lòng đính kèm 1 file (.docx, .pdf, .txt, .md) hoặc nhập văn bản sau lệnh `)(tomtat`!');
             }
 
-            const header = '';
-            await sendLongMessage(message, summary);
+            await sendLongMessage(thinkingMsg, summary);
         } catch (err) {
             console.error('❌ Lỗi khi tóm tắt:', err);
             await message.reply(`❌ Lỗi tóm tắt: ${err.message}`);
@@ -544,9 +549,9 @@ client.on('messageCreate', async (message) => {
 
         try {
             await message.channel.sendTyping();
+            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
             const answer = await askAIServer(questionText, message.guild, message.channelId);
-            const header = '';
-            await sendLongMessage(message, answer);
+            await sendLongMessage(thinkingMsg, answer);
         } catch (err) {
             console.error('❌ Lỗi gọi OpenRouter AI Server:', err);
             await message.reply(`❌ Lỗi AI Server: ${err.message}`);
@@ -555,13 +560,13 @@ client.on('messageCreate', async (message) => {
     }
 
     // E. Hỏi đáp OpenRouter AI qua prefix )(ask hoặc Tag Bot (@Botvodich [câu hỏi])
-    const isAskPrefix = message.content.startsWith(')(ask');
+    const isAskPrefix = message.content.startsWith(')(ask') || message.content.startsWith('!ask');
     const isBotMentioned = message.mentions.has(client.user) || (client.user && message.mentions.users.has(client.user.id)) || (client.user && message.content.includes(client.user.id));
 
     if (isAskPrefix || (isBotMentioned && !message.content.startsWith(')('))) {
         let questionText = message.content
             .replace(/<@!?\d+>/g, '')
-            .replace(/^(\)\(ask)/i, '')
+            .replace(/^(\)\(ask|!ask)/i, '')
             .trim();
 
         if (!questionText && isAskPrefix) {
@@ -571,9 +576,9 @@ client.on('messageCreate', async (message) => {
         if (questionText) {
             try {
                 await message.channel.sendTyping();
+                const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
                 const answer = await askAIServer(questionText, message.guild, message.channelId);
-                const header = '';
-                await sendLongMessage(message, answer);
+                await sendLongMessage(thinkingMsg, answer);
             } catch (err) {
                 console.error('❌ Lỗi gọi OpenRouter AI:', err);
                 await message.reply(`❌ Lỗi OpenRouter AI: ${err.message}`);
@@ -585,9 +590,10 @@ client.on('messageCreate', async (message) => {
     if (message.attachments.size > 0 && (message.content.toLowerCase().includes('read') || message.content.includes(')(read'))) {
         const attachment = message.attachments.first();
         try {
+            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
             const textContent = await fetchAndExtractText(attachment.url, attachment.name);
             const replyText = formatDocumentResponse(attachment.name, textContent);
-            await message.reply(replyText);
+            await sendLongMessage(thinkingMsg, replyText);
         } catch (err) {
             console.error('❌ Lỗi khi đọc file đính kèm từ chat:', err);
             await message.reply(`❌ Lỗi đọc file \`${attachment.name}\`: ${err.message}`);
@@ -613,8 +619,9 @@ client.on('messageCreate', async (message) => {
         const topic = message.content.replace(/^(\)\(doavui|\)\(dovui)/i, '').trim() || 'tổng hợp';
         try {
             await message.channel.sendTyping();
+            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
             const question = await getAITriviaQuestion(topic);
-            await sendLongMessage(message, question);
+            await sendLongMessage(thinkingMsg, question);
         } catch (err) {
             await message.reply(`❌ Lỗi tạo câu đố AI: ${err.message}`);
         }
@@ -642,9 +649,10 @@ client.on('messageCreate', async (message) => {
     if (message.content.startsWith(')(boitoan') || message.content.startsWith(')(boi')) {
         try {
             await message.channel.sendTyping();
+            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
             const username = message.author.displayName || message.author.username;
             const fortune = await getDailyFortune(username);
-            await sendLongMessage(message, fortune);
+            await sendLongMessage(thinkingMsg, fortune);
         } catch (err) {
             await message.reply(`❌ Lỗi bói toán AI: ${err.message}`);
         }
@@ -658,6 +666,7 @@ client.on('messageCreate', async (message) => {
 
         try {
             await message.channel.sendTyping();
+            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
             let cards = '';
             if (attachment) {
                 cards = await generateFlashcardsFromFile(attachment.url, attachment.name, null);
@@ -667,7 +676,7 @@ client.on('messageCreate', async (message) => {
                 cards = await generateFlashcardsFromServer('các bài đăng mới nhất trong server', message.guild, message.channelId);
             }
 
-            await sendLongMessage(message, cards);
+            await sendLongMessage(thinkingMsg, cards);
         } catch (err) {
             console.error('❌ Lỗi tạo Flashcard:', err);
             await message.reply(`❌ Lỗi tạo Flashcards: ${err.message}`);

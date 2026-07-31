@@ -1,12 +1,13 @@
 # TÀI LIỆU: e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf
 
-- **Thời gian lưu:** 11:12:57 31/7/2026
-- **URL đính kèm:** https://cdn.discordapp.com/attachments/1532309198153580605/1532415270948442152/e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf?ex=6a6d6d2f&is=6a6c1baf&hm=7b42cd4f0cc7fa4d2363770ff55398b93a4392a979490eec3ba313d6d3bdaee7&
+- **Thời gian lưu:** 11:26:22 31/7/2026
+- **File gốc lưu tại:** `history/documents/files/e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf`
+- **URL đính kèm gốc:** https://cdn.discordapp.com/attachments/1532309198153580605/1532415270948442152/e_thi___e_thi___ML_2025_Courseware___MOOC_daotao.ai_1.pdf?ex=6a6d6d2f&is=6a6c1baf&hm=7b42cd4f0cc7fa4d2363770ff55398b93a4392a979490eec3ba313d6d3bdaee7&
 
-## TÓM TẮT Ý CHÍNH
+## TÓM TẮT Ý CHÍNH (AI SUMMARY)
 Tải lên bởi Tuanminh1509hp trong kênh #tài-nguyên
 
-## NỘI DUNG CHI TIẾT TRÍCH XUẤT
+## TOÀN BỘ NỘI DUNG CHI TIẾT TRÍCH XUẤT
 ```text
 Answer submitted.
 20235571

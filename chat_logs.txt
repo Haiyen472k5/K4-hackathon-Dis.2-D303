@@ -221,3 +221,10 @@ Mining data và đề xuất sản phẩm AI khác cho khoá — qua đủ 5 ti�
 [11:16:51 31/7/2026] [S: TestBOT] [#Sách deep learning cho ai cần] tuanminh1509hp: https://www.facebook.com/groups/machinelearningcoban/posts/1020266838430723/
 [11:16:52 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask tìm bài đăng về ma sát dọc
 [11:17:14 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask trong forum trao đổi có bài viết nào
+[11:26:37 31/7/2026] [S: TestBOT] [#thông-báo] trickez: hạn nộp hackathon: trước 17h ngày 31/07/2026
+[11:27:22 31/7/2026] [S: TestBOT] [#Product AI] trickez: bài viết về product AI
+[11:27:37 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@1532329195315658773> Tìm cho tôi cái gì đó về công chúa trong server này
+[11:27:46 31/7/2026] [S: TestBOT] [#Product AI] trickez: Pro
+[11:27:59 31/7/2026] [S: TestBOT] [#Sản phẩm AI] trickez: AI
+[11:28:18 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask tìm cho tôi bài viết về sản phẩm AI
+[11:29:04 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask tìm các bài viết liên quan đến sản phẩm AI

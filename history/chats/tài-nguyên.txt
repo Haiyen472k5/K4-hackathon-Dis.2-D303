@@ -14,3 +14,11 @@
 [22:51:55 30/7/2026] Tuanminh1509hp: intro to ai
 [22:52:22 30/7/2026] Tuanminh1509hp: link workshop buổi 1: https://www.youtube.com/watch?v=VkUx9npkx54&list=RDVkUx9npkx54&index=1
 [10:59:40 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: https://www.youtube.com/watch?v=NJuNJ8Xs_00&list=RDdCo-yNISXSA&index=3
+[16:01:16 30/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: Bài giảng Đạo hàm
+[16:05:20 30/7/2026] thidinh_hw: Phân (Bố Maxwell Boltzmann)
+[16:05:46 30/7/2026] thidinh_hw: Vật lý điện tử
+[16:13:49 30/7/2026] Tuanminh1509hp: nguyên lý hệ điều hành chương 3
+[22:51:12 30/7/2026] Tuanminh1509hp: đề thi machine learning
+[22:51:55 30/7/2026] Tuanminh1509hp: intro to ai
+[22:52:22 30/7/2026] Tuanminh1509hp: link workshop buổi 1: https://www.youtube.com/watch?v=VkUx9npkx54&list=RDVkUx9npkx54&index=1
+[10:59:40 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: https://www.youtube.com/watch?v=NJuNJ8Xs_00&list=RDdCo-yNISXSA&index=3

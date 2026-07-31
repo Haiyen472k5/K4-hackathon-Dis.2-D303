@@ -1,12 +1,13 @@
 # TÀI LIỆU: AO_HAM_THEO_QUY_TAC_.pdf
 
-- **Thời gian lưu:** 11:12:55 31/7/2026
-- **URL đính kèm:** https://cdn.discordapp.com/attachments/1532309198153580605/1532312109864587385/AO_HAM_THEO_QUY_TAC_.pdf?ex=6a6d0d1b&is=6a6bbb9b&hm=f4d1f72040a59291822b97fc682da2fa055e79cc447c14ffcb62cd6497077516&
+- **Thời gian lưu:** 11:26:20 31/7/2026
+- **File gốc lưu tại:** `history/documents/files/AO_HAM_THEO_QUY_TAC_.pdf`
+- **URL đính kèm gốc:** https://cdn.discordapp.com/attachments/1532309198153580605/1532312109864587385/AO_HAM_THEO_QUY_TAC_.pdf?ex=6a6d0d1b&is=6a6bbb9b&hm=f4d1f72040a59291822b97fc682da2fa055e79cc447c14ffcb62cd6497077516&
 
-## TÓM TẮT Ý CHÍNH
+## TÓM TẮT Ý CHÍNH (AI SUMMARY)
 Tải lên bởi G06 - T089 - Nguyễn Thị Hải Yến trong kênh #tài-nguyên
 
-## NỘI DUNG CHI TIẾT TRÍCH XUẤT
+## TOÀN BỘ NỘI DUNG CHI TIẾT TRÍCH XUẤT
 ```text
 ĐẠO HÀM THEO QUY TẮC 
  

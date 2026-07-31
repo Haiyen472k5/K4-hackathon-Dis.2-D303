@@ -64,3 +64,29 @@
 [11:10:05 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài viết mới nhất trong kênh <#1532308961997361242>
 [11:10:48 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi tài liệu mới nhất trong kênh <#1532309198153580605>
 [11:11:50 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi tài liệu về học máy
+[10:37:52 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài viết về học máy
+[10:38:18 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: tìm cho tôi bài viết về học máy
+[10:38:38 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài viết về học máy
+[10:39:05 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài viết về học máy trong kênh <#1532308961997361242>
+[10:41:09 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> hãy tìm cho tôi tài liệu đạo hàm
+[10:42:33 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài viết về AI trong kênh <#1532365127565836288>
+[10:44:28 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi tài liệu về AI trong kênh <#1532365127565836288>
+[10:45:08 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi tài liệu AI trong kênh <#1532583134120509501>
+[10:48:38 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài viết AI trong kênh <#1532583134120509501>
+[10:49:29 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho taif liệu AI trong kênh <#1532583134120509501>
+[10:50:25 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tài bài viết học máy trong kênh <#1532308961997361242>
+[10:51:12 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> Hoàng Sa và trường Sa là LLM hay API
+[10:53:30 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm kiếm tài liệu ML trong kênh <#1532583134120509501>
+[10:56:14 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm kiếm bài chia sẻ mới nhất trong kênh <#1532583134120509501>
+[10:56:29 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm kiếm bài chia sẻ mới nhất trong kênh <#1532308961997361242>
+[10:58:46 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm kiếm tài liệu về RUMAD
+[10:59:49 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài hát yêu nước
+[11:04:10 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài hát yêu nước
+[11:05:16 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài hát nhà tôi có treo một lá cờ
+[11:05:31 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài hát của hà anh tuần
+[11:08:13 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm bài viết mới nhất trong kênh <#1532308961997361242>
+[11:09:45 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài viết mới nhất trong kênh <#1532309198153580605>
+[11:10:05 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi bài viết mới nhất trong kênh <#1532308961997361242>
+[11:10:48 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi tài liệu mới nhất trong kênh <#1532309198153580605>
+[11:11:50 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm cho tôi tài liệu về học máy
+[11:21:36 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532295811029794886> tìm kiến thức về học máy cho tôi
