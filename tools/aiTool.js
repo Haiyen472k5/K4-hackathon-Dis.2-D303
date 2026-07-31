@@ -192,28 +192,19 @@ const serverContextCache = new Map();
 const CACHE_TTL_MS = 45000;
 
 // 🛠️ Hàm thu thập dữ liệu nội bộ trong Server Discord (Bài đăng + Kênh + File PDF/Word + Tất cả cuộc trò chuyện)
-async function getServerContext(guild) {
-    if (!guild) return 'Không có dữ liệu server.';
+async function getServerContext(guild, question = '') {
+    const guildId = guild ? guild.id : 'global';
 
-    const guildId = guild.id;
-    const now = Date.now();
-
-    // ⚡ Trả về cache ngay lập tức nếu còn hiệu lực (dưới 45s)
-    if (serverContextCache.has(guildId)) {
-        const cached = serverContextCache.get(guildId);
-        if (now - cached.timestamp < CACHE_TTL_MS) {
-            return cached.data;
-        }
-    }
+    const { detectQueryIntent, getSelectiveHistorySummary } = require('./intentRouter');
+    const intent = detectQueryIntent(question);
 
     let contextText = '';
 
-    // ⚡ TIẾT KIỆM THỜI GIAN (0ms): Đọc trực tiếp từ bộ lưu trữ đĩa cứng history/ thay vì gọi HTTP lặp lại
+    // ⚡ Lấy dữ liệu phân loại thông minh dựa theo loại câu hỏi (web, file, post, all)
     try {
-        const { getLocalHistorySummary } = require('./historyManager');
-        const localHistory = getLocalHistorySummary();
-        if (localHistory && localHistory.trim()) {
-            contextText += `\n=== BỘ LƯU TRỮ LỊCH SỬ CỤC BỘ (HISTORY ARCHIVE) ===\n${localHistory}\n`;
+        const selectiveHistory = getSelectiveHistorySummary(intent);
+        if (selectiveHistory && selectiveHistory.trim()) {
+            contextText += `\n=== BỘ LƯU TRỮ LỊCH SỬ SERVER (LOẠI YÊU CẦU: ${intent.toUpperCase()}) ===\n${selectiveHistory}\n`;
         }
     } catch (e) {}
 
@@ -223,12 +214,7 @@ async function getServerContext(guild) {
         contextText += `\n=== LỊCH SỬ CHAT GẦN ĐÂY TRONG SERVER ===\n${recentLogs}\n`;
     }
 
-    const finalResult = contextText || 'Không tìm thấy dữ liệu bài đăng hoặc cuộc trò chuyện nào trong server.';
-    
-    // Lưu vào cache 5 phút
-    serverContextCache.set(guildId, { data: finalResult, timestamp: Date.now() });
-
-    return finalResult;
+    return contextText || 'Không tìm thấy dữ liệu bài đăng hoặc cuộc trò chuyện nào trong server.';
 }
 
 // 🛠️ Hàm gọi AI xử lý CHỈ DỰA TRÊN DỮ LIỆU NỘI BỘ + LỊCH SỬ CHAT (Mode Nội bộ Server)
@@ -242,7 +228,7 @@ async function askAIServer(question, guild, channelId = null) {
         throw err;
     }
 
-    const serverData = await getServerContext(guild);
+    const serverData = await getServerContext(guild, question);
 
     // Kiểm tra xem người dùng có đang phát lệnh tóm tắt hoặc tạo Flashcard không
     const isFlashcardRequest = /flashcard|thẻ ghi nhớ|the ghi nho|flash card|thẻ học/i.test(question);
