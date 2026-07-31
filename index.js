@@ -368,7 +368,7 @@ client.on('interactionCreate', async (interaction) => {
     if (interaction.commandName === 'ask') {
         const question = interaction.options.getString('question');
         const mode = interaction.options.getString('mode') || 'server';
-        await interaction.reply('⏳ Botvodich đang vận, đợi xíu ...');
+        await interaction.reply('Ta đang vận, nhà ngươi đợi xíu ...');
 
         try {
             let answer = '';
@@ -392,7 +392,7 @@ client.on('interactionCreate', async (interaction) => {
     // F. Xử lý /ask_server (Chỉ tìm bài đăng & chat trong Server Discord)
     if (interaction.commandName === 'ask_server') {
         const question = interaction.options.getString('question');
-        await interaction.reply('⏳ Botvodich đang vận, đợi xíu ...');
+        await interaction.reply('Ta đang vận, nhà ngươi đợi xíu ...');
 
         try {
             const answer = await askAIServer(question, interaction.guild, interaction.channelId);
@@ -413,7 +413,7 @@ client.on('interactionCreate', async (interaction) => {
     // H. Xử lý /doavui (Đố vui AI)
     if (interaction.commandName === 'doavui') {
         const topic = interaction.options.getString('topic') || 'tổng hợp';
-        await interaction.reply('⏳ Botvodich đang vận, đợi xíu ...');
+        await interaction.reply('Ta đang vận, nhà ngươi đợi xíu ...');
         try {
             const question = await getAITriviaQuestion(topic);
             await sendLongMessage(interaction, question);
@@ -439,7 +439,7 @@ client.on('interactionCreate', async (interaction) => {
 
     // K. Xử lý /boitoan (Bói vận thế AI)
     if (interaction.commandName === 'boitoan') {
-        await interaction.reply('⏳ Botvodich đang vận, đợi xíu ...');
+        await interaction.reply('Ta đang vận, nhà ngươi đợi xíu ...');
         try {
             const username = interaction.user.displayName || interaction.user.username;
             const fortune = await getDailyFortune(username);
@@ -456,7 +456,7 @@ client.on('interactionCreate', async (interaction) => {
         const attachment = interaction.options.getAttachment('file');
         const fileName = interaction.options.getString('filename');
 
-        await interaction.reply('⏳ Botvodich đang vận, đợi xíu ...');
+        await interaction.reply('Ta đang vận, nhà ngươi đợi xíu ...');
 
         try {
             let cards = '';
@@ -521,7 +521,7 @@ client.on('messageCreate', async (message) => {
 
         try {
             await message.channel.sendTyping();
-            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
+            const thinkingMsg = await message.reply('Ta đang vận, nhà ngươi đợi xíu ...');
             let summary = '';
             if (attachment) {
                 summary = await summarizeDocument(attachment.url, attachment.name, null);
@@ -549,7 +549,7 @@ client.on('messageCreate', async (message) => {
 
         try {
             await message.channel.sendTyping();
-            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
+            const thinkingMsg = await message.reply('Ta đang vận, nhà ngươi đợi xíu ...');
             const answer = await askAIServer(questionText, message.guild, message.channelId);
             await sendLongMessage(thinkingMsg, answer);
         } catch (err) {
@@ -576,7 +576,7 @@ client.on('messageCreate', async (message) => {
         if (questionText) {
             try {
                 await message.channel.sendTyping();
-                const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
+                const thinkingMsg = await message.reply('Ta đang vận, nhà ngươi đợi xíu ...');
                 const answer = await askAIServer(questionText, message.guild, message.channelId);
                 await sendLongMessage(thinkingMsg, answer);
             } catch (err) {
@@ -590,7 +590,7 @@ client.on('messageCreate', async (message) => {
     if (message.attachments.size > 0 && (message.content.toLowerCase().includes('read') || message.content.includes(')(read'))) {
         const attachment = message.attachments.first();
         try {
-            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
+            const thinkingMsg = await message.reply('Ta đang vận, nhà ngươi đợi xíu ...');
             const textContent = await fetchAndExtractText(attachment.url, attachment.name);
             const replyText = formatDocumentResponse(attachment.name, textContent);
             await sendLongMessage(thinkingMsg, replyText);
@@ -619,7 +619,7 @@ client.on('messageCreate', async (message) => {
         const topic = message.content.replace(/^(\)\(doavui|\)\(dovui)/i, '').trim() || 'tổng hợp';
         try {
             await message.channel.sendTyping();
-            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
+            const thinkingMsg = await message.reply('Ta đang vận, nhà ngươi đợi xíu ...');
             const question = await getAITriviaQuestion(topic);
             await sendLongMessage(thinkingMsg, question);
         } catch (err) {
@@ -649,7 +649,7 @@ client.on('messageCreate', async (message) => {
     if (message.content.startsWith(')(boitoan') || message.content.startsWith(')(boi')) {
         try {
             await message.channel.sendTyping();
-            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
+            const thinkingMsg = await message.reply('Ta đang vận, nhà ngươi đợi xíu ...');
             const username = message.author.displayName || message.author.username;
             const fortune = await getDailyFortune(username);
             await sendLongMessage(thinkingMsg, fortune);
@@ -666,7 +666,7 @@ client.on('messageCreate', async (message) => {
 
         try {
             await message.channel.sendTyping();
-            const thinkingMsg = await message.reply('Botvodich đang vận, đợi xíu ...');
+            const thinkingMsg = await message.reply('Ta đang vận, nhà ngươi đợi xíu ...');
             let cards = '';
             if (attachment) {
                 cards = await generateFlashcardsFromFile(attachment.url, attachment.name, null);

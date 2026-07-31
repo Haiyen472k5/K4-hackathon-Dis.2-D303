@@ -10,3 +10,4 @@ Tối ưu: nhận diện intent thật (chào hỏi / hỏi bài / hỏi logisti
 Tính năng mới: bản tin cuối ngày cho TA (câu hỏi tồn, chủ đề hỏi nhiều nhất) · phát hiện học viên stuck và chủ động hỗ trợ — chủ động đến đâu thì thành phiền?
 Hướng C — Làn mở
 Mining data và đề xuất sản phẩm AI khác cho khoá — qua đủ 5 tiêu chí nghiệm thu như mọi hướng.
+[11:37:27 31/7/2026] trickez: !ask tóm tắt bài viết này
