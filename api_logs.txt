@@ -4805,3 +4805,14 @@
   • Tokens usage: {"prompt_tokens":27403,"completion_tokens":32,"total_tokens":27435,"cost":0.0083009,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0083009,"upstream_inference_prompt_cost":0.0082209,"upstream_inference_completions_cost":0.00008},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
   • Output preview: "Chào Ngươi, cứ gọi Ta là Botvodich. Ngươi cần gì, cứ nói, Ta sẽ giải quyết một cách nhanh chóng và chính xác.  📌 **Đường dẫn xem bài đăng/kênh trực t..."
 ==================================================
+==================================================
+[12:31:44 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "<@&1532329834305294438> chào bro"
+  • Messages count: 2
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":54191}
+[12:31:46 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (11186ms)
+  • Tokens usage: {"prompt_tokens":28431,"completion_tokens":32,"total_tokens":28463,"cost":0.0086093,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0086093,"upstream_inference_prompt_cost":0.0085293,"upstream_inference_completions_cost":0.00008},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "Chào Ngươi, bro à! Ta là Botvodich, trợ lý AI của server Discord này. Có điều gì Ngươi muốn Ta giải quyết không?  📌 **Đường dẫn xem bài đăng/kênh trự..."
+==================================================

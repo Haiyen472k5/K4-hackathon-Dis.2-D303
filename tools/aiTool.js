@@ -206,9 +206,9 @@ async function getServerContext(guild, question = '') {
         }
     }
 
-    // ⚡ Nếu chỉ là chào hỏi / tán gẫu thông thường, không cần quét server (0ms)
-    const isCasualChat = /^(hi|hello|xin chào|chào|chào bot|bạn là ai|bạn tên gì|bạn thế nào|hôm nay thế nào|kể chuyện|tán gẫu)$/i.test(question.trim());
-    if (isCasualChat && serverContextCache.has(guildId)) {
+    // ⚡ Nếu chỉ là chào hỏi / tán gẫu thông thường (không phải yêu cầu tìm kiếm), trả về dữ liệu nhanh (0ms)
+    const isSearchQuery = /tìm|tim|bài đăng|bai dang|bài viết|tài liệu|tai lieu|file|sách|sach|link|kênh|kenh|chia sẻ|chia se|ở đâu|chỉ tôi/i.test(question.trim());
+    if (!isSearchQuery && serverContextCache.has(guildId)) {
         return serverContextCache.get(guildId).data;
     }
 
@@ -374,8 +374,10 @@ QUY TẮC NGHIỆP VỤ BẮT BUỘC:
         // 🔗 1. CHUYỂN ĐỔI LINK CÚ PHÁP MARKDOWN [TITLE](URL) THÀNH RAW URL ĐỂ CLICK ĐƯỢC TRÊN DISCORD
         aiAnswer = aiAnswer.replace(/\[([^\]]+)\]\((https:\/\/discord\.com\/channels\/[^\s\)]+)\)/gi, '$1:\n$2');
 
-        // 🔗 2. TỰ ĐỘNG BỔ SUNG LINK DISCORD CHÍNH XÁC NẾU AI QUÊN ĐÍNH KÈM
-        if (serverData && !aiAnswer.includes('https://discord.com/channels/')) {
+        // 🔗 2. CHỈ TỰ ĐỘNG BỔ SUNG LINK KHI NGƯỜI DÙNG CÓ YÊU CẦU TÌM BÀI ĐĂNG / TÀI LIỆU
+        const isSearchIntent = /tìm|tim|bài đăng|bai dang|bài viết|tài liệu|tai lieu|file|sách|sach|link|kênh|kenh|chia sẻ|chia se|ở đâu|chỉ tôi/i.test(question);
+
+        if (isSearchIntent && serverData && !aiAnswer.includes('https://discord.com/channels/')) {
             const lines = serverData.split('\n');
             const words = question.toLowerCase().replace(/[^\w\sàáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđ]/g, ' ').split(/\s+/).filter(w => w.length > 2);
             let matchedLink = '';
