@@ -98,16 +98,26 @@ async function formatDocumentResponse(fileName, rawContent) {
     const totalWords = words.length;
 
     // TỰ ĐỘNG KÍCH HOẠT TOOL TÓM TẮT NẾU TÀI LIỆU HƠN 300 CHỮ
+    const { saveDocumentHistory } = require('./historyManager');
+    let summaryText = '';
+
     if (totalWords > 300) {
         try {
             // Requiring summarizeTool dynamically to avoid circular dependency
             const { summarizeText } = require('./summarizeTool');
-            const summary = await summarizeText(trimmed, fileName);
-            return `📄 **Tài liệu:** \`${fileName}\` (Tổng cộng ${totalWords} chữ - *⚡ Đã tự động kích hoạt Tóm tắt AI vì tài liệu > 300 chữ*)\n\n${summary}`;
+            summaryText = await summarizeText(trimmed, fileName);
+            
+            // Lưu vào history/documents/
+            saveDocumentHistory(fileName, null, trimmed, summaryText);
+
+            return `📄 **Tài liệu:** \`${fileName}\` (Tổng cộng ${totalWords} chữ - *⚡ Đã tự động kích hoạt Tóm tắt AI vì tài liệu > 300 chữ*)\n\n${summaryText}`;
         } catch (e) {
             console.error('❌ Lỗi tự động tóm tắt tài liệu:', e);
         }
     }
+
+    // Nếu <= 300 chữ, lưu history trực tiếp
+    saveDocumentHistory(fileName, null, trimmed, summaryText || 'Tài liệu ngắn dưới 300 chữ.');
 
     // Nếu <= 300 chữ, hiển thị văn bản trực tiếp
     let responseHeader = `📄 **Tài liệu:** \`${fileName}\` (${totalWords} chữ)\n\n`;

@@ -85,12 +85,16 @@ async function processYouTubeAndEmbeds(msgContent, msgEmbeds) {
     const ytRegex = /(https?:\/\/(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)[a-zA-Z0-9_-]+)/gi;
     const matches = msgContent ? msgContent.match(ytRegex) : null;
 
+    const { saveWebLinkHistory } = require('./historyManager');
+
     if (matches && matches.length > 0) {
         const uniqueUrls = [...new Set(matches)];
         for (const url of uniqueUrls) {
             const info = await fetchYouTubeInfo(url);
             if (info && info.title) {
                 resultText += `\n  🎵 [Bài hát/Video YouTube từ Link]: Tên bài: "${info.title}" | Ca sĩ/Tác giả: "${info.author}" | Link: ${url}`;
+                // Tự động lưu lịch sử link YouTube vào history/web_links/
+                saveWebLinkHistory(url, info.title, info.author, `Video YouTube: ${info.title} từ tác giả/ca sĩ ${info.author}`);
             }
         }
     }
@@ -324,6 +328,15 @@ async function getServerContext(guild) {
     if (recentLogs) {
         contextText += `\n=== LỊCH SỬ CHAT GẦN ĐÂY TRONG SERVER ===\n${recentLogs}\n`;
     }
+
+    // 3. Đọc dữ liệu phân loại từ thư mục history/ (Chats kênh, Documents Word/PDF + Tóm tắt, Web/YouTube Links)
+    try {
+        const { getLocalHistorySummary } = require('./historyManager');
+        const localHistory = getLocalHistorySummary();
+        if (localHistory && localHistory.trim()) {
+            contextText += `\n=== BỘ LƯU TRỮ DỮ LIỆU CỤC BỘ (HISTORY ARCHIVE) ===\n${localHistory}\n`;
+        }
+    } catch (e) {}
 
     const finalResult = contextText || 'Không tìm thấy dữ liệu bài đăng hoặc cuộc trò chuyện nào trong server.';
     

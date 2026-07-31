@@ -13,6 +13,7 @@ const { searchChatLogs } = require('./tools/chatHistoryTool');
 const { logApiCall, logApiResponse, logApiError, LOG_FILE_PATH } = require('./tools/apiLogger');
 const { startNumberGame, guessNumber, playRPS, getAITriviaQuestion, getDailyFortune, getMinigameMenu } = require('./tools/minigameTool');
 const { generateFlashcardsFromText, generateFlashcardsFromServer, generateFlashcardsFromFile } = require('./tools/flashcardTool');
+const { saveChannelChatMessage } = require('./tools/historyManager');
 
 // Bắt các lỗi toàn cục để tự động ghi log vào api_logs.txt giúp dễ dàng debug
 process.on('unhandledRejection', (reason) => {
@@ -681,11 +682,11 @@ client.on('messageCreate', async (message) => {
     const logOutput = `[${timestamp}] [S: ${serverName}] [#${channelName}] ${authorName}: ${content}\n`;
     console.log(logOutput.trim());
 
-    fs.appendFile('chat_logs.txt', logOutput, 'utf8', (err) => {
-        if (err) {
-            console.error('❌ Lỗi khi ghi file log:', err);
-        }
-    });
+    // 1. Lưu log chung
+    fs.appendFile('chat_logs.txt', logOutput, 'utf8', () => {});
+
+    // 2. Tự động lưu phân loại theo từng Kênh vào history/chats/[channel_name].txt
+    saveChannelChatMessage(channelName, authorName, content);
 });
 
 // 6. KHỞI ĐỘNG BOT
