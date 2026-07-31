@@ -230,71 +230,87 @@ async function syncAllServerHistoryToDisk(client) {
             // Bỏ qua kênh voice, category
             if (channel.type === 4 || channel.type === 2 || channel.type === 13) continue;
 
-            try {
-                if (channel.isTextBased && channel.isTextBased()) {
-                    const recentMsgs = await channel.messages.fetch({ limit: 50 }).catch(() => null);
-                    if (recentMsgs && recentMsgs.size > 0) {
-                        const msgsArray = Array.from(recentMsgs.values()).reverse(); // Xếp theo thứ tự thời gian tăng dần
-                        
-                        for (const msg of msgsArray) {
-                            if (!msg || !msg.author || msg.author.bot) continue;
+            const processMsgList = async (recentMsgs, contextName) => {
+                if (!recentMsgs || recentMsgs.size === 0) return;
+                const msgsArray = Array.from(recentMsgs.values()).reverse();
+                
+                for (const msg of msgsArray) {
+                    if (!msg || !msg.author || msg.author.bot) continue;
 
-                            // 🛑 CHECKPOINT 1: Bỏ qua tin nhắn đã được lưu trước đó
-                            if (checkpoint.syncedMessages[msg.id]) {
-                                continue;
-                            }
+                    // 🛑 CHECKPOINT 1: Bỏ qua tin nhắn đã được lưu trước đó
+                    if (checkpoint.syncedMessages[msg.id]) {
+                        continue;
+                    }
 
-                            const authorName = msg.author.displayName || msg.author.username;
-                            const content = msg.content || '';
+                    const authorName = msg.author.displayName || msg.author.username;
+                    const content = msg.content || '';
 
-                            // A. Lưu chat history theo kênh
-                            if (content.trim()) {
-                                saveChannelChatMessage(channel.name, authorName, content, msg.createdAt);
-                                checkpoint.syncedMessages[msg.id] = true;
+                    // A. Lưu chat history theo kênh / bài đăng
+                    if (content.trim()) {
+                        saveChannelChatMessage(contextName, authorName, content, msg.createdAt);
+                        checkpoint.syncedMessages[msg.id] = true;
+                        newItemsCount++;
+                    }
+
+                    // B. Quét & Lưu link YouTube / Web
+                    const ytRegex = /(https?:\/\/(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)[a-zA-Z0-9_-]+)/gi;
+                    const matches = content.match(ytRegex);
+                    if (matches && matches.length > 0) {
+                        for (const url of matches) {
+                            if (!checkpoint.syncedWebLinks[url]) {
+                                saveWebLinkHistory(url, `Video YouTube trong ${contextName}`, authorName, `Được chia sẻ bởi ${authorName} trong ${contextName}`);
+                                checkpoint.syncedWebLinks[url] = true;
                                 newItemsCount++;
                             }
-
-                            // B. Quét & Lưu link YouTube / Web
-                            const ytRegex = /(https?:\/\/(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)[a-zA-Z0-9_-]+)/gi;
-                            const matches = content.match(ytRegex);
-                            if (matches && matches.length > 0) {
-                                for (const url of matches) {
-                                    // 🛑 CHECKPOINT 2: Bỏ qua link YouTube đã lưu
-                                    if (!checkpoint.syncedWebLinks[url]) {
-                                        saveWebLinkHistory(url, `Video YouTube trong #${channel.name}`, authorName, `Được chia sẻ bởi ${authorName} trong kênh #${channel.name}`);
-                                        checkpoint.syncedWebLinks[url] = true;
-                                        newItemsCount++;
-                                    }
-                                }
-                            }
-
-                            // C. Quét & Lưu File đính kèm (PDF, DOCX, TXT...)
-                            if (msg.attachments && msg.attachments.size > 0) {
-                                for (const [, attachment] of msg.attachments) {
-                                    const ext = attachment.name.substring(attachment.name.lastIndexOf('.')).toLowerCase();
-                                    if (['.pdf', '.doc', '.docx', '.txt', '.md', '.json', '.csv'].includes(ext)) {
-                                        // 🛑 CHECKPOINT 3: Bỏ qua file đã tải và trích xuất trước đó
-                                        const rawExists = fs.existsSync(path.join(RAW_FILES_DIR, attachment.name));
-                                        if (checkpoint.syncedFiles[attachment.name] || rawExists) {
-                                            checkpoint.syncedFiles[attachment.name] = true;
-                                            continue;
-                                        }
-
-                                        try {
-                                            const docText = await fetchAndExtractText(attachment.url, attachment.name);
-                                            if (docText && docText.trim()) {
-                                                saveDocumentHistory(attachment.name, attachment.url, docText.trim(), `Tải lên bởi ${authorName} trong kênh #${channel.name}`);
-                                                checkpoint.syncedFiles[attachment.name] = true;
-                                                newItemsCount++;
-                                            }
-                                        } catch (err) {}
-                                    }
-                                }
-                            }
-
-                            checkpoint.syncedMessages[msg.id] = true;
                         }
                     }
+
+                    // C. Quét & Lưu File đính kèm (PDF, DOCX, TXT...)
+                    if (msg.attachments && msg.attachments.size > 0) {
+                        for (const [, attachment] of msg.attachments) {
+                            const ext = attachment.name.substring(attachment.name.lastIndexOf('.')).toLowerCase();
+                            if (['.pdf', '.doc', '.docx', '.txt', '.md', '.json', '.csv'].includes(ext)) {
+                                const rawExists = fs.existsSync(path.join(RAW_FILES_DIR, attachment.name));
+                                if (checkpoint.syncedFiles[attachment.name] || rawExists) {
+                                    checkpoint.syncedFiles[attachment.name] = true;
+                                    continue;
+                                }
+
+                                try {
+                                    const docText = await fetchAndExtractText(attachment.url, attachment.name);
+                                    if (docText && docText.trim()) {
+                                        saveDocumentHistory(attachment.name, attachment.url, docText.trim(), `Tải lên bởi ${authorName} trong ${contextName}`);
+                                        checkpoint.syncedFiles[attachment.name] = true;
+                                        newItemsCount++;
+                                    }
+                                } catch (err) {}
+                            }
+                        }
+                    }
+
+                    checkpoint.syncedMessages[msg.id] = true;
+                }
+            };
+
+            try {
+                // A. Quét tin nhắn trực tiếp trong kênh
+                if (channel.isTextBased && channel.isTextBased()) {
+                    const recentMsgs = await channel.messages.fetch({ limit: 50 }).catch(() => null);
+                    await processMsgList(recentMsgs, channel.name);
+                }
+
+                // B. Quét các bài đăng (Threads / Forum Posts) trong kênh (ví dụ kênh #chia-sẻ)
+                if (channel.threads) {
+                    try {
+                        const activeThreads = await channel.threads.fetchActive().catch(() => ({ threads: new Map() }));
+                        const archivedThreads = await channel.threads.fetchArchived().catch(() => ({ threads: new Map() }));
+                        const allThreads = [...activeThreads.threads.values(), ...archivedThreads.threads.values()];
+
+                        for (const t of allThreads) {
+                            const threadMsgs = await t.messages.fetch({ limit: 50 }).catch(() => null);
+                            await processMsgList(threadMsgs, `${channel.name} — Bài đăng: ${t.name}`);
+                        }
+                    } catch (e) {}
                 }
             } catch (err) {
                 console.error(`❌ Lỗi quét kênh #${channel.name}:`, err.message);

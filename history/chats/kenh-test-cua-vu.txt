@@ -183,3 +183,8 @@
 [12:04:01 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532291378397315202> tìm cho tôi tất cả bài viết, tài liệu liên quan đến machine learning
 [12:04:26 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: vậy bài viết thì sao
 [12:05:41 31/7/2026] yen4732: <@1532291378397315202> tìm cho tôi bài viết về con rắn
+[12:05:42 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532291378397315202> tìm cho tôi bài viết về con rắn
+[12:07:08 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532330472234029096> tìm cho tôi bài viết về machine learning
+[12:07:53 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532291378397315202> tìm cho tôi bài viết về con rắng
+[12:08:49 31/7/2026] yen4732: <@1532291378397315202> tìm cho tôi tất cả bài viết, tài liệu liên quan đến machine learning
+[12:09:47 31/7/2026] yen4732: <@1532291378397315202> tìm cho tôi bài viết chia sẻ về học máy
