@@ -341,7 +341,7 @@ ${serverData}
 QUY TẮC NGHIỆP VỤ BẮT BUỘC:
 1. GHI NHỚ LỊCH SỬ CHAT: Chú ý theo dõi lịch sử tin nhắn trước đó trong kênh chat. Nối tiếp mạch trò chuyện trước đó một cách tự nhiên.
 2. NGUỒN SỰ THẬT: CHỈ TÌM VÀ TRẢ LỜI dựa trên danh sách bài đăng, tài liệu và cuộc trò chuyện ở trên. KHÔNG tự bịa thông tin từ internet.
-3. TRÍCH DẪN LINK TRỰC TIẾP CLICK ĐƯỢC: Nếu tìm thấy bài đăng hoặc file tài liệu phù hợp, bạn BẮT BUỘC phải trích dẫn tên bài đăng và kèm theo đường link URL đầy đủ dạng Markdown [Tên Bài Đăng](https://discord.com/channels/...) hoặc đính kèm trực tiếp URL https://discord.com/channels/... Tuyệt đối KHÔNG gõ tên bài dạng _bàiđăng_ gây lỗi phông chữ gạch chân nghiêng!
+3. TRÍCH DẪN LINK THUẦN DISCORD (RAW URL): Trong Discord, cú pháp [Title](URL) trong tin nhắn thường SẼ KHÔNG BẤM ĐƯỢC. Bạn BẮT BUỘC phải trích dẫn link URL THUẦN trực tiếp như https://discord.com/channels/... đứng riêng một dòng để người dùng bấm vào chuyển hướng ngay lập tức! Tuyệt đối KHÔNG bọc link trong ngoặc vuông dạng [Tên](URL)!
 4. PHẢN HỒI TRỌN VẸN CÂU: Trả lời hoàn chỉnh từ 2-4 câu văn rõ ràng, không bị ngắt câu lấp lửng giữa chừng.
 5. KHÔNG THẤY BÀI ĐĂNG: Nếu KHÔNG tìm thấy bài đăng hoặc thảo luận nào liên quan trong dữ liệu nội bộ ở trên, hãy dùng phong cách tự mãn nhưng thừa nhận rõ ràng: "⚠️ Bổn bot vô địch đã quét sạch server nhưng không có bài đăng hay cuộc trò chuyện nào liên quan đến yêu cầu này đâu nhé!"${summarizeInstruction}${flashcardInstruction}`;
 
@@ -372,7 +372,10 @@ QUY TẮC NGHIỆP VỤ BẮT BUỘC:
         let aiAnswer = completion.choices[0]?.message?.content || 'Không có phản hồi từ AI.';
         const tokens = completion.usage || null;
 
-        // 🔗 TỰ ĐỘNG BỔ SUNG LINK DISCORD CHÍNH XÁC CLICK ĐƯỢC NẾU AI QUÊN ĐÍNH KÈM
+        // 🔗 1. CHUYỂN ĐỔI LINK CÚ PHÁP MARKDOWN [TITLE](URL) THÀNH RAW URL ĐỂ CLICK ĐƯỢC TRÊN DISCORD
+        aiAnswer = aiAnswer.replace(/\[([^\]]+)\]\((https:\/\/discord\.com\/channels\/[^\s\)]+)\)/gi, '$1:\n$2');
+
+        // 🔗 2. TỰ ĐỘNG BỔ SUNG LINK DISCORD CHÍNH XÁC NẾU AI QUÊN ĐÍNH KÈM
         if (serverData && !aiAnswer.includes('https://discord.com/channels/')) {
             const lines = serverData.split('\n');
             const words = question.toLowerCase().replace(/[^\w\sàáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđ]/g, ' ').split(/\s+/).filter(w => w.length > 2);
@@ -392,7 +395,7 @@ QUY TẮC NGHIỆP VỤ BẮT BUỘC:
             }
 
             if (matchedLink) {
-                aiAnswer += `\n\n📌 **Đường dẫn xem bài đăng/kênh trực tiếp:** ${matchedLink}`;
+                aiAnswer += `\n\n📌 **Đường dẫn xem bài đăng/kênh trực tiếp:**\n${matchedLink}`;
             }
         }
 

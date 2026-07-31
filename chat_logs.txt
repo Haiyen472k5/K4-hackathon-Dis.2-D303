@@ -297,3 +297,7 @@ Mining data và đề xuất sản phẩm AI khác cho khoá — qua đủ 5 ti�
 [12:15:15 31/7/2026] [S: TestBOT] [#chung] trickez: có prompt chuẩn thì tạo lại là dc
 [12:18:10 31/7/2026] [S: TestBOT] [#Đề bài — Track duy nhất: "AI cho khoá AI Thực Chiến"] yen4732: <@1532291378397315202> hãy tóm tắt cho tôi bài chia sẻ này trong khảng 120 -1 50 từ
 [12:18:29 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@&1532329834305294438> tìm cho tôi bài đăng về rắn
+[12:19:53 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] yen4732: <@1532291378397315202> tìm cho tôi bài viết về AI product
+[12:20:12 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@&1532329834305294438> tìm cho tôi bài đăng về rắn
+[12:20:36 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] yen4732: vậy AI trong giáo dục thì sao
+[12:21:32 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] yen4732: Vậy AI trong giáo dục cũng là sản phẩm AI lần sau gọi đến bạn hãy tích hợp vào nhé
