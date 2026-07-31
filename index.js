@@ -12,6 +12,7 @@ const { summarizeText, summarizeDocument } = require('./tools/summarizeTool');
 const { searchChatLogs } = require('./tools/chatHistoryTool');
 const { logApiCall, logApiResponse, logApiError, LOG_FILE_PATH } = require('./tools/apiLogger');
 const { startNumberGame, guessNumber, playRPS, getAITriviaQuestion, getDailyFortune, getMinigameMenu } = require('./tools/minigameTool');
+const { generateFlashcardsFromText, generateFlashcardsFromServer, generateFlashcardsFromFile } = require('./tools/flashcardTool');
 
 // Bắt các lỗi toàn cục để tự động ghi log vào api_logs.txt giúp dễ dàng debug
 process.on('unhandledRejection', (reason) => {
@@ -139,7 +140,25 @@ const commands = [
         ),
     new SlashCommandBuilder()
         .setName('boitoan')
-        .setDescription('Xem vận thế và lời phán hài hước hôm nay từ AI Botvodich')
+        .setDescription('Xem vận thế và lời phán hài hước hôm nay từ AI Botvodich'),
+    new SlashCommandBuilder()
+        .setName('flashcard')
+        .setDescription('Tạo bộ thẻ ghi nhớ (Flashcard) học tập từ bài đăng, tài liệu hoặc file')
+        .addStringOption(option =>
+            option.setName('topic')
+                .setDescription('Từ khóa, câu hỏi hoặc chủ đề bài đăng cần tạo Flashcard')
+                .setRequired(false)
+        )
+        .addAttachmentOption(option =>
+            option.setName('file')
+                .setDescription('Tải lên file đính kèm (.docx, .pdf, .txt, .md) để tạo Flashcards')
+                .setRequired(false)
+        )
+        .addStringOption(option =>
+            option.setName('filename')
+                .setDescription('Tên file trên server (VD: 01-de-bai.md, README.md)')
+                .setRequired(false)
+        )
 ].map(command => command.toJSON());
 
 const rest = new REST({ version: '10' }).setToken(BOT_TOKEN);
@@ -422,6 +441,34 @@ client.on('interactionCreate', async (interaction) => {
         }
         return;
     }
+
+    // L. Xử lý /flashcard (Tạo bộ thẻ ghi nhớ)
+    if (interaction.commandName === 'flashcard') {
+        const topic = interaction.options.getString('topic');
+        const attachment = interaction.options.getAttachment('file');
+        const fileName = interaction.options.getString('filename');
+
+        await interaction.deferReply();
+
+        try {
+            let cards = '';
+            if (attachment) {
+                cards = await generateFlashcardsFromFile(attachment.url, attachment.name, null);
+            } else if (fileName) {
+                cards = await generateFlashcardsFromFile(null, null, fileName);
+            } else if (topic) {
+                cards = await generateFlashcardsFromServer(topic, interaction.guild, interaction.channelId);
+            } else {
+                cards = await generateFlashcardsFromServer('tổng hợp các bài đăng trong server', interaction.guild, interaction.channelId);
+            }
+
+            await sendLongMessage(interaction, cards);
+        } catch (err) {
+            console.error('❌ Lỗi tạo Flashcard:', err);
+            await interaction.editReply(`❌ Lỗi tạo Flashcards: ${err.message}`);
+        }
+        return;
+    }
 });
 
 // 5. XỬ LÝ MESSAGE (LỆNH PREFIX & AUTO LOGGING CHAT)
@@ -596,6 +643,30 @@ client.on('messageCreate', async (message) => {
             await sendLongMessage(message, fortune);
         } catch (err) {
             await message.reply(`❌ Lỗi bói toán AI: ${err.message}`);
+        }
+        return;
+    }
+
+    // N. Lệnh Prefix )(flashcard hoặc )(the [từ_khóa/chủ_đề]
+    if (message.content.startsWith(')(flashcard') || message.content.startsWith(')(the')) {
+        const queryText = message.content.replace(/^(\)\(flashcard|\)\(the)/i, '').trim();
+        const attachment = message.attachments.first();
+
+        try {
+            await message.channel.sendTyping();
+            let cards = '';
+            if (attachment) {
+                cards = await generateFlashcardsFromFile(attachment.url, attachment.name, null);
+            } else if (queryText) {
+                cards = await generateFlashcardsFromServer(queryText, message.guild, message.channelId);
+            } else {
+                cards = await generateFlashcardsFromServer('các bài đăng mới nhất trong server', message.guild, message.channelId);
+            }
+
+            await sendLongMessage(message, cards);
+        } catch (err) {
+            console.error('❌ Lỗi tạo Flashcard:', err);
+            await message.reply(`❌ Lỗi tạo Flashcards: ${err.message}`);
         }
         return;
     }

@@ -126,3 +126,13 @@
 [09:51:53 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask lịch demo từ mấy giờ
 [09:53:41 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096>  tìm cho tôi tài liệu về machine learning
 [09:54:11 31/7/2026] [S: TestBOT] [#chung] yen4732: https://docs.google.com/forms/d/e/1FAIpQLSeNeaNmRZi7J0LAPxSgq3ZQ3i8Ztf8dw-HimgNupmgYtJVJTg/viewform
+[09:56:45 31/7/2026] [S: TestBOT] [#kênh-chat-cua-en] yen4732: <@1532295811029794886> tìm tài liệu về AI
+[09:56:50 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask đây là server gì
+[09:56:51 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@&1532329834305294438> tôi muốn chơi 1 minigame
+[09:57:05 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096>  tìm cho tôi tài liệu về machine learning
+[09:57:28 31/7/2026] [S: TestBOT] [#kênh-chat-cua-en] yen4732: <@1532295811029794886> tìm tài liệu machine learning
+[09:57:33 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096> tìm cho tôi tài liệu về môn học máy
+[09:58:41 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: mình lấy câu nào để thử nghiệm h mng
+[09:59:08 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096> tìm cho tôi bài viết về discord
+[10:00:02 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: <@673768392842412045> bot anh co function gi roi
+[10:00:07 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: chốt bot thoi :))

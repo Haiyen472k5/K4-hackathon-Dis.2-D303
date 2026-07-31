@@ -326,7 +326,12 @@ async function askAIServer(question, guild, channelId = null) {
 
     const serverData = await getServerContext(guild);
 
-    // Kiểm tra xem người dùng có đang phát lệnh tóm tắt không
+    // Kiểm tra xem người dùng có đang phát lệnh tóm tắt hoặc tạo Flashcard không
+    const isFlashcardRequest = /flashcard|thẻ ghi nhớ|the ghi nho|flash card|thẻ học/i.test(question);
+    const flashcardInstruction = isFlashcardRequest
+        ? `\n\n📌 CHÚ Ý ĐẶC BIỆT: Người dùng đang yêu cầu TẠO FLASHCARD (THẺ GHI NHỚ). Bạn BẮT BUỘC xuất ra bộ 3 đến 5 thẻ Flashcard theo cấu trúc chuẩn:\n🎴 **Thẻ X:**\n- ❓ **Mặt trước (Thuật ngữ/Câu hỏi):** ...\n- 💡 **Mặt sau (Giải thích/Chi tiết):** ...\nĐính kèm tên bài đăng/tài liệu và đường Link URL trực tiếp nếu tìm thấy trong server!`
+        : '';
+
     const isSummarizeRequest = /tóm tắt|rút gọn|tom tat|summary/i.test(question);
     const summarizeInstruction = isSummarizeRequest 
         ? `\n\n📌 CHÚ Ý ĐẶC BIỆT: Người dùng đang yêu cầu TÓM TẮT. Bắt buộc xuất ra 3 đến 5 ý chính quan trọng nhất cho Ngươi. KHÔNG ĐƯỢC trả lời cộc lốc!` 
@@ -344,7 +349,7 @@ QUY TẮC NGHIỆP VỤ BẮT BUỘC:
 2. NGUỒN SỰ THẬT: CHỈ TÌM VÀ TRẢ LỜI dựa trên danh sách bài đăng, tài liệu và cuộc trò chuyện ở trên. KHÔNG tự bịa thông tin từ internet.
 3. TRÍCH DẪN LINK: Nếu tìm thấy bài đăng hoặc file tài liệu phù hợp với yêu cầu của người dùng, hãy trích dẫn tên bài đăng/file và đính kèm đường link trực tiếp (URL) của bài đăng/file đó.
 4. PHẢN HỒI TRỌN VẸN CÂU: Trả lời hoàn chỉnh từ 2-4 câu văn rõ ràng, không bị ngắt câu lấp lửng giữa chừng (như chỉ nói "Ngươi muốn..." rồi ngắt).
-5. KHÔNG THẤY BÀI ĐĂNG: Nếu KHÔNG tìm thấy bài đăng hoặc thảo luận nào liên quan trong dữ liệu nội bộ ở trên, hãy dùng phong cách tự mãn nhưng thừa nhận rõ ràng: "⚠️ Bổn bot vô địch đã quét sạch server nhưng không có bài đăng hay cuộc trò chuyện nào liên quan đến yêu cầu này đâu nhé!"${summarizeInstruction}`;
+5. KHÔNG THẤY BÀI ĐĂNG: Nếu KHÔNG tìm thấy bài đăng hoặc thảo luận nào liên quan trong dữ liệu nội bộ ở trên, hãy dùng phong cách tự mãn nhưng thừa nhận rõ ràng: "⚠️ Bổn bot vô địch đã quét sạch server nhưng không có bài đăng hay cuộc trò chuyện nào liên quan đến yêu cầu này đâu nhé!"${summarizeInstruction}${flashcardInstruction}`;
 
     const history = getChannelHistory(channelId);
 
