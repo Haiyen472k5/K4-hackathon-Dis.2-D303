@@ -194,3 +194,24 @@
 - **Thời gian lưu:** 12:01:22 31/7/2026
 - **Tóm tắt nội dung:** Được chia sẻ bởi G06 - T089 - Nguyễn Thị Hải Yến trong kênh #tài-nguyên
 ---
+
+### 🔗 Link: Video YouTube trong kênh #tài-nguyên (Link kênh: https://discord.com/channels/1532295235588063382/1532309198153580605)
+- **URL:** https://www.youtube.com/watch?v=VkUx9npkx54
+- **Tác giả / Kênh:** Tuanminh1509hp
+- **Thời gian lưu:** 12:13:39 31/7/2026
+- **Tóm tắt nội dung:** Được chia sẻ bởi Tuanminh1509hp trong kênh #tài-nguyên (Link kênh: https://discord.com/channels/1532295235588063382/1532309198153580605)
+---
+
+### 🔗 Link: Video YouTube trong kênh #tài-nguyên (Link kênh: https://discord.com/channels/1532295235588063382/1532309198153580605)
+- **URL:** https://www.youtube.com/watch?v=NJuNJ8Xs_00
+- **Tác giả / Kênh:** G06 - T089 - Nguyễn Thị Hải Yến
+- **Thời gian lưu:** 12:13:39 31/7/2026
+- **Tóm tắt nội dung:** Được chia sẻ bởi G06 - T089 - Nguyễn Thị Hải Yến trong kênh #tài-nguyên (Link kênh: https://discord.com/channels/1532295235588063382/1532309198153580605)
+---
+
+### 🔗 Link: Video YouTube trong kênh #tài-nguyên (Link kênh: https://discord.com/channels/1532295235588063382/1532309198153580605)
+- **URL:** https://www.youtube.com/watch?v=ADg3VdITIVs
+- **Tác giả / Kênh:** G06 - T089 - Nguyễn Thị Hải Yến
+- **Thời gian lưu:** 12:13:39 31/7/2026
+- **Tóm tắt nội dung:** Được chia sẻ bởi G06 - T089 - Nguyễn Thị Hải Yến trong kênh #tài-nguyên (Link kênh: https://discord.com/channels/1532295235588063382/1532309198153580605)
+---

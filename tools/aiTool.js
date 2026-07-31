@@ -191,26 +191,120 @@ async function askAI(promptText, channelId = null) {
 const serverContextCache = new Map();
 const CACHE_TTL_MS = 45000;
 
-// 🛠️ Hàm thu thập dữ liệu nội bộ trong Server Discord (Bài đăng + Kênh + File PDF/Word + Tất cả cuộc trò chuyện)
+// 🛠️ Hàm thu thập dữ liệu trực tiếp trong Server Discord (Bài đăng + Kênh + Tên File + Link Web/YouTube)
 async function getServerContext(guild) {
+    if (!guild) return 'Không có dữ liệu server.';
+
+    const guildId = guild.id;
+    const now = Date.now();
+
+    // Cache 30 giây để tránh gọi API quá dày
+    if (serverContextCache.has(guildId)) {
+        const cached = serverContextCache.get(guildId);
+        if (now - cached.timestamp < 30000) {
+            return cached.data;
+        }
+    }
+
     let contextText = '';
 
-    // ⚡ TIẾT KIỆM THỜI GIAN & ĐẢM BẢO 100% ĐẦY ĐỦ: Đọc toàn bộ lịch sử từ bộ lưu trữ history/
+    // 1. ĐỌC TRỰC TIẾP KÊNH & BÀI ĐĂNG (THREADS/FORUM POSTS) TỪ DISCORD SERVER
+    let channels;
+    try {
+        channels = await guild.channels.fetch();
+    } catch (e) {
+        channels = guild.channels.cache;
+    }
+
+    if (channels && channels.size > 0) {
+        for (const [, channel] of channels) {
+            if (!channel || !channel.name) continue;
+            // Bỏ qua các kênh voice / category
+            if (channel.type === 4 || channel.type === 2 || channel.type === 13) continue;
+
+            let channelInfo = `\n=== KÊNH #${channel.name} (Link kênh: https://discord.com/channels/${guild.id}/${channel.id}) ===\n`;
+            let hasData = false;
+
+            // A. Đọc các Bài đăng (Threads / Forum Posts) trong kênh (ví dụ #chia-sẻ)
+            if (channel.threads) {
+                try {
+                    const activeThreads = await channel.threads.fetchActive().catch(() => ({ threads: new Map() }));
+                    const archivedThreads = await channel.threads.fetchArchived().catch(() => ({ threads: new Map() }));
+                    const allThreads = [...activeThreads.threads.values(), ...archivedThreads.threads.values()];
+
+                    for (let idx = 0; idx < allThreads.length; idx++) {
+                        const t = allThreads[idx];
+                        const threadUrl = `https://discord.com/channels/${guild.id}/${t.id}`;
+                        hasData = true;
+                        channelInfo += `📌 Bài đăng/Thread #${idx + 1}: "${t.name}" | Link trực tiếp: ${threadUrl}\n`;
+
+                        try {
+                            const threadMsgs = await t.messages.fetch({ limit: 15 }).catch(() => null);
+                            if (threadMsgs && threadMsgs.size > 0) {
+                                for (const [, msg] of threadMsgs) {
+                                    if (msg.author && msg.author.bot) continue;
+                                    if (msg.content && msg.content.trim()) {
+                                        channelInfo += `   - Tin nhắn từ ${msg.author.username}: "${msg.content.trim()}"\n`;
+                                    }
+                                    if (msg.attachments && msg.attachments.size > 0) {
+                                        for (const [, att] of msg.attachments) {
+                                            channelInfo += `   - [File đính kèm: "${att.name}" | Link: ${att.url}]\n`;
+                                        }
+                                    }
+                                }
+                            }
+                        } catch (err) {}
+                    }
+                } catch (e) {}
+            }
+
+            // B. Đọc tin nhắn trực tiếp trong kênh văn bản (Chỉ đọc TÊN FILE, không đọc nội dung file)
+            try {
+                if (channel.isTextBased && channel.isTextBased()) {
+                    const recentMsgs = await channel.messages.fetch({ limit: 25 }).catch(() => null);
+                    if (recentMsgs && recentMsgs.size > 0) {
+                        for (const [, msg] of recentMsgs) {
+                            if (msg.author && msg.author.bot) continue;
+                            if (msg.content && msg.content.trim()) {
+                                hasData = true;
+                                channelInfo += `- Tin nhắn từ ${msg.author.username} (Link: https://discord.com/channels/${guild.id}/${channel.id}/${msg.id}): "${msg.content.trim()}"\n`;
+                            }
+                            if (msg.attachments && msg.attachments.size > 0) {
+                                for (const [, att] of msg.attachments) {
+                                    hasData = true;
+                                    channelInfo += `  📎 [File đính kèm: "${att.name}" | Link: ${att.url}]\n`;
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (e) {}
+
+            if (hasData) {
+                contextText += channelInfo;
+            }
+        }
+    }
+
+    // 2. Đọc Lịch sử Link Web & YouTube từ history/web_links/
     try {
         const { getLocalHistorySummary } = require('./historyManager');
         const localHistory = getLocalHistorySummary();
         if (localHistory && localHistory.trim()) {
-            contextText += `\n=== BỘ LƯU TRỮ LỊCH SỬ DỮ LIỆU SERVER (FULL HISTORY ARCHIVE) ===\n${localHistory}\n`;
+            contextText += `\n=== BỘ LƯU TRỮ LINK WEB VÀ YOUTUBE ===\n${localHistory}\n`;
         }
     } catch (e) {}
 
-    // Lịch sử cuộc trò chuyện gần đây trong chat_logs.txt
-    const recentLogs = getRecentChatLogs(50);
+    // 3. Lịch sử chat gần đây trong chat_logs.txt
+    const recentLogs = getRecentChatLogs(30);
     if (recentLogs) {
-        contextText += `\n=== LỊCH SỬ CHAT GẦN ĐÂY TRONG SERVER ===\n${recentLogs}\n`;
+        contextText += `\n=== LỊCH SỬ CHAT GẦN ĐÂY ===\n${recentLogs}\n`;
     }
 
-    return contextText || 'Không tìm thấy dữ liệu bài đăng hoặc cuộc trò chuyện nào trong server.';
+    const result = contextText || 'Không tìm thấy dữ liệu bài đăng hoặc cuộc trò chuyện nào trong server.';
+    serverContextCache.set(guildId, { data: result, timestamp: now });
+
+    return result;
 }
 
 // 🛠️ Hàm gọi AI xử lý CHỈ DỰA TRÊN DỮ LIỆU NỘI BỘ + LỊCH SỬ CHAT (Mode Nội bộ Server)

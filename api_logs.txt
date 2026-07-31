@@ -4739,3 +4739,14 @@
   • Tokens usage: {"prompt_tokens":164053,"completion_tokens":96,"total_tokens":164149,"cost":0.0494559,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0494559,"upstream_inference_prompt_cost":0.0492159,"upstream_inference_completions_cost":0.00024},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
   • Output preview: "Ha! Ngươi muốn tìm bài đăng về rắn ư? Ta đã lục soát khắp nơi và tìm thấy một bài viết khá thú vị về loài bò sát này trong kênh #chia-sẻ_—_bài_đăng__�..."
 ==================================================
+==================================================
+[12:13:35 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "<@&1532329834305294438> tìm cho tôi bài đăng về rắn"
+  • Messages count: 2
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":372570}
+[12:13:42 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (6577ms)
+  • Tokens usage: {"prompt_tokens":168856,"completion_tokens":189,"total_tokens":169045,"cost":0.0511293,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0511293,"upstream_inference_prompt_cost":0.0506568,"upstream_inference_completions_cost":0.0004725},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "Ngươi tìm bài đăng về rắn ư? Để Ta xem xét xem. Ta đã tìm thấy bài đăng mang tên "🐍 CON RẮN CÓ "GÃI ĐÍT" KHÔNG?", nội dung giải thích về hành vi chà ..."
+==================================================

@@ -1,7 +1,0 @@
-[16:02:20 30/7/2026] thidinh_hw: Khi đan xen kẽ từng trang của hai cuốn sách 1000 trang lại với nhau, lực ma sát tạo ra lớn đến mức người thường hay thậm chí hai chiếc xe tải cũng khó lòng kéo rời chúng.
-
-Nguyên nhân nằm ở hiện tượng tích tụ ma sát. Dù hệ số ma sát giữa hai mặt giấy rất nhỏ, nhưng lực ép tăng dần theo từng trang xếp chồng. Lực kéo hai bên làm các trang giấy siết chặt vào nhau, tạo nên hiệu ứng tự khóa (self-locking).
-
-Thực nghiệm từ chương trình MythBusters cho thấy, để kéo rời hai cuốn sách đan trang hoàn toàn, người ta cần một lực lên tới khoảng 36.000 đến 40.000 Newton (tương đương trọng lượng của một cỗ xe tải nặng 4 tấn).
-
-Sức mạnh phi thường này là minh chứng rực rỡ cho việc: những lực cực nhỏ khi cộng dồn hàng nghìn lần sẽ tạo nên một kỳ tích bạt núi dời sông.

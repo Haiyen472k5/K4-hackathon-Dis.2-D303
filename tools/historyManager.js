@@ -127,42 +127,13 @@ function saveWebLinkHistory(linkUrl, title = '', author = '', summaryText = '') 
 }
 
 /**
- * 4. Đọc toàn bộ dữ liệu History cục bộ từ đĩa cứng (dùng để trả lời siêu nhanh)
+ * 4. Đọc dữ liệu History cục bộ từ đĩa cứng (CHỈ LƯU LINK WEB VÀ YOUTUBE + TÓM TẮT VẮN TẮT)
  */
 function getLocalHistorySummary() {
     initHistoryDirs();
     let result = '';
 
-    // A. Đọc toàn bộ lịch sử chat các kênh (lưu trọn vẹn)
-    try {
-        const chatFiles = fs.readdirSync(CHATS_DIR);
-        if (chatFiles.length > 0) {
-            result += `\n=== LỊCH SỬ CHAT CÁC KÊNH TRONG SERVER ===\n`;
-            for (const file of chatFiles) {
-                if (file.endsWith('.txt')) {
-                    const channelName = file.replace('.txt', '');
-                    const content = fs.readFileSync(path.join(CHATS_DIR, file), 'utf8');
-                    result += `\n--- Kênh #${channelName} ---\n${content.trim()}\n`;
-                }
-            }
-        }
-    } catch (e) {}
-
-    // B. Đọc toàn bộ văn bản trích xuất từ tài liệu PDF/Word (lưu trọn vẹn)
-    try {
-        const docFiles = fs.readdirSync(DOCS_DIR);
-        if (docFiles.length > 0) {
-            result += `\n=== TOÀN BỘ NỘI DUNG TÀI LIỆU PDF/WORD TRONG SERVER ===\n`;
-            for (const file of docFiles) {
-                if (file.endsWith('.md')) {
-                    const docContent = fs.readFileSync(path.join(DOCS_DIR, file), 'utf8');
-                    result += `\n${docContent.trim()}\n`;
-                }
-            }
-        }
-    } catch (e) {}
-
-    // C. Đọc danh sách link web & YouTube (chỉ lưu vắn tắt ý chính)
+    // CHỈ đọc danh sách link web & YouTube (lưu vắn tắt ý chính)
     try {
         const linksFile = path.join(LINKS_DIR, 'web_and_youtube_links.md');
         if (fs.existsSync(linksFile)) {
