@@ -1,6 +1,6 @@
 # TÀI LIỆU: RUMAD.pdf
 
-- **Thời gian lưu:** 11:26:26 31/7/2026
+- **Thời gian lưu:** 11:30:56 31/7/2026
 - **File gốc lưu tại:** `history/documents/files/RUMAD.pdf`
 - **URL đính kèm gốc:** https://cdn.discordapp.com/attachments/1532309198153580605/1532578481790255144/RUMAD.pdf?ex=6a6d5c6f&is=6a6c0aef&hm=208058a522c849af8a54822ca51dae87f604da416871d52ff6c71230d53db2f8&
 

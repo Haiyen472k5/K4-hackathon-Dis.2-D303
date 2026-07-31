@@ -1,6 +1,6 @@
 # TÀI LIỆU: Machine_Learning_-_Exercises.docx
 
-- **Thời gian lưu:** 11:26:23 31/7/2026
+- **Thời gian lưu:** 11:30:53 31/7/2026
 - **File gốc lưu tại:** `history/documents/files/Machine_Learning_-_Exercises.docx`
 - **URL đính kèm gốc:** https://cdn.discordapp.com/attachments/1532309198153580605/1532415273649569932/Machine_Learning_-_Exercises.docx?ex=6a6d6d30&is=6a6c1bb0&hm=ad82c2bf8d77b97a4e142a644f7d17b65c6e2a29c77b88e5f44bdbf86cec1ac6&
 

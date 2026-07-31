@@ -89,3 +89,31 @@
 - **Thời gian lưu:** 11:27:19 31/7/2026
 - **Tóm tắt nội dung:** Video YouTube: Hoàn Hảo | B RAY | Official Lyrics Video từ tác giả/ca sĩ Great Entertainment
 ---
+
+### 🔗 Link: Video YouTube trong #tài-nguyên
+- **URL:** https://www.youtube.com/watch?v=VkUx9npkx54
+- **Tác giả / Kênh:** Tuanminh1509hp
+- **Thời gian lưu:** 11:30:55 31/7/2026
+- **Tóm tắt nội dung:** Được chia sẻ bởi Tuanminh1509hp trong kênh #tài-nguyên
+---
+
+### 🔗 Link: Video YouTube trong #tài-nguyên
+- **URL:** https://www.youtube.com/watch?v=NJuNJ8Xs_00
+- **Tác giả / Kênh:** G06 - T089 - Nguyễn Thị Hải Yến
+- **Thời gian lưu:** 11:30:56 31/7/2026
+- **Tóm tắt nội dung:** Được chia sẻ bởi G06 - T089 - Nguyễn Thị Hải Yến trong kênh #tài-nguyên
+---
+
+### 🔗 Link: NHÀ TÔI CÓ TREO MỘT LÁ CỜ - DTAP x HÀ ANH TUẤN | OFFICIAL MV
+- **URL:** https://www.youtube.com/watch?v=NJuNJ8Xs_00
+- **Tác giả / Kênh:** DTAP OFFICIAL
+- **Thời gian lưu:** 11:31:41 31/7/2026
+- **Tóm tắt nội dung:** Video YouTube: NHÀ TÔI CÓ TREO MỘT LÁ CỜ - DTAP x HÀ ANH TUẤN | OFFICIAL MV từ tác giả/ca sĩ DTAP OFFICIAL
+---
+
+### 🔗 Link: Hoàn Hảo | B RAY | Official Lyrics Video
+- **URL:** https://www.youtube.com/watch?v=VkUx9npkx54
+- **Tác giả / Kênh:** Great Entertainment
+- **Thời gian lưu:** 11:31:42 31/7/2026
+- **Tóm tắt nội dung:** Video YouTube: Hoàn Hảo | B RAY | Official Lyrics Video từ tác giả/ca sĩ Great Entertainment
+---

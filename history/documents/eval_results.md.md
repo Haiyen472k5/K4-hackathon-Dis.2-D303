@@ -1,6 +1,6 @@
 # TÀI LIỆU: eval_results.md
 
-- **Thời gian lưu:** 11:26:19 31/7/2026
+- **Thời gian lưu:** 11:30:48 31/7/2026
 - **File gốc lưu tại:** `history/documents/files/eval_results.md`
 - **URL đính kèm gốc:** https://cdn.discordapp.com/attachments/1532295237190553662/1532591940313284628/eval_results.md?ex=6a6d68f8&is=6a6c1778&hm=654cacf1ebe3668791342d4524feee8a2866468c2e0c0c4deef0056d1678158e&
 

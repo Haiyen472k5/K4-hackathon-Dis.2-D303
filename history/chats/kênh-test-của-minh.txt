@@ -97,3 +97,36 @@
 [23:48:44 30/7/2026] Tuanminh1509hp: <@1532404160044077279> tìm thông tin về chó và mèo trên server dis này
 [23:49:20 30/7/2026] Tuanminh1509hp: <@1532404160044077279> thông tin về chó trong server
 [23:50:53 30/7/2026] thidinh_hw: <@1532404160044077279> tìm giúp tôi trong kênh chia sẻ có bài đăng nào về mèo không
+[22:00:08 30/7/2026] Tuanminh1509hp: ra vậy
+[22:01:36 30/7/2026] Tuanminh1509hp: cứu e nhập api key r mà xong bấm đâu
+[22:02:04 30/7/2026] thidinh_hw: tạo bot chưa e
+[22:02:14 30/7/2026] Tuanminh1509hp: tạo bot ở vscode á
+[22:02:30 30/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: ủa hình như phải bật web hay sao ý
+[22:02:51 30/7/2026] thidinh_hw: muốn nó khôn phải thêm apikey như gemini hay gpt cơ
+[22:05:53 30/7/2026] Tuanminh1509hp: cay v mãi ko @ được nó
+[22:06:06 30/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: thế thì tạo lại đi
+[22:06:23 30/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: xóa con kia đi làm lại con mới
+[22:27:37 30/7/2026] Tuanminh1509hp: <@&1532404844411879679> hi
+[22:28:03 30/7/2026] Tuanminh1509hp: <@1532404160044077279> chào mừng bạn đến với channel
+[22:30:56 30/7/2026] Tuanminh1509hp: <@1532404160044077279> bạn là gì
+[22:37:01 30/7/2026] Tuanminh1509hp: <@1532329195315658773> tìm cho tôi tài liệu về toán 12 đạo hàm trong server này
+[22:37:21 30/7/2026] Tuanminh1509hp: anh tat bot r a
+[22:37:23 30/7/2026] thidinh_hw: a tắt rồi, cháy apikey quá :))
+[22:37:29 30/7/2026] Tuanminh1509hp: :))))) tốt r
+[22:37:36 30/7/2026] thidinh_hw: nó ngốn quota khiếp
+[22:39:10 30/7/2026] Tuanminh1509hp: <@1532404160044077279> bạn là gì
+[22:40:10 30/7/2026] Tuanminh1509hp: <@1532404160044077279> bạn là gì
+[22:41:46 30/7/2026] Tuanminh1509hp: <@1532404160044077279> b ổn k
+[23:11:45 30/7/2026] Tuanminh1509hp: <@1532404160044077279> tìm link workshop buổi 1
+[23:24:02 30/7/2026] Tuanminh1509hp: <@1532404160044077279> link workshop buổi 1
+[23:24:22 30/7/2026] Tuanminh1509hp: <@1532404160044077279> tìm cuộc trò chuyện về rắn
+[23:24:47 30/7/2026] Tuanminh1509hp: <@1532404160044077279> tìm trên server thông tin về mèo
+[23:44:28 30/7/2026] Tuanminh1509hp: <@&1532404844411879679> tìm cuộc trò chuyện về rắn
+[23:45:06 30/7/2026] Tuanminh1509hp: <@1532404160044077279> b ở đo khong
+[23:45:21 30/7/2026] Tuanminh1509hp: <@1532404160044077279> tìm cuộc trò chuyện về rắn
+[23:45:46 30/7/2026] Tuanminh1509hp: méo quets được hết tát cả channel
+[23:46:47 30/7/2026] Tuanminh1509hp: <@1532404160044077279> tìm tài liệu toán 12
+[23:48:16 30/7/2026] Tuanminh1509hp: <@1532404160044077279> tìm bài giảng đạo hàm
+[23:48:44 30/7/2026] Tuanminh1509hp: <@1532404160044077279> tìm thông tin về chó và mèo trên server dis này
+[23:49:20 30/7/2026] Tuanminh1509hp: <@1532404160044077279> thông tin về chó trong server
+[23:50:53 30/7/2026] thidinh_hw: <@1532404160044077279> tìm giúp tôi trong kênh chia sẻ có bài đăng nào về mèo không

@@ -1,6 +1,6 @@
 # TÀI LIỆU: ml_tiengviet.pdf
 
-- **Thời gian lưu:** 11:26:24 31/7/2026
+- **Thời gian lưu:** 11:30:53 31/7/2026
 - **File gốc lưu tại:** `history/documents/files/ml_tiengviet.pdf`
 - **URL đính kèm gốc:** https://cdn.discordapp.com/attachments/1532309198153580605/1532415274635231364/ml_tiengviet.pdf?ex=6a6d6d30&is=6a6c1bb0&hm=c33e4056c7aea5f822afd64051b616e5f6c89ef5f6d5c2758632824e875fb0f6&
 

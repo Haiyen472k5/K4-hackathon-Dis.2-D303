@@ -174,14 +174,46 @@ function getLocalHistorySummary() {
     return result;
 }
 
+const CHECKPOINT_FILE = path.join(HISTORY_BASE_DIR, 'sync_checkpoint.json');
+
+// 🛠️ Tải Checkpoint mốc thời gian / ID tin nhắn đã đồng bộ
+function loadCheckpoint() {
+    initHistoryDirs();
+    if (fs.existsSync(CHECKPOINT_FILE)) {
+        try {
+            return JSON.parse(fs.readFileSync(CHECKPOINT_FILE, 'utf8'));
+        } catch (e) {
+            console.error('⚠️ Lỗi đọc file checkpoint, tạo mới checkpoint...');
+        }
+    }
+    return {
+        lastSyncedMsgId: {},
+        syncedMessages: {},
+        syncedFiles: {},
+        syncedWebLinks: {}
+    };
+}
+
+// 🛠️ Lưu Checkpoint xuống đĩa cứng
+function saveCheckpoint(data) {
+    try {
+        initHistoryDirs();
+        fs.writeFileSync(CHECKPOINT_FILE, JSON.stringify(data, null, 2), 'utf8');
+    } catch (e) {
+        console.error('❌ Lỗi lưu Checkpoint:', e.message);
+    }
+}
+
 /**
- * 5. Tự động đồng bộ toàn bộ lịch sử quá khứ trong Server Discord xuống thư mục history/ khi bot khởi động
+ * 5. Tự động đồng bộ toàn bộ lịch sử quá khứ trong Server Discord xuống thư mục history/ khi bot khởi động (CÓ CHECKPOINT)
  */
 async function syncAllServerHistoryToDisk(client) {
     if (!client || !client.guilds) return;
-    console.log('🔄 Đang tự động quét và đồng bộ lịch sử tin nhắn, tài liệu và links từ Server Discord...');
+    console.log('🔄 Đang kiểm tra Checkpoint và đồng bộ dữ liệu mới từ Server Discord...');
 
     const { fetchAndExtractText } = require('./documentTool');
+    const checkpoint = loadCheckpoint();
+    let newItemsCount = 0;
 
     for (const [, guild] of client.guilds.cache) {
         let channels;
@@ -206,12 +238,20 @@ async function syncAllServerHistoryToDisk(client) {
                         
                         for (const msg of msgsArray) {
                             if (!msg || !msg.author || msg.author.bot) continue;
+
+                            // 🛑 CHECKPOINT 1: Bỏ qua tin nhắn đã được lưu trước đó
+                            if (checkpoint.syncedMessages[msg.id]) {
+                                continue;
+                            }
+
                             const authorName = msg.author.displayName || msg.author.username;
                             const content = msg.content || '';
 
                             // A. Lưu chat history theo kênh
                             if (content.trim()) {
                                 saveChannelChatMessage(channel.name, authorName, content, msg.createdAt);
+                                checkpoint.syncedMessages[msg.id] = true;
+                                newItemsCount++;
                             }
 
                             // B. Quét & Lưu link YouTube / Web
@@ -219,7 +259,12 @@ async function syncAllServerHistoryToDisk(client) {
                             const matches = content.match(ytRegex);
                             if (matches && matches.length > 0) {
                                 for (const url of matches) {
-                                    saveWebLinkHistory(url, `Video YouTube trong #${channel.name}`, authorName, `Được chia sẻ bởi ${authorName} trong kênh #${channel.name}`);
+                                    // 🛑 CHECKPOINT 2: Bỏ qua link YouTube đã lưu
+                                    if (!checkpoint.syncedWebLinks[url]) {
+                                        saveWebLinkHistory(url, `Video YouTube trong #${channel.name}`, authorName, `Được chia sẻ bởi ${authorName} trong kênh #${channel.name}`);
+                                        checkpoint.syncedWebLinks[url] = true;
+                                        newItemsCount++;
+                                    }
                                 }
                             }
 
@@ -228,15 +273,26 @@ async function syncAllServerHistoryToDisk(client) {
                                 for (const [, attachment] of msg.attachments) {
                                     const ext = attachment.name.substring(attachment.name.lastIndexOf('.')).toLowerCase();
                                     if (['.pdf', '.doc', '.docx', '.txt', '.md', '.json', '.csv'].includes(ext)) {
+                                        // 🛑 CHECKPOINT 3: Bỏ qua file đã tải và trích xuất trước đó
+                                        const rawExists = fs.existsSync(path.join(RAW_FILES_DIR, attachment.name));
+                                        if (checkpoint.syncedFiles[attachment.name] || rawExists) {
+                                            checkpoint.syncedFiles[attachment.name] = true;
+                                            continue;
+                                        }
+
                                         try {
                                             const docText = await fetchAndExtractText(attachment.url, attachment.name);
                                             if (docText && docText.trim()) {
                                                 saveDocumentHistory(attachment.name, attachment.url, docText.trim(), `Tải lên bởi ${authorName} trong kênh #${channel.name}`);
+                                                checkpoint.syncedFiles[attachment.name] = true;
+                                                newItemsCount++;
                                             }
                                         } catch (err) {}
                                     }
                                 }
                             }
+
+                            checkpoint.syncedMessages[msg.id] = true;
                         }
                     }
                 }
@@ -246,7 +302,9 @@ async function syncAllServerHistoryToDisk(client) {
         }
     }
 
-    console.log('✅ Hoàn tất đồng bộ toàn bộ lịch sử Server Discord xuống thư mục history/!');
+    // Cập nhật lại Checkpoint file
+    saveCheckpoint(checkpoint);
+    console.log(`✅ [Checkpoint] Đồng bộ hoàn tất! Tìm thấy ${newItemsCount} mục mới. Các mục cũ được giữ nguyên 0đ/0ms.`);
 }
 
 module.exports = {

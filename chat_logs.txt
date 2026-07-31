@@ -228,3 +228,7 @@ Mining data và đề xuất sản phẩm AI khác cho khoá — qua đủ 5 ti�
 [11:27:59 31/7/2026] [S: TestBOT] [#Sản phẩm AI] trickez: AI
 [11:28:18 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask tìm cho tôi bài viết về sản phẩm AI
 [11:29:04 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask tìm các bài viết liên quan đến sản phẩm AI
+[11:31:01 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] trickez: <@1532330472234029096> tìm cho tôi các bài viết liên quan đến sản phẩm AI
+[11:31:11 31/7/2026] [S: TestBOT] [#kênh-chat-cua-en] yen4732: <@1532295811029794886> tìm cho tôi bài viết về sản phẩm AI
+[11:31:53 31/7/2026] [S: TestBOT] [#chung] trickez: <@764147694297940019> <@888061478123487243> <@734046082945777734> rep vs ae ơi :>>
+[11:32:00 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@&1532329834305294438> tìm cho t tất cả bài viết về sản phẩm AI
