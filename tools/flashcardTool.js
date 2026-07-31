@@ -1,9 +1,21 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, AttachmentBuilder } = require('discord.js');
 const { askAI, askAIServer, getServerContext } = require('./aiTool');
 const { fetchAndExtractText, extractTextFromBuffer } = require('./documentTool');
-const { createCanvas } = require('@napi-rs/canvas');
+const { createCanvas, GlobalFonts } = require('@napi-rs/canvas');
 const fs = require('fs');
 const path = require('path');
+
+// 🔤 ĐĂNG KÝ PHÔNG CHỮ TIẾNG VIỆT CHUẨN WINDOWS (Segoe UI / Arial)
+try {
+    if (fs.existsSync('C:\\Windows\\Fonts\\segoeui.ttf')) {
+        GlobalFonts.registerFromPath('C:\\Windows\\Fonts\\segoeui.ttf', 'SegoeUI');
+    }
+    if (fs.existsSync('C:\\Windows\\Fonts\\arial.ttf')) {
+        GlobalFonts.registerFromPath('C:\\Windows\\Fonts\\arial.ttf', 'ArialFont');
+    }
+} catch (e) {}
+
+const FONT_FAMILY = 'SegoeUI, ArialFont, "Segoe UI", Arial, sans-serif';
 
 /**
  * Phân tích nội dung AI trả về thành danh sách object Flashcard { front, back }
