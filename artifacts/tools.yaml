@@ -1,0 +1,55 @@
+# Định nghĩa các Tools và Schemas được sử dụng bởi Botvodich
+
+version: "1.2.0"
+bot_name: "Botvodich"
+description: "Cấu hình danh sách công cụ và chức năng xử lý nghiệp vụ của Bot Discord"
+
+tools:
+  - id: "document_reader"
+    name: "Đọc Tài Liệu Nâng Cao"
+    description: "Trích xuất văn bản từ các file đính kèm dạng Word (.docx, .doc), PDF (.pdf) hoặc Text (.txt, .md, .json, .csv)."
+    handler: "tools/documentTool.js"
+    supported_extensions:
+      - ".docx"
+      - ".doc"
+      - ".pdf"
+      - ".txt"
+      - ".md"
+      - ".json"
+      - ".csv"
+    max_output_words: 300
+
+  - id: "document_summarizer"
+    name: "Tóm Tắt Văn Bản & Tài Liệu"
+    description: "Sử dụng OpenRouter AI để tóm tắt 3-5 ý chính từ file Word/PDF/Text hoặc đoạn chat."
+    handler: "tools/summarizeTool.js"
+    max_tokens: 1000
+
+  - id: "search_thread_keyword"
+    name: "Tìm Kiếm Bài Đăng & Tài Nguyên"
+    description: "Tìm kiếm danh sách bài đăng và tài nguyên trong các kênh #chia-sẻ và #tài-nguyên khớp từ khóa tiêu đề."
+    handler: "tools/searchTool.js"
+    target_channels:
+      - "chia-sẻ"
+      - "tài-nguyên"
+
+  - id: "ai_server_rag"
+    name: "AI Quét Tài Liệu Nội Bộ Server & Kênh Tài Nguyên"
+    description: "Sử dụng OpenRouter AI để quét và đọc tự động nội dung bài viết, file đính kèm (.pdf, .doc, .docx) trong kênh #chia-sẻ & #tài-nguyên."
+    handler: "tools/aiTool.js"
+    mode: "server"
+    max_tokens: 1000
+
+  - id: "ai_general_chat"
+    name: "AI Hỏi Đáp Kiến Thức Chung"
+    description: "Sử dụng OpenRouter AI để giải đáp thắc mắc kiến thức chung trên internet."
+    handler: "tools/aiTool.js"
+    mode: "general"
+    max_tokens: 3000
+
+  - id: "chat_history_search"
+    name: "Tìm Kiếm & Quét Lịch Sử Cuộc Trò Chuyện"
+    description: "Truy vấn toàn bộ nhật ký trò chuyện (chat_logs.txt) và tin nhắn các kênh text trong server để trả lời ai đã nói gì, thảo luận chủ đề gì."
+    handler: "tools/chatHistoryTool.js"
+    max_lines: 150
+

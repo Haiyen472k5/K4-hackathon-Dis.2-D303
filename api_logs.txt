@@ -1,0 +1,29 @@
+==================================================
+[09:26:41 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAI)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "Test prompt"
+  • Messages count: 2
+  • Metadata: {"channelId":null}
+[09:26:42 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAI) (1319ms)
+  • Tokens usage: {"prompt_tokens":653,"completion_tokens":17,"total_tokens":670,"cost":0.0002384,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0002384,"upstream_inference_prompt_cost":0.0001959,"upstream_inference_completions_cost":0.0000425},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "Ngươi tìm thấy Ta rồi ư? Ngươi muốn ta giúp gì chăng?"
+==================================================
+[09:26:55 31/7/2026] ❌ [API ERROR] <- OpenRouter API (Test Error) (Thời gian xử lý: 150ms)
+  • Error Name: Error
+  • Error Message: 401 Missing Authentication header
+  • HTTP Status Code: 401
+  • Error Code: 401
+  • API Response Error Body: {
+  "message": "Missing Authentication header",
+  "code": 401
+}
+  • Model được sử dụng: invalid/model-xyz
+  • Request Payload gây lỗi: "hello"
+  • Stack Trace:
+    Error: 401 Missing Authentication header
+        at APIError.generate (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\openai\core\error.js:48:20)
+        at OpenAI.makeStatusError (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\openai\client.js:290:32)
+        at OpenAI.makeRequest (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\openai\client.js:494:30)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+==================================================
