@@ -295,3 +295,5 @@ Mining data và đề xuất sản phẩm AI khác cho khoá — qua đủ 5 ti�
 [12:14:34 31/7/2026] [S: TestBOT] [#chung] yen4732: ko merge được đâu
 [12:15:04 31/7/2026] [S: TestBOT] [#chung] trickez: bảo agent tóm tắt bot của mng thành một prompt r push lên branch riêng thôi
 [12:15:15 31/7/2026] [S: TestBOT] [#chung] trickez: có prompt chuẩn thì tạo lại là dc
+[12:18:10 31/7/2026] [S: TestBOT] [#Đề bài — Track duy nhất: "AI cho khoá AI Thực Chiến"] yen4732: <@1532291378397315202> hãy tóm tắt cho tôi bài chia sẻ này trong khảng 120 -1 50 từ
+[12:18:29 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@&1532329834305294438> tìm cho tôi bài đăng về rắn

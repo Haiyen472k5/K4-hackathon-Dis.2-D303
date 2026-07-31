@@ -369,8 +369,32 @@ QUY TẮC NGHIỆP VỤ BẮT BUỘC:
         });
 
         const duration = Date.now() - startTime;
-        const aiAnswer = completion.choices[0]?.message?.content || 'Không có phản hồi từ AI.';
+        let aiAnswer = completion.choices[0]?.message?.content || 'Không có phản hồi từ AI.';
         const tokens = completion.usage || null;
+
+        // 🔗 TỰ ĐỘNG BỔ SUNG LINK DISCORD CHÍNH XÁC CLICK ĐƯỢC NẾU AI QUÊN ĐÍNH KÈM
+        if (serverData && !aiAnswer.includes('https://discord.com/channels/')) {
+            const lines = serverData.split('\n');
+            const words = question.toLowerCase().replace(/[^\w\sàáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđ]/g, ' ').split(/\s+/).filter(w => w.length > 2);
+            let matchedLink = '';
+
+            for (const line of lines) {
+                if (line.includes('https://discord.com/channels/')) {
+                    const urlMatch = line.match(/(https:\/\/discord\.com\/channels\/\d+\/\d+(?:\/\d+)?)/);
+                    if (urlMatch) {
+                        const lineLower = line.toLowerCase();
+                        if (words.some(w => lineLower.includes(w))) {
+                            matchedLink = urlMatch[1];
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (matchedLink) {
+                aiAnswer += `\n\n📌 **Đường dẫn xem bài đăng/kênh trực tiếp:** ${matchedLink}`;
+            }
+        }
 
         logApiResponse('OpenRouter API (askAIServer)', duration, {
             tokens: tokens,
