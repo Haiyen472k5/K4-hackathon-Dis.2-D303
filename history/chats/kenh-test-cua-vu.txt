@@ -165,3 +165,13 @@
 [11:58:25 31/7/2026] yen4732: <@1532291378397315202> tìm cho tôi bài hát của hà anh tuần
 [11:58:45 31/7/2026] yen4732: <@1532291378397315202> tìm cho tôi bài hát của hà anh tuần
 [11:59:35 31/7/2026] yen4732: <@1532291378397315202> tìm cho tôi bài học về học máy
+[11:57:41 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: tìm cho tôi tất cả bài viết và tài liệu về học máy
+[11:58:25 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532291378397315202> tìm cho tôi bài hát của hà anh tuần
+[11:58:46 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532291378397315202> tìm cho tôi bài hát của hà anh tuấn
+[11:59:36 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532291378397315202> tìm cho tôi bài học về học máy
+[12:00:19 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@&1532329834305294438> m còn sống không
+[12:00:52 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532330472234029096> tìm cho tất cả tài liệu liên quan đến học máy
+[12:02:07 31/7/2026] yen4732: <@1532330472234029096> tìm cho tôi tất cả bài viết, tài liệu, link url liên quan đến học máy
+[12:02:52 31/7/2026] trickez: /ask hạn hackathon
+[12:03:00 31/7/2026] yen4732: <@1532330472234029096> tìm tất cả bài viết, tài lệu về học máy cho tôi
+[12:04:00 31/7/2026] yen4732: <@1532291378397315202> tìm cho tôi tất cả bài viết, tài liệu liên quan đến machine learning

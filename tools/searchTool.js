@@ -77,11 +77,23 @@ async function searchThreadsByKeyword(guild, query) {
     }
 
     const queryLower = query.toLowerCase().trim();
-    const matchedThreads = allThreads.filter(t => 
-        t.name.toLowerCase().includes(queryLower)
-    );
+    const results = [];
 
-    return matchedThreads;
+    for (const t of allThreads) {
+        let isMatch = t.name.toLowerCase().includes(queryLower);
+        if (!isMatch) {
+            // Quét sâu vào nội dung tin nhắn bên trong thread
+            const content = await getThreadContent(t);
+            if (content && content.toLowerCase().includes(queryLower)) {
+                isMatch = true;
+            }
+        }
+        if (isMatch) {
+            results.push(t);
+        }
+    }
+
+    return results;
 }
 
 module.exports = {

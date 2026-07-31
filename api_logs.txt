@@ -4669,3 +4669,29 @@
   • Tokens usage: {"prompt_tokens":60188,"completion_tokens":30,"total_tokens":60218,"cost":0.0181314,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0181314,"upstream_inference_prompt_cost":0.0180564,"upstream_inference_completions_cost":0.000075},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
   • Output preview: "⚠️ Bổn bot vô địch đã quét sạch server nhưng không có bài đăng hay cuộc trò chuyện nào liên quan đến yêu cầu này đâu nhé!"
 ==================================================
+==================================================
+[12:01:34 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "<@&1532329834305294438> tìm cho tôi bài đăng về con rắn"
+  • Messages count: 2
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":351629}
+[12:01:37 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (3379ms)
+  • Tokens usage: {"prompt_tokens":158139,"completion_tokens":46,"total_tokens":158185,"cost":0.0475567,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0475567,"upstream_inference_prompt_cost":0.0474417,"upstream_inference_completions_cost":0.000115},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "Ngươi đang yêu cầu Ta tìm bài đăng về con rắn. Tuy nhiên, Bổn bot vô địch Ta đã quét sạch server nhưng không có bài đăng hay cuộc trò chuyện nào liên ..."
+==================================================
+[12:03:20 31/7/2026] ❌ [API ERROR] <- Uncaught Exception (Thời gian xử lý: 0ms)
+  • Error Name: DiscordAPIError[50013]
+  • Error Message: Missing Permissions
+  • HTTP Status Code: 403
+  • Error Code: 50013
+  • Stack Trace:
+    DiscordAPIError[50013]: Missing Permissions
+        at handleErrors (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\@discordjs\rest\dist\index.js:791:13)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async SequentialHandler.runRequest (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\@discordjs\rest\dist\index.js:1198:23)
+        at async SequentialHandler.queueRequest (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\@discordjs\rest\dist\index.js:1029:14)
+        at async _REST.request (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\@discordjs\rest\dist\index.js:1342:22)
+        at async TextChannel.send (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:195:15)
+        at async Client.<anonymous> (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\index.js:593:17)
+==================================================
