@@ -4647,3 +4647,25 @@
         at async TextChannel.send (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:195:15)
         at async Client.<anonymous> (E:\THUCTAP\Hakathon Day\Day05-K4-Dis-2\index.js:593:17)
 ==================================================
+==================================================
+[11:57:44 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "tìm cho tôi bài đăng về con rắn"
+  • Messages count: 2
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":94960}
+[11:57:46 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (2574ms)
+  • Tokens usage: {"prompt_tokens":60117,"completion_tokens":30,"total_tokens":60147,"cost":0.0181101,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0181101,"upstream_inference_prompt_cost":0.0180351,"upstream_inference_completions_cost":0.000075},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "⚠️ Bổn bot vô địch đã quét sạch server nhưng không có bài đăng hay cuộc trò chuyện nào liên quan đến yêu cầu này đâu nhé!"
+==================================================
+==================================================
+[11:58:07 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "tìm cho tôi bài đăng về công chúa"
+  • Messages count: 4
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":95017}
+[11:58:09 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (1906ms)
+  • Tokens usage: {"prompt_tokens":60188,"completion_tokens":30,"total_tokens":60218,"cost":0.0181314,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0181314,"upstream_inference_prompt_cost":0.0180564,"upstream_inference_completions_cost":0.000075},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "⚠️ Bổn bot vô địch đã quét sạch server nhưng không có bài đăng hay cuộc trò chuyện nào liên quan đến yêu cầu này đâu nhé!"
+==================================================
