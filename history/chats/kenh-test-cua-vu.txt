@@ -188,3 +188,7 @@
 [12:07:53 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532291378397315202> tìm cho tôi bài viết về con rắng
 [12:08:49 31/7/2026] yen4732: <@1532291378397315202> tìm cho tôi tất cả bài viết, tài liệu liên quan đến machine learning
 [12:09:47 31/7/2026] yen4732: <@1532291378397315202> tìm cho tôi bài viết chia sẻ về học máy
+[12:08:49 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532291378397315202> tìm cho tôi tất cả bài viết, tài liệu liên quan đến machine learning
+[12:09:48 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532291378397315202> tìm cho tôi bài viết chia sẻ về học máy
+[12:10:36 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532291378397315202> tìm cho tôi tài liệu liên quan đến học máy
+[12:12:04 31/7/2026] trickez: cho tôi link đến đoạn chat chứa tài liệu 1

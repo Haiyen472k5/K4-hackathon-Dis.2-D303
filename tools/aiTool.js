@@ -247,8 +247,8 @@ ${serverData}
 QUY TẮC NGHIỆP VỤ BẮT BUỘC:
 1. GHI NHỚ LỊCH SỬ CHAT: Chú ý theo dõi lịch sử tin nhắn trước đó trong kênh chat. Nối tiếp mạch trò chuyện trước đó một cách tự nhiên.
 2. NGUỒN SỰ THẬT: CHỈ TÌM VÀ TRẢ LỜI dựa trên danh sách bài đăng, tài liệu và cuộc trò chuyện ở trên. KHÔNG tự bịa thông tin từ internet.
-3. TRÍCH DẪN LINK: Nếu tìm thấy bài đăng hoặc file tài liệu phù hợp với yêu cầu của người dùng, hãy trích dẫn tên bài đăng/file và đính kèm đường link trực tiếp (URL) của bài đăng/file đó.
-4. PHẢN HỒI TRỌN VẸN CÂU: Trả lời hoàn chỉnh từ 2-4 câu văn rõ ràng, không bị ngắt câu lấp lửng giữa chừng (như chỉ nói "Ngươi muốn..." rồi ngắt).
+3. TRÍCH DẪN LINK TRỰC TIẾP CLICK ĐƯỢC: Nếu tìm thấy bài đăng hoặc file tài liệu phù hợp, bạn BẮT BUỘC phải trích dẫn tên bài đăng và kèm theo đường link URL đầy đủ dạng Markdown [Tên Bài Đăng](https://discord.com/channels/...) hoặc đính kèm trực tiếp URL https://discord.com/channels/... Tuyệt đối KHÔNG gõ tên bài dạng _bàiđăng_ gây lỗi phông chữ gạch chân nghiêng!
+4. PHẢN HỒI TRỌN VẸN CÂU: Trả lời hoàn chỉnh từ 2-4 câu văn rõ ràng, không bị ngắt câu lấp lửng giữa chừng.
 5. KHÔNG THẤY BÀI ĐĂNG: Nếu KHÔNG tìm thấy bài đăng hoặc thảo luận nào liên quan trong dữ liệu nội bộ ở trên, hãy dùng phong cách tự mãn nhưng thừa nhận rõ ràng: "⚠️ Bổn bot vô địch đã quét sạch server nhưng không có bài đăng hay cuộc trò chuyện nào liên quan đến yêu cầu này đâu nhé!"${summarizeInstruction}${flashcardInstruction}`;
 
     const history = getChannelHistory(channelId);

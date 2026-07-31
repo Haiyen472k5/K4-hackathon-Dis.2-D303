@@ -296,7 +296,7 @@ async function syncAllServerHistoryToDisk(client) {
                 // A. Quét tin nhắn trực tiếp trong kênh
                 if (channel.isTextBased && channel.isTextBased()) {
                     const recentMsgs = await channel.messages.fetch({ limit: 50 }).catch(() => null);
-                    await processMsgList(recentMsgs, channel.name);
+                    await processMsgList(recentMsgs, `kênh #${channel.name} (Link kênh: https://discord.com/channels/${guild.id}/${channel.id})`);
                 }
 
                 // B. Quét các bài đăng (Threads / Forum Posts) trong kênh (ví dụ kênh #chia-sẻ)
@@ -308,7 +308,8 @@ async function syncAllServerHistoryToDisk(client) {
 
                         for (const t of allThreads) {
                             const threadMsgs = await t.messages.fetch({ limit: 50 }).catch(() => null);
-                            await processMsgList(threadMsgs, `${channel.name} — Bài đăng: ${t.name}`);
+                            const threadLink = `https://discord.com/channels/${guild.id}/${t.id}`;
+                            await processMsgList(threadMsgs, `kênh #${channel.name} — Bài đăng: "${t.name}" (Link trực tiếp: ${threadLink})`);
                         }
                     } catch (e) {}
                 }
