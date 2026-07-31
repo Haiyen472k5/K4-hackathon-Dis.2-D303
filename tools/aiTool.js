@@ -192,19 +192,15 @@ const serverContextCache = new Map();
 const CACHE_TTL_MS = 45000;
 
 // 🛠️ Hàm thu thập dữ liệu nội bộ trong Server Discord (Bài đăng + Kênh + File PDF/Word + Tất cả cuộc trò chuyện)
-async function getServerContext(guild, question = '') {
-    const guildId = guild ? guild.id : 'global';
-
-    const { detectQueryIntent, getSelectiveHistorySummary } = require('./intentRouter');
-    const intent = detectQueryIntent(question);
-
+async function getServerContext(guild) {
     let contextText = '';
 
-    // ⚡ Lấy dữ liệu phân loại thông minh dựa theo loại câu hỏi (web, file, post, all)
+    // ⚡ TIẾT KIỆM THỜI GIAN & ĐẢM BẢO 100% ĐẦY ĐỦ: Đọc toàn bộ lịch sử từ bộ lưu trữ history/
     try {
-        const selectiveHistory = getSelectiveHistorySummary(intent);
-        if (selectiveHistory && selectiveHistory.trim()) {
-            contextText += `\n=== BỘ LƯU TRỮ LỊCH SỬ SERVER (LOẠI YÊU CẦU: ${intent.toUpperCase()}) ===\n${selectiveHistory}\n`;
+        const { getLocalHistorySummary } = require('./historyManager');
+        const localHistory = getLocalHistorySummary();
+        if (localHistory && localHistory.trim()) {
+            contextText += `\n=== BỘ LƯU TRỮ LỊCH SỬ DỮ LIỆU SERVER (FULL HISTORY ARCHIVE) ===\n${localHistory}\n`;
         }
     } catch (e) {}
 
@@ -228,7 +224,7 @@ async function askAIServer(question, guild, channelId = null) {
         throw err;
     }
 
-    const serverData = await getServerContext(guild, question);
+    const serverData = await getServerContext(guild);
 
     // Kiểm tra xem người dùng có đang phát lệnh tóm tắt hoặc tạo Flashcard không
     const isFlashcardRequest = /flashcard|thẻ ghi nhớ|the ghi nho|flash card|thẻ học/i.test(question);
