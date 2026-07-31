@@ -578,6 +578,14 @@ client.on('messageCreate', async (message) => {
             try {
                 await message.channel.sendTyping();
                 const thinkingMsg = await message.reply('Ta đang vận, nhà ngươi đợi xíu ...');
+
+                // 🎴 Nếu người dùng yêu cầu Flashcard / Thẻ bài qua Mention hoặc Chat
+                if (/flashcard|thẻ bài|thẻ ghi nhớ/i.test(questionText)) {
+                    const cards = await generateFlashcardsFromServer(questionText, message.guild, message.channelId);
+                    await sendInteractiveFlashcards(thinkingMsg, cards, 'Flashcard Theo Yêu Cầu');
+                    return;
+                }
+
                 const answer = await askAIServer(questionText, message.guild, message.channelId);
                 await sendLongMessage(thinkingMsg, answer);
             } catch (err) {

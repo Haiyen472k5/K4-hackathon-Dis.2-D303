@@ -188,3 +188,52 @@
 [11:31:53 31/7/2026] trickez: <@764147694297940019> <@888061478123487243> <@734046082945777734> rep vs ae ơi :>>
 [11:40:25 31/7/2026] .leekwan: con bot của tôi nhớ được context, tìm kiếm được bài viết xong tóm tắt, tìm kiếm và trả về file được, nếu được hỏi về thông tin ko liên quan nó sẽ từ chối trả lời.
 [11:41:31 31/7/2026] yen4732: <@1532330472234029096> hãy tìm cho tôi bài viết về sản phẩm AI
+[11:42:35 31/7/2026] yen4732: hãy tóm tắt cho tôi bài viết Sản phẩm AI
+[11:44:13 31/7/2026] yen4732: đây là nội dung của bài viết Đề bài — Track duy nhất: "AI cho khoá AI Thực Chiến" bạn có nhầm lẫn gì không
+[11:44:49 31/7/2026] yen4732: vậy bạn hãy tóm tắt lại bài viết Sản phẩm AI cho tôi
+[10:25:24 31/7/2026] Tuanminh1509hp: toàn ra 30/30
+[10:25:26 31/7/2026] Tuanminh1509hp: oẳng vcl
+[10:25:36 31/7/2026] trickez: :)))
+[10:25:41 31/7/2026] trickez: bớt thôi
+[10:26:08 31/7/2026] Tuanminh1509hp: bịa ra 20/30 nhá :)))) xong tí bắt con bot chạy đúng 20
+[10:26:31 31/7/2026] Tuanminh1509hp: anh <@673768392842412045> điền hay e điền
+[10:26:36 31/7/2026] trickez: mà hnhu golden_set có 20 case thôi mà nhỉ
+[10:26:40 31/7/2026] trickez: :))
+[10:26:43 31/7/2026] Tuanminh1509hp: ít nhất 20
+[10:26:49 31/7/2026] trickez: à
+[10:26:54 31/7/2026] trickez: e cứ điền đi
+[10:27:05 31/7/2026] trickez: lát a k điền kịp thì e nộp
+[10:27:41 31/7/2026] Tuanminh1509hp: e điền 100% r
+[10:27:42 31/7/2026] leekwan: nhanh anh em ơi
+[10:27:43 31/7/2026] Tuanminh1509hp: :))))
+[10:27:46 31/7/2026] thidinh_hw: ae chốt bot của tôi nhé, eval 30/30 rồi
+[10:27:52 31/7/2026] leekwan: nộp luôn thôi
+[10:27:53 31/7/2026] Tuanminh1509hp: bot a thi ỉa ra 30/30
+[10:27:53 31/7/2026] thidinh_hw: real not fake
+[10:27:57 31/7/2026] trickez: :))))
+[10:28:01 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: ei anh phải 25 thôi
+[10:28:10 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: dđể tí cp4 5 thì mk để 30/30
+[10:28:14 31/7/2026] Tuanminh1509hp: lần đầu chạy ra 30/30 có sao đâu :))))
+[10:28:29 31/7/2026] Tuanminh1509hp: lí do là vì câu hỏi chưa đủ khó th
+[10:28:32 31/7/2026] trickez: thế cứ lấy của <@764147694297940019> nhé
+[10:28:37 31/7/2026] Tuanminh1509hp: tại lưu bảng eval 30 câu pass ròi
+[10:29:15 31/7/2026] trickez: nộp đi ae
+[10:30:18 31/7/2026] Tuanminh1509hp: nộp r a
+[10:30:50 31/7/2026] Tuanminh1509hp: nộp hẳn 30/30 cho  ra dại r
+[10:30:51 31/7/2026] Tuanminh1509hp: :)))))))
+[10:31:40 31/7/2026] trickez: <@764147694297940019> tôi xin cái câu hỏi eval vs ô
+[11:15:39 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: chatbot chỉ trả lời dữ liệu dựa trên 2 kênh <#1532309198153580605>  và <#1532308961997361242>
+[11:18:53 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: mọi người tổng hợp chức năng con bot của mình để chốt nhé ạ
+[11:18:57 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: @everyone
+[11:19:21 31/7/2026] trickez: <@764147694297940019> <@888061478123487243> <@734046082945777734> ae kể những cái feature của con bot mình nhé
+[11:21:48 31/7/2026] trickez: để tổng hợp các chức năng mà bot chắc chắn sẽ có
+[11:25:14 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@888061478123487243> hôm qua vấn đề của con bot thế nào nhể
+[11:31:54 31/7/2026] trickez: <@764147694297940019> <@888061478123487243> <@734046082945777734> rep vs ae ơi :>>
+[11:40:25 31/7/2026] leekwan: con bot của tôi nhớ được context, tìm kiếm được bài viết xong tóm tắt, tìm kiếm và trả về file được, nếu được hỏi về thông tin ko liên quan nó sẽ từ chối trả lời.
+[11:41:32 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@1532330472234029096> hãy tìm cho tôi bài viết về sản phẩm AI
+[11:42:36 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: hãy tóm tắt cho tôi bài viết Sản phẩm AI
+[11:44:14 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: đây là nội dung của bài viết Đề bài — Track duy nhất: "AI cho khoá AI Thực Chiến" bạn có nhầm lẫn gì không
+[11:44:50 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: vậy bạn hãy tóm tắt lại bài viết Sản phẩm AI cho tôi
+[11:45:26 31/7/2026] tuanminh1509hp: em bịp xong checkpoint 4 r nhá :)))
+[11:46:58 31/7/2026] tuanminh1509hp: mn check xem cần bổ sung j ko
+[11:47:04 31/7/2026] tuanminh1509hp: dl 12h nộp ròi

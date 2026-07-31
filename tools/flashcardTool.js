@@ -1,6 +1,7 @@
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, AttachmentBuilder } = require('discord.js');
 const { askAI, askAIServer, getServerContext } = require('./aiTool');
 const { fetchAndExtractText, extractTextFromBuffer } = require('./documentTool');
+const { createCanvas } = require('@napi-rs/canvas');
 const fs = require('fs');
 const path = require('path');
 
@@ -64,8 +65,120 @@ function parseFlashcardsToData(text) {
     ];
 }
 
+function wrapText(ctx, text, maxWidth) {
+    if (!text) return [];
+    const words = text.split(/\s+/);
+    const lines = [];
+    let currentLine = words[0] || '';
+
+    for (let i = 1; i < words.length; i++) {
+        const word = words[i];
+        const width = ctx.measureText(currentLine + " " + word).width;
+        if (width < maxWidth) {
+            currentLine += " " + word;
+        } else {
+            lines.push(currentLine);
+            currentLine = word;
+        }
+    }
+    lines.push(currentLine);
+    return lines;
+}
+
 /**
- * Gửi và quản lý bộ Flashcard tương tác Lật Thẻ bằng Button trên Discord
+ * Tạo hình ảnh Thẻ Bài Flashcard đồ họa sắc nét bằng Canvas (HD 800x460)
+ */
+function renderFlashcardImage(card, index, total, isFlipped, topicName = 'Tài liệu') {
+    const width = 800;
+    const height = 460;
+    const canvas = createCanvas(width, height);
+    const ctx = canvas.getContext('2d');
+
+    // Nền Gradient & Viền Sáng
+    const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+    if (!isFlipped) {
+        // Mặt trước: Tím Xanh Indigo (Khái niệm)
+        bgGrad.addColorStop(0, '#1E1B4B');
+        bgGrad.addColorStop(0.5, '#312E81');
+        bgGrad.addColorStop(1, '#0F172A');
+    } else {
+        // Mặt sau: Xanh Lục Emerald (Đáp án)
+        bgGrad.addColorStop(0, '#064E3B');
+        bgGrad.addColorStop(0.5, '#047857');
+        bgGrad.addColorStop(1, '#022C22');
+    }
+
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, width, height);
+
+    // Khung Viền Cong Bo Tròn
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = isFlipped ? '#34D399' : '#818CF8';
+    ctx.roundRect(20, 20, width - 40, height - 40, 20);
+    ctx.stroke();
+
+    // Hộp Thủy Tinh Trong Cảnh Inner Box
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+    ctx.roundRect(35, 35, width - 70, height - 70, 16);
+    ctx.fill();
+
+    // Badge Tiêu Đề Trạng Thái
+    const badgeText = isFlipped ? '💡 MẶT SAU — GIẢI THÍCH / ĐÁP ÁN' : '❓ MẶT TRƯỚC — KHÁI NIỆM / CÂU HỎI';
+    ctx.fillStyle = isFlipped ? '#10B981' : '#6366F1';
+    ctx.roundRect(50, 50, 360, 36, 18);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 15px sans-serif';
+    ctx.fillText(badgeText, 65, 73);
+
+    // Tiến trình Thẻ (VD: THẺ 1/5)
+    ctx.fillStyle = '#94A3B8';
+    ctx.font = 'bold 16px sans-serif';
+    ctx.fillText(`THẺ ${index + 1} / ${total}`, width - 150, 73);
+
+    // Tên Chủ Đề
+    ctx.fillStyle = '#CBD5E1';
+    ctx.font = 'italic 15px sans-serif';
+    const cleanTopic = topicName.length > 50 ? topicName.substring(0, 50) + '...' : topicName;
+    ctx.fillText(`📌 Chủ đề: ${cleanTopic}`, 50, 118);
+
+    // Đường Kẻ Ngang Phân Cách
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(50, 132);
+    ctx.lineTo(width - 50, 132);
+    ctx.stroke();
+
+    // Nội Dung Văn Bản (Mặt trước / Mặt sau)
+    const contentText = isFlipped ? (card.back || 'Mặt sau') : (card.front || 'Mặt trước');
+    ctx.fillStyle = '#FFFFFF';
+    
+    let fontSize = 22;
+    if (contentText.length > 200) fontSize = 18;
+    if (contentText.length > 350) fontSize = 16;
+    ctx.font = `bold ${fontSize}px sans-serif`;
+
+    const lines = wrapText(ctx, contentText, width - 120);
+    const startY = 170;
+    const lineHeight = fontSize + 10;
+
+    for (let i = 0; i < Math.min(lines.length, 8); i++) {
+        ctx.fillText(lines[i], 60, startY + (i * lineHeight));
+    }
+
+    // Chú Thích Chân Thẻ
+    ctx.fillStyle = '#94A3B8';
+    ctx.font = '14px sans-serif';
+    const footerText = isFlipped ? '👉 Bấm nút [↩️ Lật lại Mặt trước] để quay lại' : '👉 Bấm nút [🔄 Lật xem Đáp án] để lật sang mặt sau';
+    ctx.fillText(footerText, 60, height - 55);
+
+    return canvas.toBuffer('image/png');
+}
+
+/**
+ * Gửi và quản lý bộ Flashcard tương tác Lật Thẻ bằng Button & Hình ảnh Canvas đồ họa
  */
 async function sendInteractiveFlashcards(target, cards, topicName = 'Tài liệu') {
     if (!cards || cards.length === 0) {
@@ -78,29 +191,20 @@ async function sendInteractiveFlashcards(target, cards, topicName = 'Tài liệu
     let currentIndex = 0;
     let isFlipped = false; // false = Mặt trước, true = Mặt sau
 
-    function buildEmbed() {
+    function buildPayload() {
         const total = cards.length;
         const currentCard = cards[currentIndex];
+        const buffer = renderFlashcardImage(currentCard, currentIndex, total, isFlipped, topicName);
+        const attachment = new AttachmentBuilder(buffer, { name: 'flashcard.png' });
 
-        const embed = new EmbedBuilder().setTimestamp();
+        const embed = new EmbedBuilder()
+            .setColor(isFlipped ? 0x57F287 : 0x5865F2)
+            .setTitle(`🎴 THẺ BÀI FLASHCARD HỌC TẬP — [Thẻ ${currentIndex + 1}/${total}]`)
+            .setImage('attachment://flashcard.png')
+            .setFooter({ text: isFlipped ? '↩️ Bấm nút [↩️ Lật lại Mặt trước] để quay lại!' : '💡 Bấm nút [🔄 Lật xem Đáp án] để lật xem mặt sau!' })
+            .setTimestamp();
 
-        if (!isFlipped) {
-            // MẶT TRƯỚC (CÂU HỎI / KHÁI NIỆM)
-            embed
-                .setColor(0x5865F2) // Discord Blurple
-                .setTitle(`🃏 FLASHCARD [Thẻ ${currentIndex + 1}/${total}] — MẶT TRƯỚC`)
-                .setDescription(`❓ **Khái niệm / Câu hỏi:**\n\n>>> **${currentCard.front}**`)
-                .setFooter({ text: `💡 Bấm nút [🔄 Lật xem Đáp án] để xem mặt sau!` });
-        } else {
-            // MẶT SAU (GIẢI THÍCH / ĐÁP ÁN)
-            embed
-                .setColor(0x57F287) // Green
-                .setTitle(`💡 FLASHCARD [Thẻ ${currentIndex + 1}/${total}] — MẶT SAU`)
-                .setDescription(`✅ **Giải thích / Đáp án:**\n\n>>> **${currentCard.back}**`)
-                .setFooter({ text: `↩️ Bấm nút [↩️ Lật lại Mặt trước] để quay lại!` });
-        }
-
-        return embed;
+        return { embed, attachment };
     }
 
     function buildButtons() {
@@ -133,9 +237,11 @@ async function sendInteractiveFlashcards(target, cards, topicName = 'Tài liệu
         return [row];
     }
 
+    const firstPayload = buildPayload();
     const initialData = {
-        content: `🎴 **BỘ FLASHCARD TƯƠNG TÁC LẬT THẺ: ${topicName.toUpperCase()}**\n*(Đã sẵn sàng! Bấm nút bên dưới để lật mặt trước/mặt sau)*`,
-        embeds: [buildEmbed()],
+        content: `🎴 **BỘ THẺ BÀI FLASHCARD TƯƠNG TÁC: ${topicName.toUpperCase()}**\n*(Đã vẽ hình ảnh thẻ bài! Bấm nút bên dưới để Lật Thẻ bài)*`,
+        embeds: [firstPayload.embed],
+        files: [firstPayload.attachment],
         components: buildButtons()
     };
 
@@ -181,8 +287,10 @@ async function sendInteractiveFlashcards(target, cards, topicName = 'Tài liệu
                 isFlipped = false;
             }
 
+            const nextPayload = buildPayload();
             await interaction.update({
-                embeds: [buildEmbed()],
+                embeds: [nextPayload.embed],
+                files: [nextPayload.attachment],
                 components: buildButtons()
             });
         } catch (err) {
