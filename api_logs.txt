@@ -4772,3 +4772,14 @@
   • Tokens usage: {"prompt_tokens":27309,"completion_tokens":116,"total_tokens":27425,"cost":0.0084827,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0084827,"upstream_inference_prompt_cost":0.0081927,"upstream_inference_completions_cost":0.00029},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
   • Output preview: "Bổn bot vô địch đã quét sạch server và tìm thấy cho Ngươi bài đăng về rắn. Đó chính là bài đăng có cái tên khá thú vị sau: [🐍 CON RẮN CÓ "GÃI ĐÍT" KH..."
 ==================================================
+==================================================
+[12:23:18 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "<@&1532329834305294438> tìm cho tôi bài đăng về rắn"
+  • Messages count: 2
+  • Metadata: {"channelId":"1532358708598800537","serverContextLength":49209}
+[12:23:20 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (20996ms)
+  • Tokens usage: {"prompt_tokens":27330,"completion_tokens":175,"total_tokens":27505,"cost":0.0086365,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0086365,"upstream_inference_prompt_cost":0.008199,"upstream_inference_completions_cost":0.0004375},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "Bổn bot vô địch đã quét sạch server và tìm thấy cho ngươi một bài đăng về rắn như sau:  **Tiêu đề:** 🐍 CON RẮN CÓ "GÃI ĐÍT" KHÔNG? **Nội dung chính:*..."
+==================================================

@@ -341,8 +341,8 @@ ${serverData}
 QUY TẮC NGHIỆP VỤ BẮT BUỘC:
 1. GHI NHỚ LỊCH SỬ CHAT: Chú ý theo dõi lịch sử tin nhắn trước đó trong kênh chat. Nối tiếp mạch trò chuyện trước đó một cách tự nhiên.
 2. NGUỒN SỰ THẬT: CHỈ TÌM VÀ TRẢ LỜI dựa trên danh sách bài đăng, tài liệu và cuộc trò chuyện ở trên. KHÔNG tự bịa thông tin từ internet.
-3. TRÍCH DẪN LINK THUẦN DISCORD (RAW URL): Trong Discord, cú pháp [Title](URL) trong tin nhắn thường SẼ KHÔNG BẤM ĐƯỢC. Bạn BẮT BUỘC phải trích dẫn link URL THUẦN trực tiếp như https://discord.com/channels/... đứng riêng một dòng để người dùng bấm vào chuyển hướng ngay lập tức! Tuyệt đối KHÔNG bọc link trong ngoặc vuông dạng [Tên](URL)!
-4. PHẢN HỒI TRỌN VẸN CÂU: Trả lời hoàn chỉnh từ 2-4 câu văn rõ ràng, không bị ngắt câu lấp lửng giữa chừng.
+3. CHỈ GỬI LINK VÀ TÊN BÀI (KHÔNG TÓM TẮT DÀI DÒNG): Khi người dùng yêu cầu tìm bài đăng, bài viết hoặc tài liệu, bạn BẮT BUỘC CHỈ GỬI TÊN BÀI VÀ ĐƯỜNG LINK URL DISCORD TRỰC TIẾP https://discord.com/channels/... đứng riêng một dòng để bấm vào được ngay. TUYỆT ĐỐI KHÔNG TỰ ĐỘNG TÓM TẮT NỘI DUNG DÀI DÒNG!
+4. PHẢN HỒI GỌN GÀNG: Trả lời ngắn gọn từ 1-2 câu ngắn, chào người dùng và gửi thẳng link bài đăng.
 5. KHÔNG THẤY BÀI ĐĂNG: Nếu KHÔNG tìm thấy bài đăng hoặc thảo luận nào liên quan trong dữ liệu nội bộ ở trên, hãy dùng phong cách tự mãn nhưng thừa nhận rõ ràng: "⚠️ Bổn bot vô địch đã quét sạch server nhưng không có bài đăng hay cuộc trò chuyện nào liên quan đến yêu cầu này đâu nhé!"${summarizeInstruction}${flashcardInstruction}`;
 
     const history = getChannelHistory(channelId);
