@@ -86,23 +86,23 @@ function wrapText(ctx, text, maxWidth) {
 }
 
 /**
- * Tạo hình ảnh Thẻ Bài Flashcard đồ họa sắc nét bằng Canvas (HD 800x460)
+ * Tạo hình ảnh Thẻ Bài Flashcard đồ họa sắc nét bằng Canvas (HD 1100x600 - Tràn Màn Hình, Phông Chữ To)
  */
 function renderFlashcardImage(card, index, total, isFlipped, topicName = 'Tài liệu') {
-    const width = 800;
-    const height = 460;
+    const width = 1100;
+    const height = 600;
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
-    // Nền Gradient & Viền Sáng
+    // 1. Nền Gradient & Viền Sáng Rực Rỡ
     const bgGrad = ctx.createLinearGradient(0, 0, width, height);
     if (!isFlipped) {
-        // Mặt trước: Tím Xanh Indigo (Khái niệm)
+        // Mặt trước: Tím Xanh Indigo Đẳng Cấp
         bgGrad.addColorStop(0, '#1E1B4B');
         bgGrad.addColorStop(0.5, '#312E81');
         bgGrad.addColorStop(1, '#0F172A');
     } else {
-        // Mặt sau: Xanh Lục Emerald (Đáp án)
+        // Mặt sau: Xanh Lục Emerald Sang Trọng
         bgGrad.addColorStop(0, '#064E3B');
         bgGrad.addColorStop(0.5, '#047857');
         bgGrad.addColorStop(1, '#022C22');
@@ -111,68 +111,77 @@ function renderFlashcardImage(card, index, total, isFlipped, topicName = 'Tài l
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, width, height);
 
-    // Khung Viền Cong Bo Tròn
-    ctx.lineWidth = 4;
+    // 2. Khung Viền Bo Tròn Rộng Tràn Màn Hình
+    ctx.lineWidth = 5;
     ctx.strokeStyle = isFlipped ? '#34D399' : '#818CF8';
-    ctx.roundRect(20, 20, width - 40, height - 40, 20);
+    ctx.roundRect(25, 25, width - 50, height - 50, 24);
     ctx.stroke();
 
-    // Hộp Thủy Tinh Trong Cảnh Inner Box
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
-    ctx.roundRect(35, 35, width - 70, height - 70, 16);
+    // Hộp Thủy Tinh Inner Box
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.09)';
+    ctx.roundRect(45, 45, width - 90, height - 90, 20);
     ctx.fill();
 
-    // Badge Tiêu Đề Trạng Thái
+    // 3. Badge Tiêu Đề Trạng Thái
     const badgeText = isFlipped ? '💡 MẶT SAU — GIẢI THÍCH / ĐÁP ÁN' : '❓ MẶT TRƯỚC — KHÁI NIỆM / CÂU HỎI';
     ctx.fillStyle = isFlipped ? '#10B981' : '#6366F1';
-    ctx.roundRect(50, 50, 360, 36, 18);
+    ctx.roundRect(65, 65, 420, 44, 22);
     ctx.fill();
 
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 15px sans-serif';
-    ctx.fillText(badgeText, 65, 73);
+    ctx.font = `bold 18px ${FONT_FAMILY}`;
+    ctx.fillText(badgeText, 85, 93);
 
     // Tiến trình Thẻ (VD: THẺ 1/5)
-    ctx.fillStyle = '#94A3B8';
-    ctx.font = 'bold 16px sans-serif';
-    ctx.fillText(`THẺ ${index + 1} / ${total}`, width - 150, 73);
+    ctx.fillStyle = '#F1F5F9';
+    ctx.font = `bold 20px ${FONT_FAMILY}`;
+    ctx.fillText(`THẺ ${index + 1} / ${total}`, width - 180, 93);
 
     // Tên Chủ Đề
     ctx.fillStyle = '#CBD5E1';
-    ctx.font = 'italic 15px sans-serif';
-    const cleanTopic = topicName.length > 50 ? topicName.substring(0, 50) + '...' : topicName;
-    ctx.fillText(`📌 Chủ đề: ${cleanTopic}`, 50, 118);
+    ctx.font = `italic 18px ${FONT_FAMILY}`;
+    const cleanTopic = topicName.length > 60 ? topicName.substring(0, 60) + '...' : topicName;
+    ctx.fillText(`📌 Chủ đề: ${cleanTopic}`, 65, 142);
 
     // Đường Kẻ Ngang Phân Cách
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(50, 132);
-    ctx.lineTo(width - 50, 132);
+    ctx.moveTo(65, 158);
+    ctx.lineTo(width - 65, 158);
     ctx.stroke();
 
-    // Nội Dung Văn Bản (Mặt trước / Mặt sau)
-    const contentText = isFlipped ? (card.back || 'Mặt sau') : (card.front || 'Mặt trước');
+    // 4. Xử Lý & Làm Sạch Văn Bản (Lược bỏ ký tự Markdown **, *, `, >>>)
+    let rawText = isFlipped ? (card.back || 'Mặt sau') : (card.front || 'Mặt trước');
+    let cleanText = rawText
+        .replace(/\*\*/g, '')
+        .replace(/\*/g, '')
+        .replace(/`/g, '')
+        .replace(/^>>>\s*/g, '')
+        .replace(/^(Mặt sau|Mặt trước|Giải thích|Khái niệm|Chi tiết|Đáp án)[\s\(\)\:\/]*(\(Chi tiết\)|\(Giải thích\))?\s*/gi, '')
+        .trim();
+
     ctx.fillStyle = '#FFFFFF';
     
-    let fontSize = 22;
-    if (contentText.length > 200) fontSize = 18;
-    if (contentText.length > 350) fontSize = 16;
-    ctx.font = `bold ${fontSize}px sans-serif`;
+    // Tự động căn chỉnh cỡ chữ TO NỔI BẬT
+    let fontSize = 30;
+    if (cleanText.length > 180) fontSize = 26;
+    if (cleanText.length > 320) fontSize = 22;
+    ctx.font = `bold ${fontSize}px ${FONT_FAMILY}`;
 
-    const lines = wrapText(ctx, contentText, width - 120);
-    const startY = 170;
-    const lineHeight = fontSize + 10;
+    const lines = wrapText(ctx, cleanText, width - 140);
+    const startY = 210;
+    const lineHeight = fontSize + 14;
 
     for (let i = 0; i < Math.min(lines.length, 8); i++) {
-        ctx.fillText(lines[i], 60, startY + (i * lineHeight));
+        ctx.fillText(lines[i], 70, startY + (i * lineHeight));
     }
 
-    // Chú Thích Chân Thẻ
+    // 5. Chú Thích Chân Thẻ
     ctx.fillStyle = '#94A3B8';
-    ctx.font = '14px sans-serif';
+    ctx.font = `16px ${FONT_FAMILY}`;
     const footerText = isFlipped ? '👉 Bấm nút [↩️ Lật lại Mặt trước] để quay lại' : '👉 Bấm nút [🔄 Lật xem Đáp án] để lật sang mặt sau';
-    ctx.fillText(footerText, 60, height - 55);
+    ctx.fillText(footerText, 70, height - 70);
 
     return canvas.toBuffer('image/png');
 }

@@ -147,3 +147,9 @@
 [11:38:00 31/7/2026] trickez: tóm tắt bài viết này
 [11:38:24 31/7/2026] trickez: ngắn hơn nữa
 [11:43:04 31/7/2026] trickez: !ask hãy tìm cho tôi bài viết về sản phẩm AI
+[11:45:12 31/7/2026] trickez: !ask hãy tìm cho tôi bài viết về sản phẩm AI
+[11:47:49 31/7/2026] trickez: có bài viết về sản phẩm giáo dục trong AI không
+[11:48:31 31/7/2026] trickez: !ask tìm bài viết về ai trong giáo dục
+[11:50:04 31/7/2026] trickez: <@1532291378397315202> bài viết mới nhất trong forum chia-sẻ là gì
+[11:51:06 31/7/2026] trickez: tìm bài viết về giáo dục
+[11:53:25 31/7/2026] yen4732: <@1532291378397315202> tìm bài viết cho tôi về AI

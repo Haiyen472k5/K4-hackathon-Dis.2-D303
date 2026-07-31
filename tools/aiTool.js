@@ -208,139 +208,24 @@ async function getServerContext(guild) {
 
     let contextText = '';
 
-    // 1. Fetch danh sách kênh từ Discord API
-    let channels;
+    // ⚡ TIẾT KIỆM THỜI GIAN (0ms): Đọc trực tiếp từ bộ lưu trữ đĩa cứng history/ thay vì gọi HTTP lặp lại
     try {
-        channels = await guild.channels.fetch();
-    } catch (e) {
-        channels = guild.channels.cache;
-    }
-
-    if (!channels || channels.size === 0) {
-        channels = guild.channels.cache;
-    }
-
-    const { fetchAndExtractText } = require('./documentTool');
-
-    for (const [, channel] of channels) {
-        if (!channel || !channel.name) continue;
-
-        // Bỏ qua các kênh voice / category
-        if (channel.type === 4 || channel.type === 2 || channel.type === 13) continue;
-
-        let channelData = `\n=== KÊNH #${channel.name} ===\n`;
-        let foundItems = false;
-
-        // A. Quét các bài đăng (threads / forum posts)
-        try {
-            if (channel.threads) {
-                const activeThreads = await channel.threads.fetchActive().catch(() => ({ threads: new Map() }));
-                const archivedThreads = await channel.threads.fetchArchived().catch(() => ({ threads: new Map() }));
-                const allThreads = [...activeThreads.threads.values(), ...archivedThreads.threads.values()];
-
-                for (let idx = 0; idx < allThreads.length; idx++) {
-                    const t = allThreads[idx];
-                    foundItems = true;
-                    channelData += `📌 Bài đăng/Thread #${idx + 1}: "${t.name}" | Link: https://discord.com/channels/${guild.id}/${t.id}\n`;
-                    
-                    try {
-                        const threadMsgs = await t.messages.fetch({ limit: 10 }).catch(() => null);
-                        if (threadMsgs && threadMsgs.size > 0) {
-                            for (const [, msg] of threadMsgs) {
-                                if (msg.content && msg.content.trim()) {
-                                    channelData += `   [Nội dung]: "${msg.content.trim().substring(0, 800)}"\n`;
-                                }
-
-                                // Trích xuất thông tin Bài hát & Ca sĩ từ Link YouTube / Embeds
-                                const ytInfo = await processYouTubeAndEmbeds(msg.content, msg.embeds);
-                                if (ytInfo) {
-                                    channelData += `   ${ytInfo.trim()}\n`;
-                                }
-
-                                if (msg.attachments && msg.attachments.size > 0) {
-                                    for (const [, attachment] of msg.attachments) {
-                                        const ext = attachment.name.substring(attachment.name.lastIndexOf('.')).toLowerCase();
-                                        channelData += `   [File đính kèm: "${attachment.name}" | Link: ${attachment.url}]\n`;
-                                        if (['.pdf', '.docx', '.doc', '.txt', '.md', '.json', '.csv'].includes(ext)) {
-                                            try {
-                                                const extracted = await fetchAndExtractText(attachment.url, attachment.name);
-                                                if (extracted && extracted.trim()) {
-                                                    channelData += `   [Nội dung đọc từ file "${attachment.name}"]: "${extracted.trim().substring(0, 1500)}"\n`;
-                                                }
-                                            } catch (err) {}
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    } catch (err) {}
-                }
-            }
-        } catch (e) {}
-
-        // B. Quét tin nhắn trực tiếp trong kênh (Lấy tối đa 35 tin nhắn gần nhất)
-        try {
-            if (channel.isTextBased && channel.isTextBased()) {
-                const recentMsgs = await channel.messages.fetch({ limit: 35 }).catch(() => null);
-                if (recentMsgs && recentMsgs.size > 0) {
-                    for (const [, msg] of recentMsgs) {
-                        if (msg.author && msg.author.bot) continue;
-                        let msgText = msg.content ? msg.content.trim() : '';
-
-                        // Trích xuất thông tin Bài hát & Ca sĩ từ Link YouTube / Embeds trong kênh
-                        const ytInfo = await processYouTubeAndEmbeds(msg.content, msg.embeds);
-                        if (ytInfo) {
-                            msgText += `\n${ytInfo}`;
-                        }
-
-                        if (msg.attachments && msg.attachments.size > 0) {
-                            for (const [, attachment] of msg.attachments) {
-                                const ext = attachment.name.substring(attachment.name.lastIndexOf('.')).toLowerCase();
-                                msgText += `\n📎 File đính kèm: "${attachment.name}" (Link: ${attachment.url})`;
-
-                                if (['.pdf', '.doc', '.docx', '.txt', '.md', '.json', '.csv'].includes(ext)) {
-                                    try {
-                                        const docContent = await fetchAndExtractText(attachment.url, attachment.name);
-                                        if (docContent && docContent.trim()) {
-                                            msgText += `\n📄 Nội dung đọc từ file ${attachment.name}:\n"${docContent.trim().substring(0, 1500)}"`;
-                                        }
-                                    } catch (err) {}
-                                }
-                            }
-                        }
-
-                        if (msgText) {
-                            foundItems = true;
-                            channelData += `- Tin nhắn từ ${msg.author ? msg.author.username : 'User'} | Link: https://discord.com/channels/${guild.id}/${channel.id}/${msg.id}\n  Nội dung: ${msgText}\n`;
-                        }
-                    }
-                }
-            }
-        } catch (e) {}
-
-        if (foundItems) {
-            contextText += channelData;
+        const { getLocalHistorySummary } = require('./historyManager');
+        const localHistory = getLocalHistorySummary();
+        if (localHistory && localHistory.trim()) {
+            contextText += `\n=== BỘ LƯU TRỮ LỊCH SỬ CỤC BỘ (HISTORY ARCHIVE) ===\n${localHistory}\n`;
         }
-    }
+    } catch (e) {}
 
-    // 2. Lịch sử cuộc trò chuyện gần đây trong chat_logs.txt (tối đa 50 dòng để tiết kiệm token)
+    // Lịch sử cuộc trò chuyện gần đây trong chat_logs.txt
     const recentLogs = getRecentChatLogs(50);
     if (recentLogs) {
         contextText += `\n=== LỊCH SỬ CHAT GẦN ĐÂY TRONG SERVER ===\n${recentLogs}\n`;
     }
 
-    // 3. Đọc dữ liệu phân loại từ thư mục history/ (Chats kênh, Documents Word/PDF + Tóm tắt, Web/YouTube Links)
-    try {
-        const { getLocalHistorySummary } = require('./historyManager');
-        const localHistory = getLocalHistorySummary();
-        if (localHistory && localHistory.trim()) {
-            contextText += `\n=== BỘ LƯU TRỮ DỮ LIỆU CỤC BỘ (HISTORY ARCHIVE) ===\n${localHistory}\n`;
-        }
-    } catch (e) {}
-
     const finalResult = contextText || 'Không tìm thấy dữ liệu bài đăng hoặc cuộc trò chuyện nào trong server.';
     
-    // Lưu vào cache
+    // Lưu vào cache 5 phút
     serverContextCache.set(guildId, { data: finalResult, timestamp: Date.now() });
 
     return finalResult;

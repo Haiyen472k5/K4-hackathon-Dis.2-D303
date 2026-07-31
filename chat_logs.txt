@@ -251,3 +251,10 @@ Mining data và đề xuất sản phẩm AI khác cho khoá — qua đủ 5 ti�
 [11:46:26 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@1532329195315658773> tạo flashcard cho tôi bài đó nhé
 [11:46:58 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: mn check xem cần bổ sung j ko
 [11:47:04 31/7/2026] [S: TestBOT] [#chung] tuanminh1509hp: dl 12h nộp ròi
+[11:49:32 31/7/2026] [S: TestBOT] [#AI trong giáo dục] trickez: <@1532291378397315202> bài viết này nói về gì
+[11:49:52 31/7/2026] [S: TestBOT] [#AI trong giáo dục] tuanminh1509hp: anh <@673768392842412045> ê anh tổng hợp code đi
+[11:49:53 31/7/2026] [S: TestBOT] [#AI trong giáo dục] tuanminh1509hp: :)))
+[11:49:57 31/7/2026] [S: TestBOT] [#AI trong giáo dục] tuanminh1509hp: chiều lên demo thoi
+[11:50:04 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: <@1532291378397315202> bài viết mới nhất trong forum chia-sẻ là gì
+[11:51:06 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: tìm bài viết về giáo dục
+[11:53:25 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] yen4732: <@1532291378397315202> tìm bài viết cho tôi về AI

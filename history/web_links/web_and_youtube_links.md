@@ -173,3 +173,17 @@
 - **Thời gian lưu:** 11:45:34 31/7/2026
 - **Tóm tắt nội dung:** Video YouTube: Hoàn Hảo | B RAY | Official Lyrics Video từ tác giả/ca sĩ Great Entertainment
 ---
+
+### 🔗 Link: NHÀ TÔI CÓ TREO MỘT LÁ CỜ - DTAP x HÀ ANH TUẤN | OFFICIAL MV
+- **URL:** https://www.youtube.com/watch?v=NJuNJ8Xs_00
+- **Tác giả / Kênh:** DTAP OFFICIAL
+- **Thời gian lưu:** 11:50:02 31/7/2026
+- **Tóm tắt nội dung:** Video YouTube: NHÀ TÔI CÓ TREO MỘT LÁ CỜ - DTAP x HÀ ANH TUẤN | OFFICIAL MV từ tác giả/ca sĩ DTAP OFFICIAL
+---
+
+### 🔗 Link: Hoàn Hảo | B RAY | Official Lyrics Video
+- **URL:** https://www.youtube.com/watch?v=VkUx9npkx54
+- **Tác giả / Kênh:** Great Entertainment
+- **Thời gian lưu:** 11:50:03 31/7/2026
+- **Tóm tắt nội dung:** Video YouTube: Hoàn Hảo | B RAY | Official Lyrics Video từ tác giả/ca sĩ Great Entertainment
+---
