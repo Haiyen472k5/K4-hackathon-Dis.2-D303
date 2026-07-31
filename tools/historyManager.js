@@ -114,7 +114,7 @@ function getLocalHistorySummary() {
     initHistoryDirs();
     let result = '';
 
-    // A. Đọc danh sách kênh chat
+    // A. Đọc toàn bộ lịch sử chat các kênh (lưu trọn vẹn)
     try {
         const chatFiles = fs.readdirSync(CHATS_DIR);
         if (chatFiles.length > 0) {
@@ -123,34 +123,32 @@ function getLocalHistorySummary() {
                 if (file.endsWith('.txt')) {
                     const channelName = file.replace('.txt', '');
                     const content = fs.readFileSync(path.join(CHATS_DIR, file), 'utf8');
-                    const lines = content.trim().split('\n');
-                    const recentLines = lines.slice(-20).join('\n'); // Lấy 20 tin nhắn gần nhất
-                    result += `\n--- Kênh #${channelName} ---\n${recentLines}\n`;
+                    result += `\n--- Kênh #${channelName} ---\n${content.trim()}\n`;
                 }
             }
         }
     } catch (e) {}
 
-    // B. Đọc danh sách tài liệu PDF/Word
+    // B. Đọc toàn bộ văn bản trích xuất từ tài liệu PDF/Word (lưu trọn vẹn)
     try {
         const docFiles = fs.readdirSync(DOCS_DIR);
         if (docFiles.length > 0) {
-            result += `\n=== LỊCH SỬ TÀI LIỆU & FILE TRONG SERVER ===\n`;
+            result += `\n=== TOÀN BỘ NỘI DUNG TÀI LIỆU PDF/WORD TRONG SERVER ===\n`;
             for (const file of docFiles) {
                 if (file.endsWith('.md')) {
                     const docContent = fs.readFileSync(path.join(DOCS_DIR, file), 'utf8');
-                    result += `\n${docContent.substring(0, 1000)}\n`;
+                    result += `\n${docContent.trim()}\n`;
                 }
             }
         }
     } catch (e) {}
 
-    // C. Đọc danh sách link web & YouTube
+    // C. Đọc danh sách link web & YouTube (chỉ lưu vắn tắt ý chính)
     try {
         const linksFile = path.join(LINKS_DIR, 'web_and_youtube_links.md');
         if (fs.existsSync(linksFile)) {
             const linksContent = fs.readFileSync(linksFile, 'utf8');
-            result += `\n=== LỊCH SỬ LINK WEB VÀ YOUTUBE ĐÃ CHIA SẺ ===\n${linksContent.substring(0, 1500)}\n`;
+            result += `\n=== VẮN TẮT Ý CHÍNH CÁC LINK WEB VÀ YOUTUBE ===\n${linksContent.trim()}\n`;
         }
     } catch (e) {}
 
