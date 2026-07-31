@@ -11,6 +11,7 @@ const { askAI, askAIServer, OPENROUTER_MODEL } = require('./tools/aiTool');
 const { summarizeText, summarizeDocument } = require('./tools/summarizeTool');
 const { searchChatLogs } = require('./tools/chatHistoryTool');
 const { logApiCall, logApiResponse, logApiError, LOG_FILE_PATH } = require('./tools/apiLogger');
+const { startNumberGame, guessNumber, playRPS, getAITriviaQuestion, getDailyFortune, getMinigameMenu } = require('./tools/minigameTool');
 
 // Bắt các lỗi toàn cục để tự động ghi log vào api_logs.txt giúp dễ dàng debug
 process.on('unhandledRejection', (reason) => {
@@ -103,7 +104,42 @@ const commands = [
             option.setName('question')
                 .setDescription('Tên bài đăng hoặc chủ đề bạn cần tìm trong Server')
                 .setRequired(true)
-        )
+        ),
+    new SlashCommandBuilder()
+        .setName('minigame')
+        .setDescription('Xem danh sách các minigame giải trí thú vị trên Botvodich'),
+    new SlashCommandBuilder()
+        .setName('doavui')
+        .setDescription('Chơi Minigame Đố Vui AI Kì Thú (Có câu hỏi & gợi ý)')
+        .addStringOption(option =>
+            option.setName('topic')
+                .setDescription('Chủ đề câu đố (VD: công nghệ, giải trí, đố mẹo)')
+                .setRequired(false)
+        ),
+    new SlashCommandBuilder()
+        .setName('doaso')
+        .setDescription('Chơi Minigame Đoán Số Bí Mật (1 đến 100)')
+        .addStringOption(option =>
+            option.setName('number')
+                .setDescription('Con số bạn muốn đoán (hoặc gõ start để tạo số mới)')
+                .setRequired(false)
+        ),
+    new SlashCommandBuilder()
+        .setName('rps')
+        .setDescription('Chơi Minigame Búa - Bao - Kéo solo trực tiếp với Botvodich')
+        .addStringOption(option =>
+            option.setName('choice')
+                .setDescription('Lựa chọn của bạn')
+                .setRequired(true)
+                .addChoices(
+                    { name: '✊ Búa', value: 'bua' },
+                    { name: '✋ Bao', value: 'bao' },
+                    { name: '✌️ Kéo', value: 'keo' }
+                )
+        ),
+    new SlashCommandBuilder()
+        .setName('boitoan')
+        .setDescription('Xem vận thế và lời phán hài hước hôm nay từ AI Botvodich')
 ].map(command => command.toJSON());
 
 const rest = new REST({ version: '10' }).setToken(BOT_TOKEN);
@@ -341,6 +377,51 @@ client.on('interactionCreate', async (interaction) => {
         }
         return;
     }
+
+    // G. Xử lý /minigame
+    if (interaction.commandName === 'minigame') {
+        return interaction.reply(getMinigameMenu());
+    }
+
+    // H. Xử lý /doavui (Đố vui AI)
+    if (interaction.commandName === 'doavui') {
+        const topic = interaction.options.getString('topic') || 'tổng hợp';
+        await interaction.deferReply();
+        try {
+            const question = await getAITriviaQuestion(topic);
+            await sendLongMessage(interaction, question);
+        } catch (err) {
+            await interaction.editReply(`❌ Lỗi tạo câu đố AI: ${err.message}`);
+        }
+        return;
+    }
+
+    // I. Xử lý /doaso (Đoán số 1 - 100)
+    if (interaction.commandName === 'doaso') {
+        const input = interaction.options.getString('number');
+        const reply = guessNumber(interaction.user.id, input);
+        return interaction.reply(reply);
+    }
+
+    // J. Xử lý /rps (Búa - Bao - Kéo)
+    if (interaction.commandName === 'rps') {
+        const choice = interaction.options.getString('choice');
+        const result = playRPS(choice);
+        return interaction.reply(result);
+    }
+
+    // K. Xử lý /boitoan (Bói vận thế AI)
+    if (interaction.commandName === 'boitoan') {
+        await interaction.deferReply();
+        try {
+            const username = interaction.user.displayName || interaction.user.username;
+            const fortune = await getDailyFortune(username);
+            await sendLongMessage(interaction, fortune);
+        } catch (err) {
+            await interaction.editReply(`❌ Lỗi bói toán AI: ${err.message}`);
+        }
+        return;
+    }
 });
 
 // 5. XỬ LÝ MESSAGE (LỆNH PREFIX & AUTO LOGGING CHAT)
@@ -469,6 +550,54 @@ client.on('messageCreate', async (message) => {
         const { clearChannelHistory } = require('./tools/aiTool');
         clearChannelHistory(message.channelId);
         return message.reply('🧹 Đã xóa sạch bộ nhớ ngữ cảnh cuộc trò chuyện trong kênh này!');
+    }
+
+    // I. Lệnh Prefix Minigames ()(game, )(minigame)
+    if (message.content.trim() === ')(game' || message.content.trim() === ')(minigame') {
+        return message.reply(getMinigameMenu());
+    }
+
+    // J. Lệnh Prefix )(doavui hoặc )(dovui
+    if (message.content.startsWith(')(doavui') || message.content.startsWith(')(dovui')) {
+        const topic = message.content.replace(/^(\)\(doavui|\)\(dovui)/i, '').trim() || 'tổng hợp';
+        try {
+            await message.channel.sendTyping();
+            const question = await getAITriviaQuestion(topic);
+            await sendLongMessage(message, question);
+        } catch (err) {
+            await message.reply(`❌ Lỗi tạo câu đố AI: ${err.message}`);
+        }
+        return;
+    }
+
+    // K. Lệnh Prefix )(doaso [số]
+    if (message.content.startsWith(')(doaso')) {
+        const input = message.content.replace(/^(\)\(doaso)/i, '').trim();
+        const reply = guessNumber(message.author.id, input);
+        return message.reply(reply);
+    }
+
+    // L. Lệnh Prefix )(rps [bua|bao|keo] hoặc )(bua, )(bao, )(keo
+    if (message.content.startsWith(')(rps')) {
+        const choice = message.content.replace(/^(\)\(rps)/i, '').trim();
+        const result = playRPS(choice);
+        return message.reply(result);
+    }
+    if (message.content.trim() === ')(bua') return message.reply(playRPS('bua'));
+    if (message.content.trim() === ')(bao') return message.reply(playRPS('bao'));
+    if (message.content.trim() === ')(keo') return message.reply(playRPS('keo'));
+
+    // M. Lệnh Prefix )(boitoan hoặc )(boi
+    if (message.content.startsWith(')(boitoan') || message.content.startsWith(')(boi')) {
+        try {
+            await message.channel.sendTyping();
+            const username = message.author.displayName || message.author.username;
+            const fortune = await getDailyFortune(username);
+            await sendLongMessage(message, fortune);
+        } catch (err) {
+            await message.reply(`❌ Lỗi bói toán AI: ${err.message}`);
+        }
+        return;
     }
 
     // G. Tự động Log Chat vào file chat_logs.txt

@@ -117,3 +117,12 @@
 [09:25:19 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask
 [09:25:34 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: Mình bị ốm nên muốn xin gia hạn nộp bài thêm 1 ngày được không?
 [09:26:03 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096>  tìm cho tôi tài liệu về học máy
+[09:50:23 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask Lỗi code của mình bị crash liên tục do xung đột phiên bản discord.js, TA vào zoom hỗ trợ mình debug được không?
+[09:51:18 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@&1532329834305294438> Tìm giúp tôi có bài nào chia sẻ về ca sĩ B-Ray không
+[09:51:19 31/7/2026] [S: TestBOT] [#chung] yen4732: hãy như có file
+[09:51:27 31/7/2026] [S: TestBOT] [#chung] yen4732: ak không có cái form
+[09:51:29 31/7/2026] [S: TestBOT] [#chung] yen4732: để xem
+[09:51:34 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096> ronaldo với messi ai là GOAT?
+[09:51:53 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask lịch demo từ mấy giờ
+[09:53:41 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: <@1532330472234029096>  tìm cho tôi tài liệu về machine learning
+[09:54:11 31/7/2026] [S: TestBOT] [#chung] yen4732: https://docs.google.com/forms/d/e/1FAIpQLSeNeaNmRZi7J0LAPxSgq3ZQ3i8Ztf8dw-HimgNupmgYtJVJTg/viewform
