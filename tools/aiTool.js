@@ -35,8 +35,68 @@ const BOTVODICH_PERSONA = `Bạn tên là "Botvodich" - Trợ lý AI của Serve
 6. THÔNG TIN NGƯỜI TẠO (CHỈ NÓI KHI ĐƯỢC HỎI):
    - Người sáng tạo / lập trình ra Ta là **Đỗ Đình Thi** (biệt danh: **thidinh_hw**).
    - CHỈ khai ra thông tin này khi người dùng đặt câu hỏi về người tạo / tác giả / ai làm ra Bot. Tuyệt đối KHÔNG tự nhiên nhắc tới khi không được hỏi.
-7. QUÉT VÀ TÌM CUỘC TRÒ CHUYỆN & TÀI LIỆU TRONG SERVER:
-   - Khi người dùng hỏi về bất kỳ bài đăng, file đính kèm hay cuộc trò chuyện/tin nhắn nào trong server: Hãy kiểm tra dữ liệu nội bộ bên dưới, trả lời súc tích, trọn vẹn và trích dẫn Tên bài đăng/Kênh/User kèm Link URL trực tiếp.`;
+7. QUÉT VÀ TÌM CUỘC TRÒ CHUYỆN, TÀI LIỆU & BÀI HÁT YOUTUBE TRONG SERVER:
+   - Khi người dùng hỏi về bất kỳ bài đăng, file đính kèm, câu hỏi hay bài hát / video YouTube / ca sĩ nào trong server: Hãy kiểm tra dữ liệu nội bộ bên dưới, trả lời đầy đủ Tên bài hát, Tên ca sĩ/Tác giả, nội dung câu hỏi và trích dẫn Link URL trực tiếp.`;
+
+// Map lưu cache thông tin YouTube để không fetch lặp lại
+const youtubeCache = new Map();
+
+/**
+ * Trích xuất tên bài hát và ca sĩ từ oEmbed YouTube API
+ */
+async function fetchYouTubeInfo(url) {
+    if (youtubeCache.has(url)) return youtubeCache.get(url);
+    try {
+        const oembedUrl = `https://www.youtube.com/oembed?url=${encodeURIComponent(url)}&format=json`;
+        const res = await fetch(oembedUrl, {
+            headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' }
+        });
+        if (res.ok) {
+            const data = await res.json();
+            const info = {
+                title: data.title || '',
+                author: data.author_name || ''
+            };
+            youtubeCache.set(url, info);
+            return info;
+        }
+    } catch (e) {}
+    return null;
+}
+
+/**
+ * Quét tin nhắn để giải mã các link YouTube và Embeds (Bài hát, ca sĩ, tiêu đề video)
+ */
+async function processYouTubeAndEmbeds(msgContent, msgEmbeds) {
+    let resultText = '';
+
+    // 1. Kiểm tra Embeds từ Discord
+    if (msgEmbeds && msgEmbeds.size > 0) {
+        for (const [, embed] of msgEmbeds) {
+            if (embed.title || embed.description) {
+                const title = embed.title || '';
+                const author = embed.author?.name || embed.provider?.name || '';
+                resultText += `\n  🎬 [Discord Embed]: Tiêu đề: "${title}"` + (author ? ` | Ca sĩ/Kênh: "${author}"` : '');
+            }
+        }
+    }
+
+    // 2. Quét các đường link YouTube (youtube.com, youtu.be, shorts)
+    const ytRegex = /(https?:\/\/(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)[a-zA-Z0-9_-]+)/gi;
+    const matches = msgContent ? msgContent.match(ytRegex) : null;
+
+    if (matches && matches.length > 0) {
+        const uniqueUrls = [...new Set(matches)];
+        for (const url of uniqueUrls) {
+            const info = await fetchYouTubeInfo(url);
+            if (info && info.title) {
+                resultText += `\n  🎵 [Bài hát/Video YouTube từ Link]: Tên bài: "${info.title}" | Ca sĩ/Tác giả: "${info.author}" | Link: ${url}`;
+            }
+        }
+    }
+
+    return resultText;
+}
 
 // 🧠 Bộ nhớ lưu trữ lịch sử cuộc trò chuyện theo Channel (để bot nhớ ngữ cảnh liên tục)
 const channelHistories = new Map();
@@ -165,12 +225,19 @@ async function getServerContext(guild) {
                     channelData += `📌 Bài đăng/Thread #${idx + 1}: "${t.name}" | Link: https://discord.com/channels/${guild.id}/${t.id}\n`;
                     
                     try {
-                        const threadMsgs = await t.messages.fetch({ limit: 5 }).catch(() => null);
+                        const threadMsgs = await t.messages.fetch({ limit: 10 }).catch(() => null);
                         if (threadMsgs && threadMsgs.size > 0) {
                             for (const [, msg] of threadMsgs) {
                                 if (msg.content && msg.content.trim()) {
                                     channelData += `   [Nội dung]: "${msg.content.trim().substring(0, 800)}"\n`;
                                 }
+
+                                // Trích xuất thông tin Bài hát & Ca sĩ từ Link YouTube / Embeds
+                                const ytInfo = await processYouTubeAndEmbeds(msg.content, msg.embeds);
+                                if (ytInfo) {
+                                    channelData += `   ${ytInfo.trim()}\n`;
+                                }
+
                                 if (msg.attachments && msg.attachments.size > 0) {
                                     for (const [, attachment] of msg.attachments) {
                                         const ext = attachment.name.substring(attachment.name.lastIndexOf('.')).toLowerCase();
@@ -192,14 +259,20 @@ async function getServerContext(guild) {
             }
         } catch (e) {}
 
-        // B. Quét tin nhắn trực tiếp trong kênh (rút gọn để tiết kiệm token)
+        // B. Quét tin nhắn trực tiếp trong kênh (Lấy tối đa 35 tin nhắn gần nhất)
         try {
             if (channel.isTextBased && channel.isTextBased()) {
-                const recentMsgs = await channel.messages.fetch({ limit: 15 }).catch(() => null);
+                const recentMsgs = await channel.messages.fetch({ limit: 35 }).catch(() => null);
                 if (recentMsgs && recentMsgs.size > 0) {
                     for (const [, msg] of recentMsgs) {
                         if (msg.author && msg.author.bot) continue;
                         let msgText = msg.content ? msg.content.trim() : '';
+
+                        // Trích xuất thông tin Bài hát & Ca sĩ từ Link YouTube / Embeds trong kênh
+                        const ytInfo = await processYouTubeAndEmbeds(msg.content, msg.embeds);
+                        if (ytInfo) {
+                            msgText += `\n${ytInfo}`;
+                        }
 
                         if (msg.attachments && msg.attachments.size > 0) {
                             for (const [, attachment] of msg.attachments) {

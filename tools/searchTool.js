@@ -1,4 +1,4 @@
-﻿const { fetchAndExtractText } = require('./documentTool');
+const { fetchAndExtractText } = require('./documentTool');
 
 // 🛠️ Hàm lấy nội dung chi tiết bài đăng (Starter Message + Các tin nhắn + File đính kèm như .pdf, .doc, .docx)
 async function getThreadContent(thread) {
@@ -57,10 +57,11 @@ async function searchThreadsByKeyword(guild, query) {
     }
 
     const keywords = ['chia-sẻ', 'chia-se', 'tài-nguyên', 'tai-nguyen', 'tai_nguyen', 'tài nguyên', 'tai nguyen', 'doc', 'resource'];
-    const matchedChannels = channels.filter(c => c && c.name && keywords.some(k => c.name.toLowerCase().includes(k)));
+    let matchedChannels = channels.filter(c => c && c.name && keywords.some(k => c.name.toLowerCase().includes(k)));
 
+    // Nếu không khớp kênh chia-sẻ/tài-nguyên thì lấy tất cả các kênh văn bản trong server
     if (!matchedChannels || matchedChannels.size === 0) {
-        throw new Error('Không tìm thấy kênh `chia-sẻ` hoặc `tài-nguyên` trong server!');
+        matchedChannels = channels.filter(c => c && c.type !== 4 && c.type !== 2 && c.type !== 13);
     }
 
     let allThreads = [];
