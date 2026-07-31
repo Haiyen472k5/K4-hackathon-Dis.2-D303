@@ -1541,3 +1541,40 @@
   • Prompt/Input: "Bạn là chuyên gia thiết kế Flashcard học tập xuất sắc. Hãy tạo một bộ 5 thẻ Flashcard chất lượng cao từ nội dung bên dưới.  TIÊU ĐỀ TÀI LIỆU: "01-de-b..."
   • Messages count: 2
   • Metadata: {"channelId":null}
+[10:18:41 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAI) (3501ms)
+  • Tokens usage: {"prompt_tokens":2158,"completion_tokens":629,"total_tokens":2787,"cost":0.0022199,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0022199,"upstream_inference_prompt_cost":0.0006474,"upstream_inference_completions_cost":0.0015725},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "Ngươi muốn Ta tạo Flashcard, vậy thì hãy xem đây, bộ Flashcard do Ta đích thân chắt lọc từ tài liệu của Ngươi, đảm bảo chất lượng, chính xác đến từng ..."
+==================================================
+==================================================
+[10:18:41 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAIServer)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "quét kênh chia-sẻ tìm bài đăng về AI Agent"
+  • Messages count: 2
+  • Metadata: {"channelId":null,"serverContextLength":24}
+[10:18:42 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAIServer) (854ms)
+  • Tokens usage: {"prompt_tokens":1071,"completion_tokens":30,"total_tokens":1101,"cost":0.0003963,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0003963,"upstream_inference_prompt_cost":0.0003213,"upstream_inference_completions_cost":0.000075},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "⚠️ Bổn bot vô địch đã quét sạch server nhưng không có bài đăng hay cuộc trò chuyện nào liên quan đến yêu cầu này đâu nhé!"
+==================================================
+==================================================
+[10:18:42 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAI)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "Hãy tạo 1 câu hỏi đố vui ngắn gọn, thú vị và độc đáo thuộc chủ đề "công nghệ". Xuất ra định dạng markdown chuẩn như sau: ❓ **CÂU HỎI ĐỐ VUI (CÔNG NGHỆ..."
+  • Messages count: 2
+  • Metadata: {"channelId":null}
+[10:18:44 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAI) (2491ms)
+  • Tokens usage: {"prompt_tokens":832,"completion_tokens":126,"total_tokens":958,"cost":0.0005646,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0005646,"upstream_inference_prompt_cost":0.0002496,"upstream_inference_completions_cost":0.000315},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "❓ **CÂU HỎI ĐỐ VUI (CÔNG NGHỆ):** Ngươi có biết, bộ phận nào trong một chiếc máy tính được ví như "bộ não", chịu trách nhiệm xử lý mọi thông tin và ch..."
+==================================================
+==================================================
+[10:18:44 31/7/2026] 🌐 [API REQUEST] -> OpenRouter API (askAI)
+  • Model: google/gemini-2.5-flash
+  • Endpoint: https://openrouter.ai/api/v1/chat/completions
+  • Prompt/Input: "Hãy bói vận thế hôm nay cho người dùng tên "Học Viên". Xuất ra bài phán vui tươi, hài hước bằng phong cách "Bổn bot vô địch" tự mãn xưng Ta - gọi Ngươ..."
+  • Messages count: 2
+  • Metadata: {"channelId":null}
+[10:18:47 31/7/2026] ✅ [API SUCCESS] <- OpenRouter API (askAI) (2492ms)
+  • Tokens usage: {"prompt_tokens":841,"completion_tokens":207,"total_tokens":1048,"cost":0.0007698,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.0007698,"upstream_inference_prompt_cost":0.0002523,"upstream_inference_completions_cost":0.0005175},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}
+  • Output preview: "🔮 **VẬN THẾ HÔM NAY CỦA HỌC VIÊN:**  - 🌟 **Chỉ số may mắn:** 88% - 💼 **Học tập / Công việc:** Hôm nay, Ngươi sẽ hoàn thành mọi nhiệm vụ một cách xu..."
+==================================================
