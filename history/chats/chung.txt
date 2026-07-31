@@ -186,3 +186,5 @@
 [11:21:48 31/7/2026] trickez: để tổng hợp các chức năng mà bot chắc chắn sẽ có
 [11:25:14 31/7/2026] G06 - T089 - Nguyễn Thị Hải Yến: <@888061478123487243> hôm qua vấn đề của con bot thế nào nhể
 [11:31:53 31/7/2026] trickez: <@764147694297940019> <@888061478123487243> <@734046082945777734> rep vs ae ơi :>>
+[11:40:25 31/7/2026] .leekwan: con bot của tôi nhớ được context, tìm kiếm được bài viết xong tóm tắt, tìm kiếm và trả về file được, nếu được hỏi về thông tin ko liên quan nó sẽ từ chối trả lời.
+[11:41:31 31/7/2026] yen4732: <@1532330472234029096> hãy tìm cho tôi bài viết về sản phẩm AI

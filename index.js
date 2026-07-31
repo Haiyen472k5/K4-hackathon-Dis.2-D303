@@ -12,7 +12,7 @@ const { summarizeText, summarizeDocument } = require('./tools/summarizeTool');
 const { searchChatLogs } = require('./tools/chatHistoryTool');
 const { logApiCall, logApiResponse, logApiError, LOG_FILE_PATH } = require('./tools/apiLogger');
 const { startNumberGame, guessNumber, playRPS, getAITriviaQuestion, getDailyFortune, getMinigameMenu } = require('./tools/minigameTool');
-const { generateFlashcardsFromText, generateFlashcardsFromServer, generateFlashcardsFromFile } = require('./tools/flashcardTool');
+const { generateFlashcardsFromText, generateFlashcardsFromServer, generateFlashcardsFromFile, sendInteractiveFlashcards } = require('./tools/flashcardTool');
 const { saveChannelChatMessage, syncAllServerHistoryToDisk } = require('./tools/historyManager');
 
 // Bắt các lỗi toàn cục để tự động ghi log vào api_logs.txt giúp dễ dàng debug
@@ -470,7 +470,8 @@ client.on('interactionCreate', async (interaction) => {
                 cards = await generateFlashcardsFromServer('tổng hợp các bài đăng trong server', interaction.guild, interaction.channelId);
             }
 
-            await sendLongMessage(interaction, cards);
+            const topicName = attachment?.name || fileName || topic || 'Tài liệu Server';
+            await sendInteractiveFlashcards(interaction, cards, topicName);
         } catch (err) {
             console.error('❌ Lỗi tạo Flashcard:', err);
             await interaction.editReply(`❌ Lỗi tạo Flashcards: ${err.message}`);
@@ -676,7 +677,8 @@ client.on('messageCreate', async (message) => {
                 cards = await generateFlashcardsFromServer('các bài đăng mới nhất trong server', message.guild, message.channelId);
             }
 
-            await sendLongMessage(thinkingMsg, cards);
+            const topicName = attachment?.name || queryText || 'Tài liệu Server';
+            await sendInteractiveFlashcards(thinkingMsg, cards, topicName);
         } catch (err) {
             console.error('❌ Lỗi tạo Flashcard:', err);
             await message.reply(`❌ Lỗi tạo Flashcards: ${err.message}`);

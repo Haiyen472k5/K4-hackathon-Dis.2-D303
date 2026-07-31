@@ -234,3 +234,11 @@ Mining data và đề xuất sản phẩm AI khác cho khoá — qua đủ 5 ti�
 [11:32:00 31/7/2026] [S: TestBOT] [#kênh-test-của-thi] tdinh_hw247: <@&1532329834305294438> tìm cho t tất cả bài viết về sản phẩm AI
 [11:37:27 31/7/2026] [S: TestBOT] [#Đề bài — Track duy nhất: "AI cho khoá AI Thực Chiến"] trickez: !ask tóm tắt bài viết này
 [11:37:39 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: !ask tìm bài viết liên quan đến đề bài
+[11:38:00 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: tóm tắt bài viết này
+[11:38:24 31/7/2026] [S: TestBOT] [#kenh-test-cua-vu] trickez: ngắn hơn nữa
+[11:39:00 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: tôi đang tất server
+[11:39:16 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: đợi tí bật lên cho
+[11:40:25 31/7/2026] [S: TestBOT] [#chung] .leekwan: con bot của tôi nhớ được context, tìm kiếm được bài viết xong tóm tắt, tìm kiếm và trả về file được, nếu được hỏi về thông tin ko liên quan nó sẽ từ chối trả lời.
+[11:41:11 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: tôi bật rồi đấy
+[11:41:17 31/7/2026] [S: TestBOT] [#kênh-test-của-quân] .leekwan: test thoải mái
+[11:41:31 31/7/2026] [S: TestBOT] [#chung] yen4732: <@1532330472234029096> hãy tìm cho tôi bài viết về sản phẩm AI
