@@ -1,0 +1,69 @@
+[10:17:02 31/7/2026] trickez: tìm cho tôi bài giảng đạo hàm
+[10:17:37 31/7/2026] trickez: !ask cho tôi thông tin liên quan đến maxwell
+[10:18:09 31/7/2026] trickez: !ask tìm bài viết về con chó và con mèo
+[10:18:40 31/7/2026] trickez: chi tiết bài viết nà
+[10:19:12 31/7/2026] trickez: !ask chi tiết về bài viết về mèo và hổ
+[10:19:30 31/7/2026] trickez: cho tôi link bài viết đấy
+[10:19:43 31/7/2026] trickez: link bài mèo và hổ
+[10:20:24 31/7/2026] trickez: !ask tóm tắt bài viết về mèo và hổ
+[10:20:46 31/7/2026] trickez: !ask tóm tắt bài viết về mèo và hổ trong 15 twf
+[10:21:10 31/7/2026] trickez: !ask tóm tắt bài viết về mèo và hổ trong 15 từ
+[10:22:04 31/7/2026] trickez: <@1532291378397315202> kết quả của mèo và hổ
+[10:30:14 31/7/2026] trickez: <@1532291378397315202> <@1532291378397315202> Mấy giờ hết hạn nộp spec.md tối nay?
+[10:32:51 31/7/2026] trickez: !ask thông tin học máy
+[10:33:27 31/7/2026] trickez: !ask thông tin machine learning trong community
+[10:34:13 31/7/2026] trickez: !ask mèo và hổ
+[10:35:16 31/7/2026] trickez: !ask bài viết về machine learning trong kênh chia sẻ
+[10:36:03 31/7/2026] trickez: !ask bài viết về học máy trong kênh chia-sẻ
+[10:36:27 31/7/2026] trickez: !ask bài viết về mặt trăng trong kênh <#1532308961997361242>
+[10:36:56 31/7/2026] trickez: !ask cho tôi link đến bài viết về mặt trăng trong kênh <#1532308961997361242>
+[10:37:20 31/7/2026] trickez: !ask bài viết mới nhất trong kênh <#1532308961997361242> là gì
+[10:38:01 31/7/2026] trickez: !ask bài viết mới nhất trong forum <#1532308961997361242>  là gì
+[10:38:22 31/7/2026] trickez: !ask bài viết cũ nhất trong forum ⁠chia-sẻ  là gì
+[10:48:09 31/7/2026] trickez: người tạo ra <@&1532329834305294438> là ai?
+[10:48:23 31/7/2026] trickez: người tạo ra <@1532291378397315202> là ai?
+[10:48:49 31/7/2026] trickez: người tạo ra bot Dis^2
+[10:54:00 31/7/2026] trickez: <@1532291378397315202> bài viết mới nhất trong kênh chia sẻ là gì
+[10:55:36 31/7/2026] trickez: bài viết mới nhất trong kênh trao đổi là gì
+[10:56:03 31/7/2026] trickez: !ask tài liệu mới nhất trong kênh tài nguyên
+[10:57:06 31/7/2026] trickez: !ask nội dung về mèo và hổ
+[10:57:34 31/7/2026] trickez: !ask link đến bài viết mèo và hổ
+[10:58:05 31/7/2026] trickez: !ask link đến bài viết ma sát dọc
+[11:00:55 31/7/2026] trickez: <@1532291378397315202> chat mới nhất trong tài nguyên là gì
+[11:04:16 31/7/2026] trickez: !ask bài viết mới nhất trong forum chia-sẻ
+[11:04:32 31/7/2026] trickez: tóm tắt ngắn gọn nội dung bài viết đó giúp mình
+[11:06:28 31/7/2026] trickez: !ask bài viết mới nhất trong forum chia-sẻ
+[11:06:36 31/7/2026] trickez: tóm tắt ngắn gọn nội dung bài viết đó giúp mình
+[11:07:26 31/7/2026] trickez: ngắn hơn nữa
+[11:07:43 31/7/2026] trickez: !ask tôi nên chọn track nào
+[11:08:28 31/7/2026] trickez: !ask bạn là model gì
+[11:08:43 31/7/2026] trickez: <@1532291378397315202> tên cụ thể
+[11:10:41 31/7/2026] trickez: !ask Mật khẩu Wi-Fi của phòng A305 là gì?
+[10:36:03 31/7/2026] trickez: !ask bài viết về học máy trong kênh chia-sẻ
+[10:36:27 31/7/2026] trickez: !ask bài viết về mặt trăng trong kênh <#1532308961997361242>
+[10:36:56 31/7/2026] trickez: !ask cho tôi link đến bài viết về mặt trăng trong kênh <#1532308961997361242>
+[10:37:20 31/7/2026] trickez: !ask bài viết mới nhất trong kênh <#1532308961997361242> là gì
+[10:38:01 31/7/2026] trickez: !ask bài viết mới nhất trong forum <#1532308961997361242>  là gì
+[10:38:22 31/7/2026] trickez: !ask bài viết cũ nhất trong forum ⁠chia-sẻ  là gì
+[10:48:09 31/7/2026] trickez: người tạo ra <@&1532329834305294438> là ai?
+[10:48:23 31/7/2026] trickez: người tạo ra <@1532291378397315202> là ai?
+[10:48:49 31/7/2026] trickez: người tạo ra bot Dis^2
+[10:54:01 31/7/2026] trickez: <@1532291378397315202> bài viết mới nhất trong kênh chia sẻ là gì
+[10:55:36 31/7/2026] trickez: bài viết mới nhất trong kênh trao đổi là gì
+[10:56:04 31/7/2026] trickez: !ask tài liệu mới nhất trong kênh tài nguyên
+[10:57:07 31/7/2026] trickez: !ask nội dung về mèo và hổ
+[10:57:35 31/7/2026] trickez: !ask link đến bài viết mèo và hổ
+[10:58:06 31/7/2026] trickez: !ask link đến bài viết ma sát dọc
+[11:00:56 31/7/2026] trickez: <@1532291378397315202> chat mới nhất trong tài nguyên là gì
+[11:04:17 31/7/2026] trickez: !ask bài viết mới nhất trong forum chia-sẻ
+[11:04:33 31/7/2026] trickez: tóm tắt ngắn gọn nội dung bài viết đó giúp mình
+[11:06:29 31/7/2026] trickez: !ask bài viết mới nhất trong forum chia-sẻ
+[11:06:37 31/7/2026] trickez: tóm tắt ngắn gọn nội dung bài viết đó giúp mình
+[11:07:26 31/7/2026] trickez: ngắn hơn nữa
+[11:07:43 31/7/2026] trickez: !ask tôi nên chọn track nào
+[11:08:29 31/7/2026] trickez: !ask bạn là model gì
+[11:08:44 31/7/2026] trickez: <@1532291378397315202> tên cụ thể
+[11:10:42 31/7/2026] trickez: !ask Mật khẩu Wi-Fi của phòng A305 là gì?
+[11:16:29 31/7/2026] trickez: !ask tìm bài đăng về con mèo
+[11:16:52 31/7/2026] trickez: !ask tìm bài đăng về ma sát dọc
+[11:17:14 31/7/2026] trickez: !ask trong forum trao đổi có bài viết nào

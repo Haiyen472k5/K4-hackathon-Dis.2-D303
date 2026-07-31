@@ -4,11 +4,12 @@ const path = require('path');
 const HISTORY_BASE_DIR = path.resolve(__dirname, '../history');
 const CHATS_DIR = path.join(HISTORY_BASE_DIR, 'chats');
 const DOCS_DIR = path.join(HISTORY_BASE_DIR, 'documents');
+const RAW_FILES_DIR = path.join(DOCS_DIR, 'files'); // 📁 Thư mục lưu trực tiếp file gốc (.pdf, .docx, .doc, ...)
 const LINKS_DIR = path.join(HISTORY_BASE_DIR, 'web_links');
 
 // 🛠️ Tự động khởi tạo các thư mục lưu trữ history nếu chưa tồn tại
 function initHistoryDirs() {
-    [HISTORY_BASE_DIR, CHATS_DIR, DOCS_DIR, LINKS_DIR].forEach(dir => {
+    [HISTORY_BASE_DIR, CHATS_DIR, DOCS_DIR, RAW_FILES_DIR, LINKS_DIR].forEach(dir => {
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });
         }
@@ -24,7 +25,23 @@ function sanitizeFileName(name) {
 }
 
 /**
- * 1. Lưu tin nhắn chat theo từng Kênh Discord
+ * 1. Lưu file gốc nhị phân (.pdf, .docx, .doc, .txt...) vào history/documents/files/
+ */
+function saveRawDocumentFile(fileName, buffer) {
+    try {
+        initHistoryDirs();
+        if (!buffer || buffer.length === 0) return;
+        const filePath = path.join(RAW_FILES_DIR, fileName);
+        fs.writeFileSync(filePath, buffer);
+        console.log(`💾 Đã lưu file gốc: ${filePath}`);
+        return filePath;
+    } catch (err) {
+        console.error('❌ Lỗi lưu file gốc:', err.message);
+    }
+}
+
+/**
+ * 2. Lưu tin nhắn chat theo từng Kênh Discord
  */
 function saveChannelChatMessage(channelName, authorName, content, timestamp = new Date()) {
     try {
@@ -42,20 +59,22 @@ function saveChannelChatMessage(channelName, authorName, content, timestamp = ne
 }
 
 /**
- * 2. Lưu tài liệu (Word, PDF, Text) + Tóm tắt ý chính
+ * 3. Lưu tài liệu (Word, PDF, Text) + Tóm tắt ý chính
  */
 function saveDocumentHistory(docName, fileUrl, rawContent, summaryText = '') {
     try {
         initHistoryDirs();
         const safeDocName = sanitizeFileName(docName || 'document');
         const filePath = path.join(DOCS_DIR, `${safeDocName}.md`);
+        const rawFilePath = path.join(RAW_FILES_DIR, docName);
 
         const timeStr = new Date().toLocaleString('vi-VN');
         const mdContent = `# TÀI LIỆU: ${docName}\n\n` +
             `- **Thời gian lưu:** ${timeStr}\n` +
-            `- **URL đính kèm:** ${fileUrl || 'N/A'}\n\n` +
-            `## TÓM TẮT Ý CHÍNH\n${summaryText || 'Chưa có tóm tắt'}\n\n` +
-            `## NỘI DUNG CHI TIẾT TRÍCH XUẤT\n\`\`\`text\n${rawContent || ''}\n\`\`\`\n`;
+            `- **File gốc lưu tại:** \`history/documents/files/${docName}\`\n` +
+            `- **URL đính kèm gốc:** ${fileUrl || 'N/A'}\n\n` +
+            `## TÓM TẮT Ý CHÍNH (AI SUMMARY)\n${summaryText || 'Chưa có tóm tắt'}\n\n` +
+            `## TOÀN BỘ NỘI DUNG CHI TIẾT TRÍCH XUẤT\n\`\`\`text\n${rawContent || ''}\n\`\`\`\n`;
 
         fs.writeFileSync(filePath, mdContent, 'utf8');
         console.log(`💾 Đã lưu history tài liệu: ${filePath}`);
@@ -231,6 +250,7 @@ async function syncAllServerHistoryToDisk(client) {
 }
 
 module.exports = {
+    saveRawDocumentFile,
     saveChannelChatMessage,
     saveDocumentHistory,
     saveWebLinkHistory,
@@ -238,5 +258,6 @@ module.exports = {
     syncAllServerHistoryToDisk,
     CHATS_DIR,
     DOCS_DIR,
+    RAW_FILES_DIR,
     LINKS_DIR
 };
